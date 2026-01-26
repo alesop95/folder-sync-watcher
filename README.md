@@ -276,10 +276,299 @@ folder-sync-watcher/
 ├── setup_task_scheduler.ps1  # Configurazione avvio automatico
 ├── config.json               # Configurazione
 ├── requirements.txt          # Dipendenze Python
+├── requirements-dev.txt      # Dipendenze dev (test)
 ├── README.md                # Documentazione
+│
+├── folder_sync_watcher/      # Package core (logica di sincronizzazione e utility)
+│   ├── __init__.py
+│   ├── watcher.py
+│   ├── config.py
+│   ├── hashing.py
+│   ├── paths.py
+│   ├── ssd.py
+│   └── subst.py
+│
+├── tests/                    # Test minimi pytest (funzioni pure/invarianti)
+│   ├── test_config.py
+│   ├── test_hashing.py
+│   └── test_paths.py
 │
 └── logs/                   # Directory dei log (creata automaticamente)
     └── sync_watcher.log
+```
+
+## Architettura del codice e razionale tecnico
+
+Il progetto è organizzato per separare la logica core dall’avvio operativo. Il package `folder_sync_watcher/` contiene la logica riusabile di sincronizzazione e le utility, mentre gli entry point rimangono file top-level per garantire compatibilità con l’uso quotidiano e con i meccanismi di deploy su Windows (avvio manuale, Task Scheduler, servizio).
+
+L’approccio è orientato alla robustezza operativa su Windows. Sono gestiti esplicitamente casi frequenti come file temporaneamente bloccati (in particolare Office), percorsi molto lunghi, caratteri non graditi in alcuni contesti e disconnessione di dischi esterni. La scelta di mantenere una configurazione esterna `config.json` evita hardcoding di path e riduce la complessità di rollout su macchine diverse.
+
+## Feature principali e ratio
+
+La sincronizzazione bidirezionale in tempo reale è la feature centrale: consente di lavorare sia sul lato OneDrive sia sul lato Google Drive mantenendo coerenza. Quando necessario può essere resa unidirezionale tramite `bidirectional` per ridurre il rischio di propagare cancellazioni o modifiche indesiderate.
+
+Esempio nel core (`folder_sync_watcher/watcher.py`) di sincronizzazione iniziale che rispetta `bidirectional`:
+
+```python
+bidirectional = self.config.get('sync_settings', {}).get('bidirectional', True)
+self._sync_folders(self.onedrive_folder, self.google_drive_folder)
+if bidirectional:
+    self._sync_folders(self.google_drive_folder, self.onedrive_folder)
+```
+
+La gestione dei conflitti è configurabile. La strategia `newest` privilegia il file più recente, la strategia `largest` è un fallback pragmatico quando i timestamp non sono affidabili, la strategia `hash` confronta il contenuto e riduce falsi positivi, a costo di maggiore lavoro I/O.
+
+Esempio (`folder_sync_watcher/watcher.py`) della funzione decisionale `_should_copy_file` in base a `conflict_resolution`:
+
+```python
+conflict_resolution = self.config['sync_settings']['conflict_resolution']
+if conflict_resolution == 'newest':
+    return source.stat().st_mtime > dest.stat().st_mtime
+if conflict_resolution == 'largest':
+    return source.stat().st_size > dest.stat().st_size
+if conflict_resolution == 'hash':
+    return FileHasher.get_file_hash(str(source)) != FileHasher.get_file_hash(str(dest))
+return False
+```
+
+Il rilevamento dell’SSD tramite `ssd_volume_label` esiste per compensare il fatto che Windows può cambiare lettera di unità. L’etichetta è un riferimento più stabile e riduce interventi manuali.
+
+Esempio (`folder_sync_watcher/ssd.py`) del rilevamento per volume label:
+
+```python
+def find_ssd_drive_letter(volume_label: str) -> Optional[str]:
+    if win32api is None:
+        return None
+    drives = win32api.GetLogicalDriveStrings().split('\000')[:-1]
+    for drive in drives:
+        try:
+            current_label = win32api.GetVolumeInformation(drive)[0].strip()
+            if current_label.lower() == volume_label.lower().strip():
+                return drive.rstrip('\\')
+        except Exception:
+            continue
+    return None
+```
+
+L’uso di SUBST riduce lunghezza e complessità dei path, con impatto diretto su errori di percorso troppo lungo e su leggibilità dei log. È gestito tramite `subst_manager.py` e tramite `use_subst`/`subst_drive_letter` in configurazione.
+
+Esempio (`folder_sync_watcher/watcher.py`) di utilizzo di SUBST se già presente, altrimenti setup:
+
+```python
+if sync_settings.get('use_subst', False):
+    subst_letter = sync_settings.get('subst_drive_letter', 'A').upper()
+    existing_drives = SubstManager.list_subst_drives()
+    if subst_letter in existing_drives:
+        self.google_drive_folder = f"{subst_letter}:\\"
+        return True
+    elif self._setup_subst_drive(subst_letter):
+        self.google_drive_folder = f"{subst_letter}:\\"
+        return True
+```
+
+Il logging con rotazione automatica abilita troubleshooting e audit in modo sostenibile nel tempo, evitando crescita indefinita del file di log.
+
+Esempio (`folder_sync_watcher/watcher.py`) di logging con `TimedRotatingFileHandler`:
+
+```python
+file_handler = TimedRotatingFileHandler(
+    log_dir / log_config['log_file'],
+    when='D',
+    interval=1,
+    backupCount=log_config.get('retention_days', 30),
+    encoding='utf-8',
+)
+self.logger = logging.getLogger('FolderSyncWatcher')
+if not self.logger.handlers:
+    self.logger.addHandler(file_handler)
+```
+
+Il bootstrap con `start_watcher.bat` è idempotente: crea il `venv` solo se assente e installa dipendenze solo se `requirements.txt` è cambiato. Questo riduce tempi di avvio e variabilità, mantenendo comunque un setup ripetibile.
+
+Esempio (`start_watcher.bat`) di installazione dipendenze solo se necessario (hash SHA256 di `requirements.txt`):
+
+```bat
+set "REQ_FILE=requirements.txt"
+set "REQ_HASH_FILE=venv\.requirements.sha256"
+for /f "tokens=1" %%H in ('certutil -hashfile "%REQ_FILE%" SHA256 ^| findstr /r /c:"^[0-9A-F][0-9A-F]"') do (
+    set "REQ_HASH=%%H"
+    goto :gotReqHash
+)
+:gotReqHash
+
+if not exist "%REQ_HASH_FILE%" set "NEED_INSTALL=1"
+if exist "%REQ_HASH_FILE%" (
+    set /p "OLD_HASH="<"%REQ_HASH_FILE%"
+    if /I not "%OLD_HASH%"=="%REQ_HASH%" set "NEED_INSTALL=1"
+)
+
+if "%NEED_INSTALL%"=="1" (
+    python -m pip install -r "%REQ_FILE%"
+    echo %REQ_HASH%>"%REQ_HASH_FILE%"
+)
+```
+
+L’esclusione di file e cartelle tramite `excluded_patterns` evita loop su file temporanei e riduce rumore operativo.
+
+Esempio (`folder_sync_watcher/config.py`) di esclusione tramite glob e fallback su substring:
+
+```python
+patterns = self.config.get('sync_settings', {}).get('excluded_patterns', [])
+for pattern in patterns:
+    if fnmatch.fnmatch(name, pattern) or fnmatch.fnmatch(path_str, pattern):
+        return True
+    if pattern and pattern in path_str:
+        return True
+return False
+```
+
+La gestione dei file Office riduce errori tipici di sincronizzazione durante il salvataggio, introducendo un ritardo configurabile e un check best-effort di lock/uso processo.
+
+Esempio (`folder_sync_watcher/watcher.py`) di `office_file_delay` e requeue in caso di file ancora in uso:
+
+```python
+if is_office_file:
+    office_delay = self.config['sync_settings'].get('office_file_delay', 5)
+    time.sleep(office_delay)
+
+    if FilePathManager.is_office_process_using_file(str(src)):
+        self.sync_queue.put(('modify', str(src), source_folder, dest_folder))
+        return
+```
+
+La copia robusta applica tentativi multipli e fallback progressivi (incluso path corto 8.3) per aumentare la probabilità di completamento.
+
+Esempio (`folder_sync_watcher/watcher.py`) di retry e fallback su short path:
+
+```python
+max_attempts = 5 if is_office_file else 3
+for attempt in range(max_attempts):
+    try:
+        if attempt == 0:
+            copy2(str(src), str(dest))
+            return
+        if attempt == 1 and len(str(src)) > 200:
+            src_short = FilePathManager.get_short_path(str(src))
+            dest_short = FilePathManager.get_short_path(str(dest.parent)) + "\\" + dest.name
+            copy2(src_short, dest_short)
+            return
+    except PermissionError:
+        time.sleep(3 * (attempt + 1))
+```
+
+L’avvio in console supporta `--config` per puntare a una configurazione diversa senza modificare codice.
+
+Esempio (`sync_watcher.py`) di parsing `--config`:
+
+```python
+parser = argparse.ArgumentParser(add_help=True)
+parser.add_argument('--config', default='config.json')
+args = parser.parse_args(argv)
+watcher = FolderSyncWatcher(config_path=args.config)
+```
+
+La modalità servizio Windows usa `pywin32` e implementa il contratto di `ServiceFramework`, delegando ciclo di vita a `FolderSyncWatcher`.
+
+Esempio (`install_service.py`) di stop e start del watcher in un servizio:
+
+```python
+class FolderSyncService(win32serviceutil.ServiceFramework):
+    def SvcStop(self):
+        self.ReportServiceStatus(win32service.SERVICE_STOP_PENDING)
+        win32event.SetEvent(self.hWaitStop)
+        if self.watcher:
+            self.watcher.stop()
+
+    def main(self):
+        from folder_sync_watcher import FolderSyncWatcher
+        self.watcher = FolderSyncWatcher()
+        self.watcher.start()
+```
+
+## Spiegazione didattica OOP (Python) applicata a questo progetto
+
+Il progetto usa un approccio a oggetti per modellare uno scenario operativo: esiste un oggetto che rappresenta il “servizio” di sincronizzazione, con stato, configurazione, thread e observer. Questo è il ruolo della classe `FolderSyncWatcher`, che incapsula il ciclo di vita del watcher e riduce l’uso di variabili globali.
+
+La separazione delle responsabilità è ottenuta decomponendo il problema in classi e moduli. `SyncHandler` si occupa di tradurre eventi filesystem in comandi da eseguire; `SyncConfig` gestisce caricamento e interpretazione della configurazione; utility come `FileHasher`, `FilePathManager` e `SubstManager` isolano operazioni atomiche e riusabili. In termini OOP questo significa privilegiare composizione e responsabilità chiare, riducendo accoppiamenti e semplificando manutenzione.
+
+## Descrizione file-per-file (Python)
+
+### sync_watcher.py
+
+È l’entry point principale in modalità console. Implementa una CLI minimale con `--config` e avvia `FolderSyncWatcher`. Importa le classi principali dal package per mantenere compatibilità e rendere l’avvio operativo semplice.
+
+### folder_sync_watcher/watcher.py
+
+Contiene la logica runtime. `SyncHandler` eredita da `watchdog.events.FileSystemEventHandler` e converte gli eventi in messaggi su una coda. `FolderSyncWatcher` gestisce configurazione, logging, sincronizzazione iniziale, avvio observer e processing asincrono della coda, includendo gestione disconnessione SSD e stop controllato.
+
+Esempio (`folder_sync_watcher/watcher.py`) di arresto controllato con sentinella `_stop` in coda:
+
+```python
+self.running = False
+try:
+    self.sync_queue.put(('_stop',), timeout=1)
+except Exception:
+    pass
+```
+
+### folder_sync_watcher/config.py
+
+Contiene `SyncConfig` che carica `config.json` e applica le regole di esclusione. L’esclusione viene applicata sia sul nome file sia sul percorso, con supporto a pattern in stile glob.
+
+### folder_sync_watcher/hashing.py
+
+Contiene `FileHasher` che calcola l’hash MD5, usato per la strategia di conflitto `hash`.
+
+### folder_sync_watcher/paths.py
+
+Contiene `FilePathManager`, che gestisce problemi tipici Windows: sanitizzazione nome file, path corto 8.3, verifica lock e rilevamento (best-effort) di processi Office che stanno usando un file.
+
+### folder_sync_watcher/ssd.py
+
+Espone `find_ssd_drive_letter` basata su volume label. Se `pywin32` non è disponibile, la funzione ritorna `None` e il sistema può proseguire con altre strategie.
+
+### folder_sync_watcher/subst.py
+
+Contiene `SubstManager`, wrapper del comando Windows `subst`, con funzioni create/remove/list e normalizzazione della lettera.
+
+### install_service.py
+
+Gestisce installazione e lifecycle come servizio Windows tramite `pywin32`. Definisce una classe servizio e fornisce comandi CLI per install/start/stop/uninstall e una modalità debug.
+
+### subst_manager.py
+
+Utility operativa per gestire SUBST e fare un test di accesso a file “problematici”. Usa `config.json` come fonte di verità e normalizza la lettera di unità.
+
+## Test minimi (pytest)
+
+La cartella `tests/` contiene test automatici su funzioni pure e invarianti, con dipendenze separate in `requirements-dev.txt`. L’obiettivo è avere una baseline di regressione su hashing, sanitizzazione dei nomi e logica di esclusione.
+
+Esempio di installazione dipendenze dev ed esecuzione test:
+
+```cmd
+pip install -r requirements-dev.txt
+pytest
+```
+
+Esempio (`tests/test_hashing.py`) di test su stabilità dell’hash:
+
+```python
+h1 = FileHasher.get_file_hash(str(p))
+h2 = FileHasher.get_file_hash(str(p))
+assert h1
+assert h1 == h2
+```
+
+## Nota su import e dipendenze opzionali
+
+Alcuni moduli sono progettati per non fallire immediatamente in import quando l’ambiente non è ancora completamente provisionato, così da facilitare tooling e test. Esempio (`folder_sync_watcher/__init__.py`) di export lazy dei simboli runtime:
+
+```python
+def __getattr__(name: str):
+    if name in {"FolderSyncWatcher", "SyncHandler"}:
+        from .watcher import FolderSyncWatcher, SyncHandler
+        return {"FolderSyncWatcher": FolderSyncWatcher, "SyncHandler": SyncHandler}[name]
+    raise AttributeError(name)
 ```
 
 ## Sicurezza
