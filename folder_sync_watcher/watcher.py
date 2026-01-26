@@ -7,8 +7,6 @@ from pathlib import Path
 from queue import Empty, Queue
 from typing import Optional
 
-import psutil
-import win32api
 from colorama import Fore, init
 from logging.handlers import TimedRotatingFileHandler
 from watchdog.events import FileSystemEventHandler
