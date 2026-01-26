@@ -11,6 +11,7 @@ import logging
 import time
 import sys
 import re
+import fnmatch
 import subprocess
 from datetime import datetime
 from pathlib import Path
@@ -48,10 +49,14 @@ class SyncConfig:
         """Verifica se un file/cartella deve essere escluso"""
         try:
             path_obj = Path(path)
-            # Confronta le parti del percorso come stringhe per robustezza
-            path_parts_str = [str(p) for p in path_obj.parts]
-            for pattern in self.config['sync_settings']['excluded_patterns']:
-                if any(pattern in part for part in path_parts_str):
+            path_str = str(path_obj)
+            name = path_obj.name
+            patterns = self.config.get('sync_settings', {}).get('excluded_patterns', [])
+
+            for pattern in patterns:
+                if fnmatch.fnmatch(name, pattern) or fnmatch.fnmatch(path_str, pattern):
+                    return True
+                if pattern and pattern in path_str:
                     return True
             return False
         except Exception:
@@ -165,7 +170,12 @@ class SubstManager:
                 for line in result.stdout.strip().split('\n'):
                     if ': => ' in line:
                         drive, path = line.split(': => ', 1)
-                        drives[drive] = path
+                        normalized_drive = drive.strip()
+                        if normalized_drive.endswith(':'):
+                            normalized_drive = normalized_drive[:-1]
+                        normalized_drive = normalized_drive.replace('\\', '').replace('/', '')
+                        if normalized_drive:
+                            drives[normalized_drive.upper()] = path.strip()
             return drives
         except Exception:
             return {}
@@ -174,7 +184,7 @@ class SubstManager:
     def is_subst_drive(drive_letter: str) -> bool:
         """Verifica se una lettera di unità è un SUBST"""
         drives = SubstManager.list_subst_drives()
-        return drive_letter in drives
+        return drive_letter.upper().rstrip(':').rstrip('\\') in drives
 
 class SyncHandler(FileSystemEventHandler):
     """Handler per gli eventi del filesystem"""
@@ -214,6 +224,7 @@ class FolderSyncWatcher:
         self.sync_queue = Queue()
         self.observers = []
         self.running = False
+        self.sync_thread: Optional[threading.Thread] = None
         self.setup_logging()
         self.update_gdrive_path()
 
@@ -239,8 +250,9 @@ class FolderSyncWatcher:
 
         self.logger = logging.getLogger('FolderSyncWatcher')
         self.logger.setLevel(log_level)
-        self.logger.addHandler(file_handler)
-        self.logger.addHandler(console_handler)
+        if not self.logger.handlers:
+            self.logger.addHandler(file_handler)
+            self.logger.addHandler(console_handler)
 
     def find_ssd_drive_letter(self) -> Optional[str]:
         """Trova la lettera dell'unità SSD in base all'etichetta del volume"""
@@ -268,7 +280,7 @@ class FolderSyncWatcher:
             
             # Verifica se SUBST esiste già
             existing_drives = SubstManager.list_subst_drives()
-            if f"{subst_letter}:\\" in existing_drives:
+            if subst_letter in existing_drives:
                 # SUBST esiste già, usalo direttamente
                 self.google_drive_folder = f"{subst_letter}:\\"
                 self.logger.info(f"DEBUG: Usando SUBST esistente = {self.google_drive_folder}")
@@ -338,9 +350,10 @@ class FolderSyncWatcher:
             self.logger.error("Percorso Google Drive non valido, sync iniziale saltata.")
             return
 
-        # Sincronizzazione bidirezionale: confronta e sincronizza i file più recenti
+        bidirectional = self.config.get('sync_settings', {}).get('bidirectional', True)
         self._sync_folders(self.onedrive_folder, self.google_drive_folder)
-        self._sync_folders(self.google_drive_folder, self.onedrive_folder)
+        if bidirectional:
+            self._sync_folders(self.google_drive_folder, self.onedrive_folder)
         self.logger.info("Sincronizzazione iniziale completata")
         
     def _sync_folders(self, source: str, destination: str):
@@ -388,11 +401,19 @@ class FolderSyncWatcher:
         while self.running:
             try:
                 action, *args = self.sync_queue.get(timeout=1)
-                if action == 'create': self._handle_create(*args)
-                elif action == 'modify': self._handle_modify(*args)
-                elif action == 'delete': self._handle_delete(*args)
-                elif action == 'move': self._handle_move(*args)
-                self.sync_queue.task_done()
+                try:
+                    if action == '_stop':
+                        return
+                    if action == 'create':
+                        self._handle_create(*args)
+                    elif action == 'modify':
+                        self._handle_modify(*args)
+                    elif action == 'delete':
+                        self._handle_delete(*args)
+                    elif action == 'move':
+                        self._handle_move(*args)
+                finally:
+                    self.sync_queue.task_done()
             except Empty:
                 continue
             except Exception as e:
@@ -569,8 +590,8 @@ class FolderSyncWatcher:
         self.running = True
         self.start_observers()
         
-        sync_thread = threading.Thread(target=self.process_sync_queue, daemon=True)
-        sync_thread.start()
+        self.sync_thread = threading.Thread(target=self.process_sync_queue, daemon=True)
+        self.sync_thread.start()
         
         print(f"{Fore.GREEN}Watcher avviato con successo!")
         print(f"{Fore.CYAN}Monitoraggio attivo per:")
@@ -603,17 +624,22 @@ class FolderSyncWatcher:
             self.logger.error("Percorso Google Drive non valido, impossibile avviare gli observer.")
             return
 
+        bidirectional = self.config.get('sync_settings', {}).get('bidirectional', True)
+
         onedrive_handler = SyncHandler(self.onedrive_folder, self.google_drive_folder, self.sync_queue, self.config_loader)
         onedrive_observer = Observer()
         onedrive_observer.schedule(onedrive_handler, self.onedrive_folder, recursive=True)
-        
-        gdrive_handler = SyncHandler(self.google_drive_folder, self.onedrive_folder, self.sync_queue, self.config_loader)
-        gdrive_observer = Observer()
-        gdrive_observer.schedule(gdrive_handler, self.google_drive_folder, recursive=True)
-        
         onedrive_observer.start()
-        gdrive_observer.start()
-        self.observers = [onedrive_observer, gdrive_observer]
+
+        observers = [onedrive_observer]
+        if bidirectional:
+            gdrive_handler = SyncHandler(self.google_drive_folder, self.onedrive_folder, self.sync_queue, self.config_loader)
+            gdrive_observer = Observer()
+            gdrive_observer.schedule(gdrive_handler, self.google_drive_folder, recursive=True)
+            gdrive_observer.start()
+            observers.append(gdrive_observer)
+
+        self.observers = observers
 
     def stop_observers(self):
         """Ferma e rimuove gli observer esistenti"""
@@ -627,8 +653,13 @@ class FolderSyncWatcher:
         print(f"\n{Fore.YELLOW}Arresto del watcher...")
         self.logger.info("Arresto del servizio di sincronizzazione")
         self.running = False
+        try:
+            self.sync_queue.put(('_stop',), timeout=1)
+        except Exception:
+            pass
         self.stop_observers()
-        self.sync_queue.join() # Attende che la coda sia vuota
+        if self.sync_thread and self.sync_thread.is_alive():
+            self.sync_thread.join(timeout=10)
         print(f"{Fore.RED}Watcher arrestato")
         
 def main():
