@@ -3,6 +3,7 @@
 Folder Sync Watcher - Sincronizzazione bidirezionale tra OneDrive e Google Drive
 """
 
+import argparse
 import logging
 
 try:
@@ -22,10 +23,17 @@ from folder_sync_watcher.watcher import FolderSyncWatcher, SyncHandler
 # Inizializza colorama per l'output colorato e resetta automaticamente lo stile
 init(autoreset=True)
 
-def main():
+def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(add_help=True)
+    parser.add_argument('--config', default='config.json')
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None):
     """Funzione principale"""
+    args = _parse_args(argv)
     try:
-        watcher = FolderSyncWatcher()
+        watcher = FolderSyncWatcher(config_path=args.config)
         watcher.start()
     except Exception as e:
         print(f"{Fore.RED}Errore fatale: {e}")
