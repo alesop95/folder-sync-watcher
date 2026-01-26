@@ -7,7 +7,8 @@ import json
 import sys
 import subprocess
 from pathlib import Path
-from folder_sync_watcher import FilePathManager, FolderSyncWatcher, SubstManager, SyncConfig
+from folder_sync_watcher import FilePathManager, SubstManager, SyncConfig
+from folder_sync_watcher.ssd import find_ssd_drive_letter
 
 def main():
     """Funzione principale per gestire SUBST"""
@@ -57,10 +58,10 @@ def setup_subst_from_config():
         
         sync_settings = config['sync_settings']
         drive_letter = sync_settings.get('subst_drive_letter', 'A')
+        drive_letter = str(drive_letter).upper().rstrip(':').rstrip('\\')
         
         # Trova il percorso fisico dell'SSD
-        watcher = FolderSyncWatcher()
-        physical_drive = watcher.find_ssd_drive_letter()
+        physical_drive = find_ssd_drive_letter(sync_settings.get('ssd_volume_label', ''))
         
         if not physical_drive:
             print("SSD non trovato. Verifica che sia connesso e configurato correttamente.")
@@ -103,6 +104,7 @@ def remove_subst_from_config():
         config = config_loader.config
         
         drive_letter = config['sync_settings'].get('subst_drive_letter', 'A')
+        drive_letter = str(drive_letter).upper().rstrip(':').rstrip('\\')
         
         if SubstManager.remove_subst_drive(drive_letter):
             print(f"SUBST {drive_letter}: rimosso con successo!")
@@ -143,9 +145,7 @@ def test_file_access():
         problem_file = "Cybersecurity, Normative IT.docx"
         
         # Testa accesso tramite percorso normale
-        from sync_watcher import FolderSyncWatcher
-        watcher = FolderSyncWatcher()
-        physical_drive = watcher.find_ssd_drive_letter()
+        physical_drive = find_ssd_drive_letter(config.get('sync_settings', {}).get('ssd_volume_label', ''))
         
         if physical_drive:
             relative_path = config['folders']['google_drive_relative_path']
@@ -176,6 +176,7 @@ def test_file_access():
         # Testa accesso tramite SUBST se configurato
         if config['sync_settings'].get('use_subst', False):
             drive_letter = config['sync_settings'].get('subst_drive_letter', 'A')
+            drive_letter = str(drive_letter).upper().rstrip(':').rstrip('\\')
             subst_path = Path(f"{drive_letter}:") / problem_file
             
             print(f"Percorso SUBST: {subst_path}")
