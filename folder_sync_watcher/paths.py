@@ -2,8 +2,6 @@ import re
 import time
 from pathlib import Path
 
-import psutil
-
 
 class FilePathManager:
     """Gestisce i problemi con percorsi lunghi e caratteri speciali"""
@@ -48,6 +46,8 @@ class FilePathManager:
     def is_office_process_using_file(file_path: str) -> bool:
         """Verifica se un processo Office sta usando il file specifico"""
         try:
+            import psutil
+
             file_name = Path(file_path).name.lower()
 
             for proc in psutil.process_iter(['pid', 'name', 'open_files']):

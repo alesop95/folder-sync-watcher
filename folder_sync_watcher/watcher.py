@@ -7,7 +7,17 @@ from pathlib import Path
 from queue import Empty, Queue
 from typing import Optional
 
-from colorama import Fore, init
+try:
+    from colorama import Fore, init
+except Exception:  # pragma: no cover
+    class _Fore:
+        BLACK = RED = GREEN = YELLOW = BLUE = MAGENTA = CYAN = WHITE = RESET = ""
+
+    Fore = _Fore()
+
+    def init(*_args, **_kwargs):
+        return None
+
 from logging.handlers import TimedRotatingFileHandler
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer

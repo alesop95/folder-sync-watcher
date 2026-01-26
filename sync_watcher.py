@@ -5,7 +5,17 @@ Folder Sync Watcher - Sincronizzazione bidirezionale tra OneDrive e Google Drive
 
 import logging
 
-from colorama import init, Fore
+try:
+    from colorama import init, Fore
+except Exception:  # pragma: no cover
+    class _Fore:
+        BLACK = RED = GREEN = YELLOW = BLUE = MAGENTA = CYAN = WHITE = RESET = ""
+
+    Fore = _Fore()
+
+    def init(*_args, **_kwargs):
+        return None
+
 from folder_sync_watcher import FileHasher, FilePathManager, SubstManager, SyncConfig
 from folder_sync_watcher.watcher import FolderSyncWatcher, SyncHandler
 
