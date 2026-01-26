@@ -48,7 +48,7 @@ class FolderSyncService(win32serviceutil.ServiceFramework):
         """Funzione principale del servizio"""
         # Importa il watcher
         sys.path.insert(0, str(Path(__file__).parent))
-        from sync_watcher import FolderSyncWatcher
+        from folder_sync_watcher import FolderSyncWatcher
         
         try:
             # Avvia il watcher
@@ -126,7 +126,7 @@ def main():
     elif command == 'debug':
         # Esegue in modalità debug (non come servizio)
         sys.path.insert(0, str(Path(__file__).parent))
-        from sync_watcher import FolderSyncWatcher
+        from folder_sync_watcher import FolderSyncWatcher
         watcher = FolderSyncWatcher()
         watcher.start()
     else:

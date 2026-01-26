@@ -7,7 +7,7 @@ import json
 import sys
 import subprocess
 from pathlib import Path
-from sync_watcher import SubstManager, SyncConfig
+from folder_sync_watcher import FilePathManager, FolderSyncWatcher, SubstManager, SyncConfig
 
 def main():
     """Funzione principale per gestire SUBST"""
@@ -59,7 +59,6 @@ def setup_subst_from_config():
         drive_letter = sync_settings.get('subst_drive_letter', 'A')
         
         # Trova il percorso fisico dell'SSD
-        from sync_watcher import FolderSyncWatcher
         watcher = FolderSyncWatcher()
         physical_drive = watcher.find_ssd_drive_letter()
         
@@ -159,7 +158,6 @@ def test_file_access():
                 print("File trovato con percorso normale")
                 
                 # Testa se il file è bloccato
-                from sync_watcher import FilePathManager
                 if FilePathManager.is_file_locked(str(normal_path)):
                     print("File attualmente bloccato")
                 else:
@@ -186,7 +184,6 @@ def test_file_access():
                 print("File trovato con percorso SUBST")
                 
                 # Testa se il file è bloccato
-                from sync_watcher import FilePathManager
                 if FilePathManager.is_file_locked(str(subst_path)):
                     print("File attualmente bloccato via SUBST")
                 else:
