@@ -187,7 +187,7 @@ Get-Content "logs\sync_watcher.log" -Wait -Tail 30
 
 ```cmd
 # Avvio manuale (modalità console)
-python sync_watcher.py
+python sync_watcher.py --config config.json
 
 # Gestione servizio Windows
 python install_service.py install    # Installare il servizio
@@ -222,7 +222,7 @@ Per rimuovere l'avvio automatico:
 
 ### L'SSD non viene rilevato
 
-1. Verificare che la lettera dell'unità in `config.json` sia corretta
+1. Verificare che `ssd_volume_label` in `config.json` corrisponda all'etichetta del volume (non alla lettera)
 2. Disabilitare temporaneamente il controllo SSD:
    ```json
    "check_ssd_connected": false

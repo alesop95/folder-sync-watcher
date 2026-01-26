@@ -26,10 +26,36 @@ if not exist "venv" (
 REM Attiva l'ambiente virtuale
 call venv\Scripts\activate.bat
 
-REM Installa o aggiorna le dipendenze
+REM Installa o aggiorna le dipendenze solo se necessario
+set "REQ_FILE=requirements.txt"
+set "REQ_HASH_FILE=venv\.requirements.sha256"
+set "REQ_HASH="
+for /f "tokens=1" %%H in ('certutil -hashfile "%REQ_FILE%" SHA256 ^| findstr /r /c:"^[0-9A-F][0-9A-F]"') do (
+    set "REQ_HASH=%%H"
+    goto :gotReqHash
+)
+:gotReqHash
+
+set "NEED_INSTALL=0"
+if not exist "%REQ_HASH_FILE%" set "NEED_INSTALL=1"
+if exist "%REQ_HASH_FILE%" (
+    set /p "OLD_HASH="<"%REQ_HASH_FILE%"
+    if /I not "%OLD_HASH%"=="%REQ_HASH%" set "NEED_INSTALL=1"
+)
+
 echo.
-echo Installazione/Verifica dipendenze...
-pip install -r requirements.txt
+if "%NEED_INSTALL%"=="1" (
+    echo Installazione/Aggiornamento dipendenze...
+    python -m pip install -r "%REQ_FILE%"
+    if %errorlevel% neq 0 (
+        echo ERRORE: Installazione dipendenze fallita
+        pause
+        exit /b 1
+    )
+    echo %REQ_HASH%>"%REQ_HASH_FILE%"
+) else (
+    echo Dipendenze gia' presenti, installazione non necessaria
+)
 echo.
 
 REM Chiudi eventuali processi Office in background (opzionale)
@@ -61,6 +87,6 @@ echo.
 REM Avvia il watcher
 echo Avvio del watcher...
 echo.
-python sync_watcher.py
+python sync_watcher.py --config config.json
 
 pause
