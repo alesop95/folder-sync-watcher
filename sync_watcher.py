@@ -594,9 +594,9 @@ class FolderSyncWatcher:
         self.sync_thread.start()
         
         print(f"{Fore.GREEN}Watcher avviato con successo!")
-        print(f"{Fore.CYAN}Monitoraggio attivo per:")
-        print(f"  • OneDrive: {self.onedrive_folder}")
-        print(f"  • Google Drive: {self.google_drive_folder}")
+        print(f"{Fore.CYAN}Monitoraggio attivo")
+        print(f"OneDrive: {self.onedrive_folder}")
+        print(f"Google Drive: {self.google_drive_folder}")
         print(f"{Fore.YELLOW}Premi Ctrl+C per terminare")
         
         try:
@@ -644,8 +644,14 @@ class FolderSyncWatcher:
     def stop_observers(self):
         """Ferma e rimuove gli observer esistenti"""
         for observer in self.observers:
-            observer.stop()
-            observer.join()
+            try:
+                observer.stop()
+            except Exception:
+                pass
+            try:
+                observer.join(timeout=10)
+            except Exception:
+                pass
         self.observers = []
 
     def stop(self):
