@@ -65,7 +65,7 @@ Modificare il file `config.json` per personalizzare il comportamento. Ecco una s
 {
     "folders": {
         "onedrive": "ONEDRIVE PATH HERE",
-        "google_drive_relative_path": "googleDrive_sync\\Portfolio and ongoing studies\\🛠️ Ongoing studies\\Cybersec, Business continuity, Disaster recovery, Normative IT, DevOps, Programming, Networking\\CYBERSECURITY, Business continuity, Disaster recovery, Normative IT"
+        "google_drive_relative_path": "googleDrive_sync\\Portfolio and ongoing studies\\Ongoing studies\\Cybersec, Business continuity, Disaster recovery, Normative IT, DevOps, Programming, Networking\\CYBERSECURITY, Business continuity, Disaster recovery, Normative IT"
     },
     "sync_settings": {
         "bidirectional": true,
@@ -113,7 +113,7 @@ subst X: "FULL PATH TO FOLDER"
 #### Esempio Pratico
 Per mappare la cartella di Google Drive a un'unità virtuale:
 ```powershell
-subst A: "J:\\googleDrive_sync\\Portfolio and ongoing studies\\🛠️ Ongoing studies\\Cybersec, Business continuity, Disaster recovery, Normative IT, DevOps, Programming, Networking\\CYBERSECURITY, Business continuity, Disaster recovery, Normative IT"
+subst A: "J:\\googleDrive_sync\\Portfolio and ongoing studies\\Ongoing studies\\Cybersec, Business continuity, Disaster recovery, Normative IT, DevOps, Programming, Networking\\CYBERSECURITY, Business continuity, Disaster recovery, Normative IT"
 ```
 
 **Perché "A:"?**
@@ -302,7 +302,7 @@ Per problemi o domande:
 2. Verifica la configurazione in `config.json`
 3. Esegui in modalità debug: `python install_service.py debug`
 
-## 📄 Licenza
+## Licenza
 
 Non protetto attualmente da licenza.
 

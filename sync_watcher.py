@@ -271,13 +271,13 @@ class FolderSyncWatcher:
             if f"{subst_letter}:\\" in existing_drives:
                 # SUBST esiste già, usalo direttamente
                 self.google_drive_folder = f"{subst_letter}:\\"
-                self.logger.info(f"🔧 DEBUG: Usando SUBST esistente = {self.google_drive_folder}")
+                self.logger.info(f"DEBUG: Usando SUBST esistente = {self.google_drive_folder}")
                 self.logger.info(f"Usando unità SUBST {subst_letter}:\\ per Google Drive")
                 return True
             elif self._setup_subst_drive(subst_letter):
                 # SUBST creato con successo
                 self.google_drive_folder = f"{subst_letter}:\\"
-                self.logger.info(f"🔧 DEBUG: Creato nuovo SUBST = {self.google_drive_folder}")
+                self.logger.info(f"DEBUG: Creato nuovo SUBST = {self.google_drive_folder}")
                 self.logger.info(f"Usando unità SUBST {subst_letter}:\\ per Google Drive")
                 return True
         
@@ -521,7 +521,7 @@ class FolderSyncWatcher:
                     break
                 time.sleep(2)
         
-        self.logger.error(f"❌ FALLIMENTO: Impossibile copiare il file dopo {max_attempts} tentativi: {rel_path}")
+        self.logger.error(f"FALLIMENTO: Impossibile copiare il file dopo {max_attempts} tentativi: {rel_path}")
         self.logger.error(f"   Sorgente: {src}")
         self.logger.error(f"   Destinazione: {dest}")
             

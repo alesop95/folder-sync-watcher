@@ -64,37 +64,37 @@ def setup_subst_from_config():
         physical_drive = watcher.find_ssd_drive_letter()
         
         if not physical_drive:
-            print("❌ SSD non trovato. Verifica che sia connesso e configurato correttamente.")
+            print("SSD non trovato. Verifica che sia connesso e configurato correttamente.")
             return False
         
         relative_path = config['folders']['google_drive_relative_path']
         full_path = str(Path(physical_drive) / relative_path)
         
-        print(f"🔧 Configurando SUBST {drive_letter}: -> {full_path}")
+        print(f"Configurando SUBST {drive_letter}: -> {full_path}")
         
         # Rimuovi SUBST esistente se presente
         existing_drives = SubstManager.list_subst_drives()
         if drive_letter in existing_drives:
-            print(f"⚠️  SUBST {drive_letter}: già esistente, rimuovo...")
+            print(f"SUBST {drive_letter}: già esistente, rimuovo...")
             SubstManager.remove_subst_drive(drive_letter)
         
         # Crea nuovo SUBST
         if SubstManager.create_subst_drive(drive_letter, full_path):
-            print(f"✅ SUBST {drive_letter}: creato con successo!")
+            print(f"SUBST {drive_letter}: creato con successo!")
             
             # Aggiorna config.json per abilitare SUBST
             config['sync_settings']['use_subst'] = True
             with open('config.json', 'w', encoding='utf-8') as f:
                 json.dump(config, f, indent=4, ensure_ascii=False)
-            print("✅ Configurazione aggiornata per usare SUBST")
+            print("Configurazione aggiornata per usare SUBST")
             
             return True
         else:
-            print(f"❌ Errore nella creazione di SUBST {drive_letter}:")
+            print(f"Errore nella creazione di SUBST {drive_letter}:")
             return False
             
     except Exception as e:
-        print(f"❌ Errore: {e}")
+        print(f"Errore: {e}")
         return False
 
 def remove_subst_from_config():
@@ -106,21 +106,21 @@ def remove_subst_from_config():
         drive_letter = config['sync_settings'].get('subst_drive_letter', 'A')
         
         if SubstManager.remove_subst_drive(drive_letter):
-            print(f"✅ SUBST {drive_letter}: rimosso con successo!")
+            print(f"SUBST {drive_letter}: rimosso con successo!")
             
             # Aggiorna config.json per disabilitare SUBST
             config['sync_settings']['use_subst'] = False
             with open('config.json', 'w', encoding='utf-8') as f:
                 json.dump(config, f, indent=4, ensure_ascii=False)
-            print("✅ Configurazione aggiornata")
+            print("Configurazione aggiornata")
             
             return True
         else:
-            print(f"❌ Errore nella rimozione di SUBST {drive_letter}:")
+            print(f"Errore nella rimozione di SUBST {drive_letter}:")
             return False
             
     except Exception as e:
-        print(f"❌ Errore: {e}")
+        print(f"Errore: {e}")
         return False
 
 def list_subst_drives():
@@ -128,9 +128,9 @@ def list_subst_drives():
     drives = SubstManager.list_subst_drives()
     
     if not drives:
-        print("📋 Nessuna unità SUBST attiva")
+        print("Nessuna unità SUBST attiva")
     else:
-        print("📋 Unità SUBST attive:")
+        print("Unità SUBST attive:")
         for drive, path in drives.items():
             print(f"  {drive}: => {path}")
 
@@ -152,50 +152,50 @@ def test_file_access():
             relative_path = config['folders']['google_drive_relative_path']
             normal_path = Path(physical_drive) / relative_path / problem_file
             
-            print(f"🔍 Testando accesso al file problematico...")
-            print(f"📁 Percorso normale: {normal_path}")
+            print("Testando accesso al file problematico...")
+            print(f"Percorso normale: {normal_path}")
             
             if normal_path.exists():
-                print("✅ File trovato con percorso normale")
+                print("File trovato con percorso normale")
                 
                 # Testa se il file è bloccato
                 from sync_watcher import FilePathManager
                 if FilePathManager.is_file_locked(str(normal_path)):
-                    print("⚠️  File attualmente bloccato")
+                    print("File attualmente bloccato")
                 else:
-                    print("✅ File non bloccato")
+                    print("File non bloccato")
                 
                 # Testa percorso corto
                 try:
                     short_path = FilePathManager.get_short_path(str(normal_path))
-                    print(f"📁 Percorso corto: {short_path}")
+                    print(f"Percorso corto: {short_path}")
                 except Exception as e:
-                    print(f"❌ Impossibile ottenere percorso corto: {e}")
+                    print(f"Impossibile ottenere percorso corto: {e}")
                 
             else:
-                print("❌ File non trovato con percorso normale")
+                print("File non trovato con percorso normale")
         
         # Testa accesso tramite SUBST se configurato
         if config['sync_settings'].get('use_subst', False):
             drive_letter = config['sync_settings'].get('subst_drive_letter', 'A')
             subst_path = Path(f"{drive_letter}:") / problem_file
             
-            print(f"📁 Percorso SUBST: {subst_path}")
+            print(f"Percorso SUBST: {subst_path}")
             
             if subst_path.exists():
-                print("✅ File trovato con percorso SUBST")
+                print("File trovato con percorso SUBST")
                 
                 # Testa se il file è bloccato
                 from sync_watcher import FilePathManager
                 if FilePathManager.is_file_locked(str(subst_path)):
-                    print("⚠️  File attualmente bloccato via SUBST")
+                    print("File attualmente bloccato via SUBST")
                 else:
-                    print("✅ File non bloccato via SUBST")
+                    print("File non bloccato via SUBST")
             else:
-                print("❌ File non trovato con percorso SUBST")
+                print("File non trovato con percorso SUBST")
         
     except Exception as e:
-        print(f"❌ Errore durante il test: {e}")
+        print(f"Errore durante il test: {e}")
 
 if __name__ == "__main__":
     main()

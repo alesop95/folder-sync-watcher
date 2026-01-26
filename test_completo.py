@@ -4,16 +4,23 @@ Test completo del sync watcher con diversi tipi di file e strutture
 """
 
 import os
+import json
 import time
 from pathlib import Path
 import shutil
 
+def _load_onedrive_base_path() -> Path:
+    config_path = Path(__file__).resolve().parent / "config.json"
+    with open(config_path, 'r', encoding='utf-8') as f:
+        config = json.load(f)
+    return Path(config["folders"]["onedrive"])
+
 def create_test_structure():
     """Crea una struttura di test complessa"""
-    print("🧪 CREAZIONE STRUTTURA DI TEST COMPLETA")
+    print("CREAZIONE STRUTTURA DI TEST COMPLETA")
     print("=" * 50)
     
-    base_path = Path("C:/Users/Utente/OneDrive - Intrawelt S.a.s/Documenti - IT/Cybersec & IT Governance/_ 🧰 Resources")
+    base_path = _load_onedrive_base_path()
     
     # 1. File di testo semplici
     files_semplici = [
@@ -26,7 +33,7 @@ def create_test_structure():
         file_path = base_path / filename
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(f"Contenuto di {filename}\nCreato: {time.strftime('%Y-%m-%d %H:%M:%S')}\n")
-        print(f"✅ Creato: {filename}")
+        print(f"Creato: {filename}")
         time.sleep(2)  # Pausa tra file per evitare sovraccarico
     
     # 2. File Office (simulati)
@@ -40,7 +47,7 @@ def create_test_structure():
         file_path = base_path / filename
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(f"File Office simulato: {filename}\n")
-        print(f"✅ Creato: {filename}")
+        print(f"Creato: {filename}")
         time.sleep(3)  # Pausa più lunga per file Office
     
     # 3. Struttura di cartelle annidate
@@ -61,7 +68,7 @@ def create_test_structure():
         file_in_cartella = cartella_path / f"file_in_{cartella.replace('/', '_').replace(' ', '_')}.txt"
         with open(file_in_cartella, 'w', encoding='utf-8') as f:
             f.write(f"File nella cartella: {cartella}\n")
-        print(f"✅ Creata cartella: {cartella} con file interno")
+        print(f"Creata cartella: {cartella} con file interno")
         time.sleep(2)  # Pausa tra cartelle
     
     # 4. File con caratteri speciali
@@ -77,7 +84,7 @@ def create_test_structure():
         file_path = base_path / filename
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(f"File con caratteri speciali: {filename}\n")
-        print(f"✅ Creato: {filename}")
+        print(f"Creato: {filename}")
         time.sleep(3)  # Pausa più lunga per caratteri speciali
     
     # 5. File di diverse dimensioni
@@ -91,11 +98,11 @@ def create_test_structure():
         file_path = base_path / filename
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(contenuto)
-        print(f"✅ Creato: {filename} ({len(contenuto)} caratteri)")
+        print(f"Creato: {filename} ({len(contenuto)} caratteri)")
         time.sleep(2)  # Pausa tra file di dimensioni diverse
     
-    print(f"\n🎯 Struttura di test creata con {len(files_semplici) + len(office_files) + len(file_speciali) + len(dimensioni_files)} file")
-    print(f"📁 Cartelle create: {len(cartelle_struttura)}")
+    print(f"\nStruttura di test creata con {len(files_semplici) + len(office_files) + len(file_speciali) + len(dimensioni_files)} file")
+    print(f"Cartelle create: {len(cartelle_struttura)}")
     
     return {
         'files_semplici': files_semplici,
@@ -107,7 +114,7 @@ def create_test_structure():
 
 def verify_sync(test_files):
     """Verifica che tutti i file siano sincronizzati"""
-    print("\n🔄 VERIFICA SINCRONIZZAZIONE")
+    print("\nVERIFICA SINCRONIZZAZIONE")
     print("=" * 50)
     
     gdrive_path = Path("A:/")  # Percorso SUBST
@@ -130,17 +137,17 @@ def verify_sync(test_files):
         gdrive_file = gdrive_path / file_rel
         if gdrive_file.exists():
             sincronizzati += 1
-            print(f"✅ {file_rel}")
+            print(f"OK: {file_rel}")
         else:
             non_sincronizzati.append(file_rel)
-            print(f"❌ {file_rel}")
+            print(f"MANCANTE: {file_rel}")
     
-    print(f"\n📊 RISULTATI:")
-    print(f"✅ Sincronizzati: {sincronizzati}/{len(tutti_i_file)}")
-    print(f"❌ Non sincronizzati: {len(non_sincronizzati)}")
+    print("\nRISULTATI:")
+    print(f"Sincronizzati: {sincronizzati}/{len(tutti_i_file)}")
+    print(f"Non sincronizzati: {len(non_sincronizzati)}")
     
     if non_sincronizzati:
-        print(f"\n📋 File non sincronizzati:")
+        print("\nFile non sincronizzati:")
         for file in non_sincronizzati:
             print(f"  - {file}")
     
@@ -148,20 +155,20 @@ def verify_sync(test_files):
 
 def test_modifiche():
     """Testa le modifiche ai file esistenti"""
-    print("\n✏️ TEST MODIFICHE FILE")
+    print("\nTEST MODIFICHE FILE")
     print("=" * 50)
     
-    base_path = Path("C:/Users/Utente/OneDrive - Intrawelt S.a.s/Documenti - IT/Cybersec & IT Governance/_ 🧰 Resources")
+    base_path = _load_onedrive_base_path()
     
     # Modifica un file esistente
     file_da_modificare = base_path / "documento1.txt"
     if file_da_modificare.exists():
         with open(file_da_modificare, 'a', encoding='utf-8') as f:
             f.write(f"\nModifica aggiunta: {time.strftime('%H:%M:%S')}\n")
-        print(f"✅ Modificato: documento1.txt")
+        print("Modificato: documento1.txt")
         
         # Aspetta un po' per la sincronizzazione
-        print("⏳ Attendo 10 secondi per la sincronizzazione...")
+        print("Attendo 10 secondi per la sincronizzazione...")
         time.sleep(10)
         
         # Verifica che sia sincronizzato
@@ -170,24 +177,24 @@ def test_modifiche():
             with open(gdrive_file, 'r', encoding='utf-8') as f:
                 contenuto = f.read()
                 if "Modifica aggiunta" in contenuto:
-                    print("✅ Modifica sincronizzata correttamente!")
+                    print("Modifica sincronizzata correttamente")
                     return True
                 else:
-                    print("❌ Modifica non sincronizzata")
+                    print("Modifica non sincronizzata")
                     return False
         else:
-            print("❌ File non trovato su Google Drive")
+            print("File non trovato su Google Drive")
             return False
     else:
-        print("❌ File da modificare non trovato")
+        print("File da modificare non trovato")
         return False
 
 def cleanup_test():
     """Pulisce i file di test"""
-    print("\n🧹 PULIZIA FILE DI TEST")
+    print("\nPULIZIA FILE DI TEST")
     print("=" * 50)
     
-    base_path = Path("C:/Users/Utente/OneDrive - Intrawelt S.a.s/Documenti - IT/Cybersec & IT Governance/_ 🧰 Resources")
+    base_path = _load_onedrive_base_path()
     
     # Lista di tutto quello che abbiamo creato
     items_to_remove = [
@@ -206,39 +213,39 @@ def cleanup_test():
             if item_path.exists():
                 if item_path.is_file():
                     item_path.unlink()
-                    print(f"✅ Rimosso file: {item}")
+                    print(f"Rimosso file: {item}")
                 elif item_path.is_dir():
                     shutil.rmtree(item_path)
-                    print(f"✅ Rimossa cartella: {item}")
+                    print(f"Rimossa cartella: {item}")
         except Exception as e:
-            print(f"❌ Errore rimozione {item}: {e}")
+            print(f"Errore rimozione {item}: {e}")
 
 def main():
     """Test completo"""
-    print("🚀 TEST COMPLETO SYNC WATCHER")
+    print("TEST COMPLETO SYNC WATCHER")
     print("=" * 50)
     
     # 1. Crea struttura di test
     test_files = create_test_structure()
     
-    print(f"\n⏳ Aspetta 60 secondi per la sincronizzazione di tutti i file...")
+    print("\nAspetta 60 secondi per la sincronizzazione di tutti i file...")
     time.sleep(60)
     
     # 2. Verifica sincronizzazione
     sync_ok = verify_sync(test_files)
     
     if sync_ok:
-        print("\n🎉 SINCRONIZZAZIONE INIZIALE OK!")
+        print("\nSINCRONIZZAZIONE INIZIALE OK")
         
         # 3. Testa modifiche
         modifica_ok = test_modifiche()
         
         if modifica_ok:
-            print("\n🎉 TEST MODIFICHE OK!")
+            print("\nTEST MODIFICHE OK")
         else:
-            print("\n❌ TEST MODIFICHE FALLITO!")
+            print("\nTEST MODIFICHE FALLITO")
     else:
-        print("\n❌ SINCRONIZZAZIONE INIZIALE FALLITA!")
+        print("\nSINCRONIZZAZIONE INIZIALE FALLITA")
     
     # 4. Pulizia (opzionale)
     print(f"\nPremi INVIO per pulire i file di test...")
@@ -246,10 +253,10 @@ def main():
     cleanup_test()
     
     if sync_ok and modifica_ok:
-        print("\n🎉 TUTTI I TEST COMPLETATI CON SUCCESSO!")
+        print("\nTUTTI I TEST COMPLETATI CON SUCCESSO")
         print("Il watcher è pronto per i file reali!")
     else:
-        print("\n❌ ALCUNI TEST SONO FALLITI!")
+        print("\nALCUNI TEST SONO FALLITI")
         print("Controlla i log prima di procedere con i file reali.")
 
 if __name__ == "__main__":
