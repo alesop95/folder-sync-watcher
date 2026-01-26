@@ -1,0 +1,35 @@
+{
+    "folders": {
+        "onedrive": "C:\\Users\\Utente\\OneDrive - Intrawelt S.a.s\\Documenti - IT\\Cybersec & IT Governance\\_ 🧰 Resources",
+        "google_drive_relative_path": "googleDrive_sync\\Portfolio and ongoing studies\\🛠️ Ongoing studies\\Cybersec, BC, IT governance, DevOps, Programming, Networking\\CYBERSECURITY, BC, governance"
+    },
+    "sync_settings": {
+        "bidirectional": true,
+        "sync_interval_seconds": 5,
+        "conflict_resolution": "newest",
+        "excluded_patterns": [
+            "~$*",
+            ".tmp",
+            ".~lock.*#",
+            "desktop.ini",
+            "Thumbs.db",
+            ".DS_Store",
+            "folder-sync-watcher",
+            "venv",
+            "*.tmp",
+            "~*.tmp"
+        ],
+        "check_ssd_connected": true,
+        "ssd_volume_label": "T7",
+        "use_subst": true,
+        "subst_drive_letter": "A",
+        "sanitize_filenames": false,
+        "office_file_delay": 10
+    },
+    "logging": {
+        "level": "INFO",
+        "log_file": "sync_watcher.log",
+        "retention_days": 30,
+        "backup_count": 30
+    }
+}

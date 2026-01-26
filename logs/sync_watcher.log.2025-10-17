@@ -1,0 +1,15 @@
+2025-10-17 10:36:59,491 - FolderSyncWatcher - INFO - SUBST A: creato per J:googleDrive_sync\Portfolio and ongoing studies\🛠️ Ongoing studies\Cybersec, BC, IT governance, DevOps, Programming, Networking\CYBERSECURITY, BC, governance
+2025-10-17 10:36:59,493 - FolderSyncWatcher - INFO - 🔧 DEBUG: Creato nuovo SUBST = A:\
+2025-10-17 10:36:59,494 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-10-17 10:36:59,940 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-10-17 10:36:59,940 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-10-17 10:36:59,941 - FolderSyncWatcher - INFO - Avvio del servizio di sincronizzazione
+2025-10-17 10:36:59,977 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-10-17 10:36:59,977 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-10-17 10:36:59,977 - FolderSyncWatcher - INFO - SSD connesso, percorso Google Drive impostato a: A:\
+2025-10-17 10:36:59,977 - FolderSyncWatcher - INFO - Avvio sincronizzazione iniziale...
+2025-10-17 10:37:00,146 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] ISO_IEC 270012022 (Foundation)\Formazione NinjaOne.txt
+2025-10-17 10:37:00,222 - FolderSyncWatcher - ERROR - Errore durante la sincronizzazione di CERTs\[ESAME] CompTIA Security+ (SY0-701)\CompTIA Security+ SY0-701 Certification Guide, 3rd Edition (for DUC PHAM) (2024).pdf: [Errno 13] Permission denied: 'C:\\Users\\Utente\\OneDrive - Intrawelt S.a.s\\Documenti - IT\\Cybersec & IT Governance\\_ 🧰 Resources\\CERTs\\[ESAME] CompTIA Security+ (SY0-701)\\CompTIA Security+ SY0-701 Certification Guide, 3rd Edition (for DUC PHAM) (2024).pdf'
+2025-10-17 10:37:00,226 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] ISO_IEC 270012022 (Foundation)\Formazione NinjaOne.txt
+2025-10-17 10:37:00,234 - FolderSyncWatcher - INFO - Sincronizzazione iniziale completata
+2025-10-17 10:37:03,464 - FolderSyncWatcher - INFO - Arresto del servizio di sincronizzazione

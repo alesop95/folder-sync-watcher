@@ -1,0 +1,948 @@
+# Log pulito creato: 2025-09-23 12:27:57
+2025-09-23 12:28:33,571 - FolderSyncWatcher - INFO - SUBST A: creato per J:googleDrive_sync\Portfolio and ongoing studies\🛠️ Ongoing studies\Cybersec, Business continuity, Disaster recovery, Normative IT, DevOps, Programming, Networking\CYBERSECURITY, Business continuity, Disaster recovery, Normative IT
+2025-09-23 12:28:33,572 - FolderSyncWatcher - INFO - Usando unità SUBST A: per Google Drive
+2025-09-23 12:30:06,418 - FolderSyncWatcher - ERROR - Impossibile creare SUBST A:
+2025-09-23 12:30:06,476 - FolderSyncWatcher - ERROR - Impossibile creare SUBST A:
+2025-09-23 12:31:57,000 - FolderSyncWatcher - ERROR - Impossibile creare SUBST A:
+2025-09-23 12:31:57,001 - FolderSyncWatcher - INFO - Avvio del servizio di sincronizzazione
+2025-09-23 12:31:57,057 - FolderSyncWatcher - ERROR - Impossibile creare SUBST A:
+2025-09-23 12:31:57,058 - FolderSyncWatcher - INFO - SSD connesso, percorso Google Drive impostato a: A:googleDrive_sync\Portfolio and ongoing studies\🛠️ Ongoing studies\Cybersec, Business continuity, Disaster recovery, Normative IT, DevOps, Programming, Networking\CYBERSECURITY, Business continuity, Disaster recovery, Normative IT
+2025-09-23 12:31:57,058 - FolderSyncWatcher - INFO - Avvio sincronizzazione iniziale...
+2025-09-23 12:31:57,347 - FolderSyncWatcher - INFO - Copiato: test_documento.txt
+2025-09-23 12:31:57,350 - FolderSyncWatcher - INFO - Copiato: test_immagine.jpg
+2025-09-23 12:31:57,352 - FolderSyncWatcher - INFO - Copiato: test_office.docx
+2025-09-23 12:31:57,357 - FolderSyncWatcher - INFO - Copiato: test_cartella\file_in_sottocartella.txt
+2025-09-23 12:31:57,417 - FolderSyncWatcher - INFO - Copiato: test_documento.txt
+2025-09-23 12:31:57,420 - FolderSyncWatcher - INFO - Copiato: test_immagine.jpg
+2025-09-23 12:31:57,422 - FolderSyncWatcher - INFO - Copiato: test_office.docx
+2025-09-23 12:31:57,425 - FolderSyncWatcher - INFO - Copiato: test_cartella\file_in_sottocartella.txt
+2025-09-23 12:31:57,425 - FolderSyncWatcher - INFO - Sincronizzazione iniziale completata
+2025-09-23 12:32:00,808 - FolderSyncWatcher - INFO - File Office rilevato: test_office.docx, attendo 5 secondi...
+2025-09-23 12:32:08,792 - FolderSyncWatcher - ERROR - Impossibile creare SUBST A:
+2025-09-23 12:32:08,792 - FolderSyncWatcher - ERROR - Impossibile creare SUBST A:
+2025-09-23 12:32:08,892 - FolderSyncWatcher - ERROR - Impossibile creare SUBST A:
+2025-09-23 12:32:08,892 - FolderSyncWatcher - ERROR - Impossibile creare SUBST A:
+2025-09-23 12:32:47,821 - FolderSyncWatcher - INFO - File eliminato: test_documento.txt
+2025-09-23 12:32:47,822 - FolderSyncWatcher - INFO - File eliminato: test_office.docx
+2025-09-23 12:32:47,823 - FolderSyncWatcher - INFO - File eliminato: test_immagine.jpg
+2025-09-23 12:32:47,824 - FolderSyncWatcher - INFO - File eliminato: test_cartella\file_in_sottocartella.txt
+2025-09-23 12:34:57,495 - FolderSyncWatcher - WARNING - SSD disconnesso, pausa del monitoraggio
+2025-09-23 12:34:57,612 - FolderSyncWatcher - INFO - SUBST A: creato per J:googleDrive_sync\Portfolio and ongoing studies\🛠️ Ongoing studies\Cybersec, Business continuity, Disaster recovery, Normative IT, DevOps, Programming, Networking\CYBERSECURITY, Business continuity, Disaster recovery, Normative IT
+2025-09-23 12:34:57,612 - FolderSyncWatcher - INFO - Usando unità SUBST A: per Google Drive
+2025-09-23 12:34:57,612 - FolderSyncWatcher - INFO - SSD riconnesso, nuovo percorso: A:
+2025-09-23 12:34:57,612 - FolderSyncWatcher - INFO - Avvio sincronizzazione iniziale...
+2025-09-23 12:34:57,697 - FolderSyncWatcher - INFO - Sincronizzazione iniziale completata
+2025-09-23 12:35:34,120 - FolderSyncWatcher - INFO - Cartella eliminata: googleDrive_sync\Portfolio and ongoing studies\🛠️ Ongoing studies\Cybersec, Business continuity, Disaster recovery, Normative IT, DevOps, Programming, Networking\CYBERSECURITY, Business continuity, Disaster recovery, Normative IT\test_cartella
+2025-09-23 12:35:34,121 - FolderSyncWatcher - INFO - Cartella eliminata: googleDrive_sync\Portfolio and ongoing studies\🛠️ Ongoing studies\Cybersec, Business continuity, Disaster recovery, Normative IT, DevOps, Programming, Networking\CYBERSECURITY, Business continuity, Disaster recovery, Normative IT
+2025-09-23 12:35:34,122 - FolderSyncWatcher - INFO - Cartella eliminata: googleDrive_sync\Portfolio and ongoing studies\🛠️ Ongoing studies\Cybersec, Business continuity, Disaster recovery, Normative IT, DevOps, Programming, Networking
+2025-09-23 12:35:34,123 - FolderSyncWatcher - INFO - Cartella eliminata: googleDrive_sync\Portfolio and ongoing studies\🛠️ Ongoing studies
+2025-09-23 12:35:34,124 - FolderSyncWatcher - INFO - Cartella eliminata: googleDrive_sync\Portfolio and ongoing studies
+2025-09-23 12:35:34,126 - FolderSyncWatcher - INFO - Cartella eliminata: googleDrive_sync
+2025-09-23 12:35:54,197 - FolderSyncWatcher - INFO - Cartella eliminata: test_cartella
+2025-09-23 12:36:09,216 - FolderSyncWatcher - INFO - File copiato: test_documento.txt
+2025-09-23 12:36:09,221 - FolderSyncWatcher - INFO - File copiato: test_office.docx
+2025-09-23 12:36:09,221 - FolderSyncWatcher - INFO - File Office rilevato: test_office.docx, attendo 5 secondi...
+2025-09-23 12:36:23,991 - FolderSyncWatcher - INFO - Arresto del servizio di sincronizzazione
+2025-09-23 12:43:45,206 - FolderSyncWatcher - ERROR - Impossibile creare SUBST A:
+2025-09-23 12:44:39,426 - FolderSyncWatcher - ERROR - Impossibile creare SUBST A:
+2025-09-23 12:44:39,426 - FolderSyncWatcher - INFO - Avvio del servizio di sincronizzazione
+2025-09-23 12:44:39,485 - FolderSyncWatcher - ERROR - Impossibile creare SUBST A:
+2025-09-23 12:44:39,485 - FolderSyncWatcher - INFO - SSD connesso, percorso Google Drive impostato a: A:googleDrive_sync\Portfolio and ongoing studies\🛠️ Ongoing studies\Cybersec, Business continuity, Disaster recovery, Normative IT, DevOps, Programming, Networking\CYBERSECURITY, Business continuity, Disaster recovery, Normative IT
+2025-09-23 12:44:39,486 - FolderSyncWatcher - INFO - Avvio sincronizzazione iniziale...
+2025-09-23 12:44:39,963 - FolderSyncWatcher - INFO - Sincronizzazione iniziale completata
+2025-09-23 12:46:04,105 - FolderSyncWatcher - ERROR - Impossibile creare SUBST A:
+2025-09-23 12:46:28,571 - FolderSyncWatcher - INFO - Arresto del servizio di sincronizzazione
+2025-09-23 12:48:20,454 - FolderSyncWatcher - ERROR - Impossibile creare SUBST A:
+2025-09-23 12:48:20,454 - FolderSyncWatcher - INFO - Avvio del servizio di sincronizzazione
+2025-09-23 12:48:20,511 - FolderSyncWatcher - ERROR - Impossibile creare SUBST A:
+2025-09-23 12:48:20,511 - FolderSyncWatcher - INFO - SSD connesso, percorso Google Drive impostato a: A:googleDrive_sync\Portfolio and ongoing studies\🛠️ Ongoing studies\Cybersec, Business continuity, Disaster recovery, Normative IT, DevOps, Programming, Networking\CYBERSECURITY, Business continuity, Disaster recovery, Normative IT
+2025-09-23 12:48:20,511 - FolderSyncWatcher - INFO - Avvio sincronizzazione iniziale...
+2025-09-23 12:48:20,667 - FolderSyncWatcher - INFO - Copiato: test_manuale.txt
+2025-09-23 12:48:21,021 - FolderSyncWatcher - INFO - Copiato: test_manuale.txt
+2025-09-23 12:48:21,032 - FolderSyncWatcher - INFO - Sincronizzazione iniziale completata
+2025-09-23 12:49:40,802 - FolderSyncWatcher - INFO - Arresto del servizio di sincronizzazione
+2025-09-23 12:50:02,204 - FolderSyncWatcher - ERROR - Impossibile creare SUBST A:
+2025-09-23 12:50:02,205 - FolderSyncWatcher - INFO - Avvio del servizio di sincronizzazione
+2025-09-23 12:50:02,261 - FolderSyncWatcher - ERROR - Impossibile creare SUBST A:
+2025-09-23 12:50:02,262 - FolderSyncWatcher - INFO - SSD connesso, percorso Google Drive impostato a: A:googleDrive_sync\Portfolio and ongoing studies\🛠️ Ongoing studies\Cybersec, Business continuity, Disaster recovery, Normative IT, DevOps, Programming, Networking\CYBERSECURITY, Business continuity, Disaster recovery, Normative IT
+2025-09-23 12:50:02,262 - FolderSyncWatcher - INFO - Avvio sincronizzazione iniziale...
+2025-09-23 12:50:02,337 - FolderSyncWatcher - INFO - Sincronizzazione iniziale completata
+2025-09-23 12:50:56,531 - FolderSyncWatcher - INFO - Arresto del servizio di sincronizzazione
+2025-09-23 12:51:46,857 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 12:51:46,857 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 12:51:46,857 - FolderSyncWatcher - INFO - Avvio del servizio di sincronizzazione
+2025-09-23 12:51:46,886 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 12:51:46,886 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 12:51:46,886 - FolderSyncWatcher - INFO - SSD connesso, percorso Google Drive impostato a: A:\
+2025-09-23 12:51:46,887 - FolderSyncWatcher - INFO - Avvio sincronizzazione iniziale...
+2025-09-23 12:51:46,891 - FolderSyncWatcher - INFO - Copiato: test_manuale.txt
+2025-09-23 12:51:46,957 - FolderSyncWatcher - INFO - Copiato: googleDrive_sync\Portfolio and ongoing studies\🛠️ Ongoing studies\Cybersec, Business continuity, Disaster recovery, Normative IT, DevOps, Programming, Networking\CYBERSECURITY, Business continuity, Disaster recovery, Normative IT\test_manuale.txt
+2025-09-23 12:51:46,979 - FolderSyncWatcher - INFO - Sincronizzazione iniziale completata
+2025-09-23 12:52:49,768 - FolderSyncWatcher - INFO - Cartella eliminata: googleDrive_sync\Portfolio and ongoing studies\🛠️ Ongoing studies
+2025-09-23 12:52:49,769 - FolderSyncWatcher - INFO - Cartella eliminata: googleDrive_sync\Portfolio and ongoing studies
+2025-09-23 12:52:49,771 - FolderSyncWatcher - INFO - Cartella eliminata: googleDrive_sync
+2025-09-23 12:52:59,571 - FolderSyncWatcher - INFO - Arresto del servizio di sincronizzazione
+2025-09-23 12:55:41,794 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 12:55:41,795 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 12:55:41,795 - FolderSyncWatcher - INFO - Avvio del servizio di sincronizzazione
+2025-09-23 12:55:41,824 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 12:55:41,824 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 12:55:41,824 - FolderSyncWatcher - INFO - SSD connesso, percorso Google Drive impostato a: A:\
+2025-09-23 12:55:41,824 - FolderSyncWatcher - INFO - Avvio sincronizzazione iniziale...
+2025-09-23 12:55:41,827 - FolderSyncWatcher - INFO - Copiato: test.txt
+2025-09-23 12:55:41,885 - FolderSyncWatcher - INFO - Copiato: test.txt
+2025-09-23 12:55:41,885 - FolderSyncWatcher - INFO - Sincronizzazione iniziale completata
+2025-09-23 12:59:08,527 - FolderSyncWatcher - INFO - File copiato: documento1.txt
+2025-09-23 12:59:08,540 - FolderSyncWatcher - INFO - File copiato: note_importanti.md
+2025-09-23 12:59:08,544 - FolderSyncWatcher - INFO - File copiato: readme.txt
+2025-09-23 12:59:08,548 - FolderSyncWatcher - INFO - File copiato: presentazione.pptx
+2025-09-23 12:59:08,548 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 12:59:23,701 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 12:59:38,478 - FolderSyncWatcher - INFO - File copiato: foglio_calcolo.xlsx
+2025-09-23 12:59:38,479 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 12:59:53,514 - FolderSyncWatcher - ERROR - Errore nella creazione di documento1.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 12:59:53,515 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:00:08,632 - FolderSyncWatcher - ERROR - Errore nella creazione di documento_word.docx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:00:08,633 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:00:24,083 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:00:38,773 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:00:38,784 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_a: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,795 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_a\file_in_progetti_progetto_a.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,796 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,805 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b\sottocartella: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,815 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,816 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b\sottocartella: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,816 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,816 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,817 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:00:38,826 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,836 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024\gennaio: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,845 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,846 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024\febbraio: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,855 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024\febbraio\file_in_documenti_2024_febbraio.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,855 - FolderSyncWatcher - ERROR - Errore nella creazione di backup: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:00:38,865 - FolderSyncWatcher - ERROR - Errore nella creazione di backup\vecchi_file: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,874 - FolderSyncWatcher - ERROR - Errore nella creazione di backup\vecchi_file\file_in_backup_vecchi_file.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,874 - FolderSyncWatcher - ERROR - Errore nella creazione di temp: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:00:38,883 - FolderSyncWatcher - ERROR - Errore nella creazione di temp\lavori_in_corso: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,892 - FolderSyncWatcher - ERROR - Errore nella creazione di temp\lavori_in_corso\file_in_temp_lavori_in_corso.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:00:38,893 - FolderSyncWatcher - ERROR - Errore nella creazione di file con spazi.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:00:38,893 - FolderSyncWatcher - ERROR - Errore nella creazione di file-con-trattini.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:00:38,894 - FolderSyncWatcher - ERROR - Errore nella creazione di file_con_underscore.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:00:38,894 - FolderSyncWatcher - ERROR - Errore nella creazione di file.con.punti.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:00:38,895 - FolderSyncWatcher - ERROR - Errore nella creazione di file (con parentesi).txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:00:38,895 - FolderSyncWatcher - ERROR - Errore nella creazione di file_piccolo.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:00:38,896 - FolderSyncWatcher - ERROR - Errore nella creazione di file_medio.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:00:38,896 - FolderSyncWatcher - ERROR - Errore nella creazione di file_grande.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:00:38,897 - FolderSyncWatcher - ERROR - Errore nella creazione di note_importanti.md: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:00:38,897 - FolderSyncWatcher - ERROR - Errore nella creazione di readme.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:00:38,898 - FolderSyncWatcher - ERROR - Errore nella creazione di presentazione.pptx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:00:38,898 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:00:53,732 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:01:08,468 - FolderSyncWatcher - ERROR - Errore nella creazione di foglio_calcolo.xlsx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:01:08,468 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:01:22,888 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:01:37,636 - FolderSyncWatcher - INFO - Cartella eliminata: progetti\progetto_b\sottocartella
+2025-09-23 13:01:37,637 - FolderSyncWatcher - INFO - Cartella eliminata: progetti\progetto_a
+2025-09-23 13:01:37,638 - FolderSyncWatcher - INFO - Cartella eliminata: progetti\progetto_b
+2025-09-23 13:01:37,639 - FolderSyncWatcher - INFO - Cartella eliminata: progetti
+2025-09-23 13:01:37,640 - FolderSyncWatcher - INFO - Cartella eliminata: documenti\2024\febbraio
+2025-09-23 13:01:37,641 - FolderSyncWatcher - INFO - Cartella eliminata: documenti\2024\gennaio
+2025-09-23 13:01:37,644 - FolderSyncWatcher - INFO - Cartella eliminata: documenti\2024
+2025-09-23 13:01:37,645 - FolderSyncWatcher - INFO - Cartella eliminata: documenti
+2025-09-23 13:01:37,646 - FolderSyncWatcher - INFO - Cartella eliminata: backup\vecchi_file
+2025-09-23 13:01:37,647 - FolderSyncWatcher - INFO - Cartella eliminata: backup
+2025-09-23 13:01:37,648 - FolderSyncWatcher - INFO - Cartella eliminata: temp\lavori_in_corso
+2025-09-23 13:01:37,650 - FolderSyncWatcher - INFO - Cartella eliminata: temp
+2025-09-23 13:01:37,650 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:01:37,651 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_a: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:01:37,652 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:01:37,652 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b\sottocartella: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:01:37,652 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:01:37,653 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:01:37,654 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024\gennaio: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:01:37,654 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024\febbraio: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:01:37,654 - FolderSyncWatcher - ERROR - Errore nella creazione di backup: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:01:37,655 - FolderSyncWatcher - ERROR - Errore nella creazione di backup\vecchi_file: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:01:37,656 - FolderSyncWatcher - ERROR - Errore nella creazione di temp: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:01:37,656 - FolderSyncWatcher - ERROR - Errore nella creazione di temp\lavori_in_corso: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:01:37,656 - FolderSyncWatcher - ERROR - Errore nella creazione di test1.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:01:37,657 - FolderSyncWatcher - ERROR - Errore nella creazione di test2.xlsx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:01:37,657 - FolderSyncWatcher - INFO - File Office rilevato: test2.xlsx, attendo 5 secondi...
+2025-09-23 13:01:52,654 - FolderSyncWatcher - INFO - File Office rilevato: test2.xlsx, attendo 5 secondi...
+2025-09-23 13:02:07,231 - FolderSyncWatcher - ERROR - Errore nella creazione di test con spazi.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:02:07,232 - FolderSyncWatcher - ERROR - Errore nella creazione di test-trattini.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:02:07,233 - FolderSyncWatcher - INFO - Cartella eliminata: progetti\progetto_b
+2025-09-23 13:02:07,234 - FolderSyncWatcher - INFO - Cartella eliminata: progetti
+2025-09-23 13:02:07,235 - FolderSyncWatcher - INFO - Cartella eliminata: documenti\2024
+2025-09-23 13:02:07,236 - FolderSyncWatcher - INFO - Cartella eliminata: documenti
+2025-09-23 13:02:07,237 - FolderSyncWatcher - INFO - Cartella eliminata: backup
+2025-09-23 13:02:07,240 - FolderSyncWatcher - INFO - Cartella eliminata: temp
+2025-09-23 13:02:07,241 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:02:07,257 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:02:07,258 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:02:07,268 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:02:07,268 - FolderSyncWatcher - ERROR - Errore nella creazione di backup: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:02:07,268 - FolderSyncWatcher - ERROR - Errore nella creazione di temp: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:02:07,269 - FolderSyncWatcher - INFO - Cartella eliminata: progetti
+2025-09-23 13:02:07,270 - FolderSyncWatcher - ERROR - Errore nella modifica di documenti: [WinError 2] Impossibile trovare il file specificato: 'C:\\Users\\Utente\\OneDrive - Intrawelt S.a.s\\Documenti - IT\\Cybersec & IT Governance\\_ 🧰 Resources\\documenti'
+2025-09-23 13:02:07,271 - FolderSyncWatcher - INFO - Cartella eliminata: documenti
+2025-09-23 13:02:07,271 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:02:07,272 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:02:22,295 - FolderSyncWatcher - INFO - File copiato: Nuovo Documento di testo.txt
+2025-09-23 13:02:22,296 - FolderSyncWatcher - INFO - File copiato: Nuovo Documento di testo.txt
+2025-09-23 13:02:23,737 - FolderSyncWatcher - INFO - Spostato: Nuovo Documento di testo.txt -> test_debug.txt
+2025-09-23 13:02:55,912 - FolderSyncWatcher - INFO - File eliminato: test_debug.txt
+2025-09-23 13:04:27,465 - FolderSyncWatcher - INFO - File copiato: test1.txt
+2025-09-23 13:04:27,467 - FolderSyncWatcher - INFO - File copiato: test1.txt
+2025-09-23 13:04:32,464 - FolderSyncWatcher - INFO - File copiato: test2.xlsx
+2025-09-23 13:04:32,465 - FolderSyncWatcher - INFO - File Office rilevato: test2.xlsx, attendo 5 secondi...
+2025-09-23 13:04:47,120 - FolderSyncWatcher - INFO - File copiato: test2.xlsx
+2025-09-23 13:04:47,120 - FolderSyncWatcher - INFO - File Office rilevato: test2.xlsx, attendo 5 secondi...
+2025-09-23 13:05:02,285 - FolderSyncWatcher - INFO - File copiato: test con spazi.txt
+2025-09-23 13:05:02,286 - FolderSyncWatcher - INFO - File Office rilevato: test2.xlsx, attendo 5 secondi...
+2025-09-23 13:05:16,914 - FolderSyncWatcher - INFO - File Office rilevato: test2.xlsx, attendo 5 secondi...
+2025-09-23 13:05:31,463 - FolderSyncWatcher - INFO - File copiato: test con spazi.txt
+2025-09-23 13:05:31,467 - FolderSyncWatcher - INFO - File copiato: test-trattini.txt
+2025-09-23 13:05:31,470 - FolderSyncWatcher - INFO - File copiato: test-trattini.txt
+2025-09-23 13:06:05,653 - FolderSyncWatcher - INFO - File copiato: documento1.txt
+2025-09-23 13:06:05,658 - FolderSyncWatcher - INFO - File copiato: note_importanti.md
+2025-09-23 13:06:05,662 - FolderSyncWatcher - INFO - File copiato: readme.txt
+2025-09-23 13:06:05,665 - FolderSyncWatcher - INFO - File copiato: presentazione.pptx
+2025-09-23 13:06:05,665 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:06:20,875 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:06:35,907 - FolderSyncWatcher - INFO - File copiato: foglio_calcolo.xlsx
+2025-09-23 13:06:35,907 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:06:50,842 - FolderSyncWatcher - INFO - File copiato: documento1.txt
+2025-09-23 13:06:50,843 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:07:05,772 - FolderSyncWatcher - INFO - File copiato: documento_word.docx
+2025-09-23 13:07:05,772 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:07:21,822 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:07:37,677 - FolderSyncWatcher - INFO - Cartella creata: progetti
+2025-09-23 13:07:37,687 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_a
+2025-09-23 13:07:37,690 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_a\file_in_progetti_progetto_a.txt
+2025-09-23 13:07:37,696 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_a\file_in_progetti_progetto_a.txt
+2025-09-23 13:07:37,705 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_b
+2025-09-23 13:07:37,714 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_b\sottocartella
+2025-09-23 13:07:37,717 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt
+2025-09-23 13:07:37,717 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_b\sottocartella
+2025-09-23 13:07:37,723 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt
+2025-09-23 13:07:37,728 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt
+2025-09-23 13:07:37,737 - FolderSyncWatcher - INFO - Cartella creata: documenti
+2025-09-23 13:07:37,746 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024
+2025-09-23 13:07:37,755 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\gennaio
+2025-09-23 13:07:37,758 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:07:37,758 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024
+2025-09-23 13:07:37,758 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\gennaio
+2025-09-23 13:07:37,763 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:07:37,764 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\gennaio
+2025-09-23 13:07:37,769 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:07:37,774 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:07:37,783 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\febbraio
+2025-09-23 13:07:37,787 - FolderSyncWatcher - INFO - File copiato: documenti\2024\febbraio\file_in_documenti_2024_febbraio.txt
+2025-09-23 13:07:37,792 - FolderSyncWatcher - INFO - File copiato: documenti\2024\febbraio\file_in_documenti_2024_febbraio.txt
+2025-09-23 13:07:37,802 - FolderSyncWatcher - INFO - Cartella creata: backup
+2025-09-23 13:07:37,810 - FolderSyncWatcher - INFO - Cartella creata: backup\vecchi_file
+2025-09-23 13:07:37,813 - FolderSyncWatcher - INFO - File copiato: backup\vecchi_file\file_in_backup_vecchi_file.txt
+2025-09-23 13:07:37,813 - FolderSyncWatcher - INFO - Cartella creata: backup\vecchi_file
+2025-09-23 13:07:37,818 - FolderSyncWatcher - INFO - File copiato: backup\vecchi_file\file_in_backup_vecchi_file.txt
+2025-09-23 13:07:37,823 - FolderSyncWatcher - INFO - File copiato: backup\vecchi_file\file_in_backup_vecchi_file.txt
+2025-09-23 13:07:37,827 - FolderSyncWatcher - INFO - File copiato: note_importanti.md
+2025-09-23 13:07:37,836 - FolderSyncWatcher - INFO - Cartella creata: temp
+2025-09-23 13:07:37,845 - FolderSyncWatcher - INFO - Cartella creata: temp\lavori_in_corso
+2025-09-23 13:07:37,850 - FolderSyncWatcher - INFO - File copiato: temp\lavori_in_corso\file_in_temp_lavori_in_corso.txt
+2025-09-23 13:07:37,850 - FolderSyncWatcher - INFO - Cartella creata: temp\lavori_in_corso
+2025-09-23 13:07:37,857 - FolderSyncWatcher - INFO - File copiato: temp\lavori_in_corso\file_in_temp_lavori_in_corso.txt
+2025-09-23 13:07:37,862 - FolderSyncWatcher - INFO - File copiato: temp\lavori_in_corso\file_in_temp_lavori_in_corso.txt
+2025-09-23 13:07:37,866 - FolderSyncWatcher - INFO - File copiato: file con spazi.txt
+2025-09-23 13:07:37,869 - FolderSyncWatcher - INFO - File copiato: file-con-trattini.txt
+2025-09-23 13:07:37,871 - FolderSyncWatcher - INFO - File copiato: file_con_underscore.txt
+2025-09-23 13:07:37,875 - FolderSyncWatcher - INFO - File copiato: file.con.punti.txt
+2025-09-23 13:07:37,878 - FolderSyncWatcher - INFO - File copiato: file (con parentesi).txt
+2025-09-23 13:07:37,883 - FolderSyncWatcher - INFO - File copiato: file_piccolo.txt
+2025-09-23 13:07:37,886 - FolderSyncWatcher - INFO - File copiato: file_medio.txt
+2025-09-23 13:07:37,889 - FolderSyncWatcher - INFO - File copiato: file_grande.txt
+2025-09-23 13:07:37,891 - FolderSyncWatcher - INFO - File copiato: readme.txt
+2025-09-23 13:07:37,894 - FolderSyncWatcher - INFO - File copiato: presentazione.pptx
+2025-09-23 13:07:37,894 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:07:53,738 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:08:09,423 - FolderSyncWatcher - ERROR - Errore nella creazione di foglio_calcolo.xlsx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:08:09,423 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:08:25,826 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:08:42,070 - FolderSyncWatcher - ERROR - Errore nella creazione di documento_word.docx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:08:42,070 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:08:58,057 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:09:13,419 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:09:13,420 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_a: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:09:13,421 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_a\file_in_progetti_progetto_a.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:09:13,421 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:09:13,422 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b\sottocartella: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:09:13,423 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:09:13,424 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:09:13,425 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:09:13,425 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024\gennaio: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:09:13,426 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:09:13,427 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024\febbraio: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:09:13,427 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024\febbraio\file_in_documenti_2024_febbraio.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:09:13,428 - FolderSyncWatcher - ERROR - Errore nella creazione di backup: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:09:13,428 - FolderSyncWatcher - ERROR - Errore nella creazione di backup\vecchi_file: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:09:13,429 - FolderSyncWatcher - ERROR - Errore nella creazione di backup\vecchi_file\file_in_backup_vecchi_file.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:09:13,430 - FolderSyncWatcher - ERROR - Errore nella creazione di temp: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:09:13,431 - FolderSyncWatcher - ERROR - Errore nella creazione di temp\lavori_in_corso: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:09:13,431 - FolderSyncWatcher - ERROR - Errore nella creazione di temp\lavori_in_corso\file_in_temp_lavori_in_corso.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:09:13,432 - FolderSyncWatcher - ERROR - Errore nella creazione di file con spazi.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:09:13,433 - FolderSyncWatcher - ERROR - Errore nella creazione di file-con-trattini.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:09:13,433 - FolderSyncWatcher - ERROR - Errore nella creazione di file_con_underscore.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:09:13,433 - FolderSyncWatcher - ERROR - Errore nella creazione di file.con.punti.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:09:13,434 - FolderSyncWatcher - ERROR - Errore nella creazione di file (con parentesi).txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:09:13,434 - FolderSyncWatcher - ERROR - Errore nella creazione di file_piccolo.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:09:13,435 - FolderSyncWatcher - ERROR - Errore nella creazione di file_medio.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:09:13,435 - FolderSyncWatcher - ERROR - Errore nella creazione di file_grande.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:09:13,435 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:09:28,608 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:09:43,982 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:09:59,448 - FolderSyncWatcher - INFO - File eliminato: backup\vecchi_file\file_in_backup_vecchi_file.txt
+2025-09-23 13:09:59,449 - FolderSyncWatcher - INFO - Cartella eliminata: backup\vecchi_file
+2025-09-23 13:09:59,450 - FolderSyncWatcher - INFO - Cartella eliminata: backup
+2025-09-23 13:09:59,450 - FolderSyncWatcher - INFO - File eliminato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:09:59,451 - FolderSyncWatcher - INFO - Cartella eliminata: documenti\2024\gennaio
+2025-09-23 13:09:59,451 - FolderSyncWatcher - INFO - File eliminato: documenti\2024\febbraio\file_in_documenti_2024_febbraio.txt
+2025-09-23 13:09:59,452 - FolderSyncWatcher - INFO - Cartella eliminata: documenti\2024\febbraio
+2025-09-23 13:09:59,453 - FolderSyncWatcher - INFO - Cartella eliminata: documenti\2024
+2025-09-23 13:09:59,453 - FolderSyncWatcher - INFO - Cartella eliminata: documenti
+2025-09-23 13:09:59,454 - FolderSyncWatcher - INFO - File eliminato: progetti\progetto_a\file_in_progetti_progetto_a.txt
+2025-09-23 13:09:59,455 - FolderSyncWatcher - INFO - Cartella eliminata: progetti\progetto_a
+2025-09-23 13:09:59,455 - FolderSyncWatcher - INFO - File eliminato: progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt
+2025-09-23 13:09:59,456 - FolderSyncWatcher - INFO - Cartella eliminata: progetti\progetto_b\sottocartella
+2025-09-23 13:09:59,457 - FolderSyncWatcher - INFO - Cartella eliminata: progetti\progetto_b
+2025-09-23 13:09:59,457 - FolderSyncWatcher - INFO - Cartella eliminata: progetti
+2025-09-23 13:09:59,458 - FolderSyncWatcher - INFO - File eliminato: temp\lavori_in_corso\file_in_temp_lavori_in_corso.txt
+2025-09-23 13:09:59,458 - FolderSyncWatcher - INFO - Cartella eliminata: temp\lavori_in_corso
+2025-09-23 13:09:59,459 - FolderSyncWatcher - INFO - Cartella eliminata: temp
+2025-09-23 13:09:59,459 - FolderSyncWatcher - INFO - File eliminato: documento_word.docx
+2025-09-23 13:09:59,460 - FolderSyncWatcher - INFO - File eliminato: documento1.txt
+2025-09-23 13:09:59,460 - FolderSyncWatcher - INFO - File eliminato: file (con parentesi).txt
+2025-09-23 13:09:59,461 - FolderSyncWatcher - INFO - File eliminato: file con spazi.txt
+2025-09-23 13:09:59,461 - FolderSyncWatcher - INFO - File eliminato: file.con.punti.txt
+2025-09-23 13:09:59,461 - FolderSyncWatcher - INFO - File eliminato: file_con_underscore.txt
+2025-09-23 13:09:59,462 - FolderSyncWatcher - INFO - File eliminato: file_grande.txt
+2025-09-23 13:09:59,462 - FolderSyncWatcher - INFO - File eliminato: file_medio.txt
+2025-09-23 13:09:59,462 - FolderSyncWatcher - INFO - File eliminato: file_piccolo.txt
+2025-09-23 13:09:59,463 - FolderSyncWatcher - INFO - File eliminato: file-con-trattini.txt
+2025-09-23 13:09:59,463 - FolderSyncWatcher - INFO - File eliminato: foglio_calcolo.xlsx
+2025-09-23 13:09:59,463 - FolderSyncWatcher - INFO - File eliminato: note_importanti.md
+2025-09-23 13:09:59,464 - FolderSyncWatcher - INFO - File eliminato: presentazione.pptx
+2025-09-23 13:09:59,464 - FolderSyncWatcher - INFO - File eliminato: readme.txt
+2025-09-23 13:09:59,464 - FolderSyncWatcher - ERROR - Errore nella creazione di documento1.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:09:59,465 - FolderSyncWatcher - ERROR - Errore nella creazione di note_importanti.md: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:09:59,465 - FolderSyncWatcher - ERROR - Errore nella creazione di readme.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:09:59,465 - FolderSyncWatcher - ERROR - Errore nella creazione di presentazione.pptx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:09:59,466 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:10:14,996 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:10:30,490 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:10:30,501 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_a: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:10:30,502 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:10:30,511 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b\sottocartella: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:10:30,512 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:10:30,521 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:10:30,530 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024\gennaio: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:10:30,531 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024\febbraio: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:10:30,531 - FolderSyncWatcher - ERROR - Errore nella creazione di backup: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:10:30,540 - FolderSyncWatcher - ERROR - Errore nella creazione di backup\vecchi_file: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:10:30,541 - FolderSyncWatcher - ERROR - Errore nella creazione di temp: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:10:30,550 - FolderSyncWatcher - ERROR - Errore nella creazione di temp\lavori_in_corso: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:10:30,550 - FolderSyncWatcher - ERROR - Errore nella creazione di foglio_calcolo.xlsx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:10:30,550 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:10:46,239 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:11:01,960 - FolderSyncWatcher - ERROR - Errore nella creazione di documento_word.docx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:01,960 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:11:17,752 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:11:34,520 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_a\file_in_progetti_progetto_a.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:11:34,530 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:11:34,540 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:11:34,550 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024\febbraio\file_in_documenti_2024_febbraio.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:11:34,559 - FolderSyncWatcher - ERROR - Errore nella creazione di backup\vecchi_file\file_in_backup_vecchi_file.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:11:34,568 - FolderSyncWatcher - ERROR - Errore nella creazione di temp\lavori_in_corso\file_in_temp_lavori_in_corso.txt: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:11:34,569 - FolderSyncWatcher - ERROR - Errore nella creazione di file con spazi.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,569 - FolderSyncWatcher - ERROR - Errore nella creazione di file-con-trattini.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,570 - FolderSyncWatcher - ERROR - Errore nella creazione di file_con_underscore.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,571 - FolderSyncWatcher - ERROR - Errore nella creazione di file.con.punti.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,571 - FolderSyncWatcher - ERROR - Errore nella creazione di file (con parentesi).txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,571 - FolderSyncWatcher - ERROR - Errore nella creazione di file_piccolo.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,572 - FolderSyncWatcher - ERROR - Errore nella creazione di file_medio.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,572 - FolderSyncWatcher - ERROR - Errore nella creazione di file_grande.txt: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,574 - FolderSyncWatcher - INFO - Cartella eliminata: backup\vecchi_file
+2025-09-23 13:11:34,575 - FolderSyncWatcher - INFO - Cartella eliminata: backup
+2025-09-23 13:11:34,576 - FolderSyncWatcher - INFO - Cartella eliminata: documenti\2024\gennaio
+2025-09-23 13:11:34,577 - FolderSyncWatcher - ERROR - Errore nella modifica di documenti\2024\febbraio: [WinError 3] Impossibile trovare il percorso specificato: 'C:\\Users\\Utente\\OneDrive - Intrawelt S.a.s\\Documenti - IT\\Cybersec & IT Governance\\_ 🧰 Resources\\documenti\\2024\\febbraio'
+2025-09-23 13:11:34,578 - FolderSyncWatcher - INFO - Cartella eliminata: documenti\2024\febbraio
+2025-09-23 13:11:34,578 - FolderSyncWatcher - ERROR - Errore nella modifica di documenti\2024: [WinError 3] Impossibile trovare il percorso specificato: 'C:\\Users\\Utente\\OneDrive - Intrawelt S.a.s\\Documenti - IT\\Cybersec & IT Governance\\_ 🧰 Resources\\documenti\\2024'
+2025-09-23 13:11:34,579 - FolderSyncWatcher - INFO - Cartella eliminata: documenti\2024
+2025-09-23 13:11:34,580 - FolderSyncWatcher - ERROR - Errore nella modifica di documenti: [WinError 2] Impossibile trovare il file specificato: 'C:\\Users\\Utente\\OneDrive - Intrawelt S.a.s\\Documenti - IT\\Cybersec & IT Governance\\_ 🧰 Resources\\documenti'
+2025-09-23 13:11:34,581 - FolderSyncWatcher - INFO - Cartella eliminata: documenti
+2025-09-23 13:11:34,581 - FolderSyncWatcher - ERROR - Errore nella modifica di progetti\progetto_a: [WinError 3] Impossibile trovare il percorso specificato: 'C:\\Users\\Utente\\OneDrive - Intrawelt S.a.s\\Documenti - IT\\Cybersec & IT Governance\\_ 🧰 Resources\\progetti\\progetto_a'
+2025-09-23 13:11:34,582 - FolderSyncWatcher - INFO - Cartella eliminata: progetti\progetto_a
+2025-09-23 13:11:34,584 - FolderSyncWatcher - INFO - Cartella eliminata: progetti\progetto_b\sottocartella
+2025-09-23 13:11:34,584 - FolderSyncWatcher - ERROR - Errore nella modifica di progetti\progetto_b: [WinError 3] Impossibile trovare il percorso specificato: 'C:\\Users\\Utente\\OneDrive - Intrawelt S.a.s\\Documenti - IT\\Cybersec & IT Governance\\_ 🧰 Resources\\progetti\\progetto_b'
+2025-09-23 13:11:34,585 - FolderSyncWatcher - INFO - Cartella eliminata: progetti\progetto_b
+2025-09-23 13:11:34,586 - FolderSyncWatcher - ERROR - Errore nella modifica di progetti: [WinError 2] Impossibile trovare il file specificato: 'C:\\Users\\Utente\\OneDrive - Intrawelt S.a.s\\Documenti - IT\\Cybersec & IT Governance\\_ 🧰 Resources\\progetti'
+2025-09-23 13:11:34,587 - FolderSyncWatcher - INFO - Cartella eliminata: progetti
+2025-09-23 13:11:34,587 - FolderSyncWatcher - ERROR - Errore nella modifica di temp\lavori_in_corso: [WinError 3] Impossibile trovare il percorso specificato: 'C:\\Users\\Utente\\OneDrive - Intrawelt S.a.s\\Documenti - IT\\Cybersec & IT Governance\\_ 🧰 Resources\\temp\\lavori_in_corso'
+2025-09-23 13:11:34,588 - FolderSyncWatcher - INFO - Cartella eliminata: temp\lavori_in_corso
+2025-09-23 13:11:34,589 - FolderSyncWatcher - ERROR - Errore nella modifica di temp: [WinError 2] Impossibile trovare il file specificato: 'C:\\Users\\Utente\\OneDrive - Intrawelt S.a.s\\Documenti - IT\\Cybersec & IT Governance\\_ 🧰 Resources\\temp'
+2025-09-23 13:11:34,590 - FolderSyncWatcher - INFO - Cartella eliminata: temp
+2025-09-23 13:11:34,591 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,592 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:11:34,592 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,593 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:11:34,593 - FolderSyncWatcher - ERROR - Errore nella creazione di backup: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,594 - FolderSyncWatcher - ERROR - Errore nella creazione di temp: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,594 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_a: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:11:34,595 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b\sottocartella: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:11:34,595 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024\gennaio: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:11:34,596 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024\febbraio: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:11:34,597 - FolderSyncWatcher - ERROR - Errore nella creazione di backup\vecchi_file: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:11:34,597 - FolderSyncWatcher - ERROR - Errore nella creazione di temp\lavori_in_corso: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:11:34,598 - FolderSyncWatcher - INFO - Cartella eliminata: backup
+2025-09-23 13:11:34,599 - FolderSyncWatcher - INFO - Cartella eliminata: documenti\2024
+2025-09-23 13:11:34,599 - FolderSyncWatcher - INFO - Cartella eliminata: documenti
+2025-09-23 13:11:34,600 - FolderSyncWatcher - INFO - Cartella eliminata: progetti\progetto_b
+2025-09-23 13:11:34,601 - FolderSyncWatcher - INFO - Cartella eliminata: progetti
+2025-09-23 13:11:34,601 - FolderSyncWatcher - INFO - Cartella eliminata: temp
+2025-09-23 13:11:34,602 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,602 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,611 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti\progetto_b: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:11:34,621 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti\2024: [WinError 3] Impossibile trovare il percorso specificato
+2025-09-23 13:11:34,622 - FolderSyncWatcher - ERROR - Errore nella creazione di backup: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,622 - FolderSyncWatcher - ERROR - Errore nella creazione di temp: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,623 - FolderSyncWatcher - INFO - Cartella eliminata: documenti
+2025-09-23 13:11:34,624 - FolderSyncWatcher - INFO - Cartella eliminata: progetti
+2025-09-23 13:11:34,625 - FolderSyncWatcher - ERROR - Errore nella creazione di progetti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:11:34,625 - FolderSyncWatcher - ERROR - Errore nella creazione di documenti: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:13:09,500 - FolderSyncWatcher - INFO - Arresto del servizio di sincronizzazione
+2025-09-23 13:14:08,655 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 13:14:08,655 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 13:14:08,656 - FolderSyncWatcher - INFO - Avvio del servizio di sincronizzazione
+2025-09-23 13:14:08,685 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 13:14:08,687 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 13:14:08,687 - FolderSyncWatcher - INFO - SSD connesso, percorso Google Drive impostato a: A:\
+2025-09-23 13:14:08,687 - FolderSyncWatcher - INFO - Avvio sincronizzazione iniziale...
+2025-09-23 13:14:08,748 - FolderSyncWatcher - INFO - Sincronizzazione iniziale completata
+2025-09-23 13:14:27,879 - FolderSyncWatcher - INFO - File copiato: Nuovo Documento di testo.txt
+2025-09-23 13:14:27,880 - FolderSyncWatcher - INFO - File copiato: Nuovo Documento di testo.txt
+2025-09-23 13:14:28,723 - FolderSyncWatcher - INFO - Spostato: Nuovo Documento di testo.txt -> a.txt
+2025-09-23 13:14:32,210 - FolderSyncWatcher - INFO - File eliminato: a.txt
+2025-09-23 13:19:03,390 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 13:19:03,390 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 13:19:03,391 - FolderSyncWatcher - INFO - Avvio del servizio di sincronizzazione
+2025-09-23 13:19:03,429 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 13:19:03,429 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 13:19:03,429 - FolderSyncWatcher - INFO - SSD connesso, percorso Google Drive impostato a: A:\
+2025-09-23 13:19:03,429 - FolderSyncWatcher - INFO - Avvio sincronizzazione iniziale...
+2025-09-23 13:19:03,482 - FolderSyncWatcher - INFO - Sincronizzazione iniziale completata
+2025-09-23 13:19:45,220 - FolderSyncWatcher - ERROR - Errore nella creazione di documento1.txt: [WinError 32] Impossibile accedere al file. Il file è utilizzato da un altro processo
+2025-09-23 13:19:45,222 - FolderSyncWatcher - INFO - File copiato: documento1.txt
+2025-09-23 13:19:45,223 - FolderSyncWatcher - ERROR - Errore nella creazione di documento1.txt: [WinError 32] Impossibile accedere al file. Il file è utilizzato da un altro processo
+2025-09-23 13:19:45,224 - FolderSyncWatcher - WARNING - File bloccato (tentativo 1/3), attendo 3s: documento1.txt
+2025-09-23 13:19:45,226 - FolderSyncWatcher - INFO - File copiato: documento1.txt
+2025-09-23 13:19:47,219 - FolderSyncWatcher - INFO - File copiato: note_importanti.md
+2025-09-23 13:19:47,220 - FolderSyncWatcher - INFO - File copiato: note_importanti.md
+2025-09-23 13:19:48,227 - FolderSyncWatcher - WARNING - File bloccato (tentativo 1/3), attendo 3s: documento1.txt
+2025-09-23 13:19:48,231 - FolderSyncWatcher - WARNING - File copiato con nome sanitizzato: documento1.txt -> documento1.txt
+2025-09-23 13:19:48,235 - FolderSyncWatcher - INFO - File copiato: note_importanti.md
+2025-09-23 13:19:48,236 - FolderSyncWatcher - INFO - File copiato: note_importanti.md
+2025-09-23 13:19:49,226 - FolderSyncWatcher - INFO - File copiato: readme.txt
+2025-09-23 13:19:49,230 - FolderSyncWatcher - INFO - File copiato: readme.txt
+2025-09-23 13:19:51,225 - FolderSyncWatcher - INFO - File copiato: presentazione.pptx
+2025-09-23 13:19:51,242 - FolderSyncWatcher - INFO - File copiato: presentazione.pptx
+2025-09-23 13:19:51,243 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:19:51,245 - FolderSyncWatcher - WARNING - File copiato con nome sanitizzato: documento1.txt -> documento1.txt
+2025-09-23 13:19:51,249 - FolderSyncWatcher - INFO - File copiato: readme.txt
+2025-09-23 13:19:51,254 - FolderSyncWatcher - INFO - File copiato: readme.txt
+2025-09-23 13:19:51,256 - FolderSyncWatcher - INFO - File copiato: presentazione.pptx
+2025-09-23 13:19:51,258 - FolderSyncWatcher - INFO - File copiato: presentazione.pptx
+2025-09-23 13:19:51,259 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:20:07,028 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:20:11,829 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:20:22,870 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:20:32,314 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:20:39,161 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:20:53,592 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:21:00,213 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:21:14,677 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:21:16,085 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:21:31,967 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:21:35,475 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:21:47,321 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:21:55,370 - FolderSyncWatcher - INFO - File Office rilevato: presentazione.pptx, attendo 5 secondi...
+2025-09-23 13:22:02,718 - FolderSyncWatcher - INFO - File copiato: foglio_calcolo.xlsx
+2025-09-23 13:22:02,718 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:22:15,618 - FolderSyncWatcher - INFO - File copiato: foglio_calcolo.xlsx
+2025-09-23 13:22:15,619 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:22:18,763 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:22:36,537 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:22:38,717 - FolderSyncWatcher - INFO - File copiato: documento_word.docx
+2025-09-23 13:22:38,718 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:22:57,851 - FolderSyncWatcher - INFO - File copiato: documento_word.docx
+2025-09-23 13:22:57,851 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:23:00,083 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:23:19,040 - FolderSyncWatcher - INFO - Cartella creata: progetti
+2025-09-23 13:23:19,053 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_a
+2025-09-23 13:23:19,071 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_a\file_in_progetti_progetto_a.txt
+2025-09-23 13:23:19,073 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_a
+2025-09-23 13:23:19,092 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_a\file_in_progetti_progetto_a.txt
+2025-09-23 13:23:19,116 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_a\file_in_progetti_progetto_a.txt
+2025-09-23 13:23:19,129 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_b
+2025-09-23 13:23:19,141 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_b\sottocartella
+2025-09-23 13:23:19,145 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt
+2025-09-23 13:23:19,146 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_b\sottocartella
+2025-09-23 13:23:19,153 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt
+2025-09-23 13:23:19,161 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt
+2025-09-23 13:23:19,174 - FolderSyncWatcher - INFO - Cartella creata: documenti
+2025-09-23 13:23:19,233 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024
+2025-09-23 13:23:19,246 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\gennaio
+2025-09-23 13:23:19,252 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:23:19,253 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024
+2025-09-23 13:23:19,253 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\gennaio
+2025-09-23 13:23:19,259 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:23:19,260 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\gennaio
+2025-09-23 13:23:19,267 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:23:19,284 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:23:19,319 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\febbraio
+2025-09-23 13:23:19,329 - FolderSyncWatcher - INFO - File copiato: documenti\2024\febbraio\file_in_documenti_2024_febbraio.txt
+2025-09-23 13:23:19,336 - FolderSyncWatcher - INFO - File copiato: documenti\2024\febbraio\file_in_documenti_2024_febbraio.txt
+2025-09-23 13:23:19,347 - FolderSyncWatcher - INFO - Cartella creata: backup
+2025-09-23 13:23:19,359 - FolderSyncWatcher - INFO - Cartella creata: backup\vecchi_file
+2025-09-23 13:23:19,369 - FolderSyncWatcher - INFO - File copiato: backup\vecchi_file\file_in_backup_vecchi_file.txt
+2025-09-23 13:23:19,369 - FolderSyncWatcher - INFO - Cartella creata: backup\vecchi_file
+2025-09-23 13:23:19,376 - FolderSyncWatcher - INFO - File copiato: backup\vecchi_file\file_in_backup_vecchi_file.txt
+2025-09-23 13:23:19,385 - FolderSyncWatcher - INFO - File copiato: backup\vecchi_file\file_in_backup_vecchi_file.txt
+2025-09-23 13:23:19,429 - FolderSyncWatcher - INFO - Cartella creata: temp
+2025-09-23 13:23:19,442 - FolderSyncWatcher - INFO - Cartella creata: temp\lavori_in_corso
+2025-09-23 13:23:19,447 - FolderSyncWatcher - INFO - File copiato: temp\lavori_in_corso\file_in_temp_lavori_in_corso.txt
+2025-09-23 13:23:19,448 - FolderSyncWatcher - INFO - Cartella creata: temp\lavori_in_corso
+2025-09-23 13:23:19,454 - FolderSyncWatcher - INFO - File copiato: temp\lavori_in_corso\file_in_temp_lavori_in_corso.txt
+2025-09-23 13:23:19,461 - FolderSyncWatcher - INFO - File copiato: temp\lavori_in_corso\file_in_temp_lavori_in_corso.txt
+2025-09-23 13:23:19,469 - FolderSyncWatcher - INFO - File copiato: file con spazi.txt
+2025-09-23 13:23:19,481 - FolderSyncWatcher - INFO - File copiato: file-con-trattini.txt
+2025-09-23 13:23:19,500 - FolderSyncWatcher - INFO - File copiato: file_con_underscore.txt
+2025-09-23 13:23:19,511 - FolderSyncWatcher - INFO - File copiato: file.con.punti.txt
+2025-09-23 13:23:19,528 - FolderSyncWatcher - INFO - File copiato: file (con parentesi).txt
+2025-09-23 13:23:19,539 - FolderSyncWatcher - INFO - File copiato: file_piccolo.txt
+2025-09-23 13:23:19,545 - FolderSyncWatcher - INFO - File copiato: file_medio.txt
+2025-09-23 13:23:19,550 - FolderSyncWatcher - INFO - File copiato: file_grande.txt
+2025-09-23 13:23:19,554 - FolderSyncWatcher - INFO - File copiato: foglio_calcolo.xlsx
+2025-09-23 13:23:19,554 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:23:21,531 - FolderSyncWatcher - INFO - Cartella creata: progetti
+2025-09-23 13:23:21,539 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_a
+2025-09-23 13:23:21,548 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_a\file_in_progetti_progetto_a.txt
+2025-09-23 13:23:21,549 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_a
+2025-09-23 13:23:21,556 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_a\file_in_progetti_progetto_a.txt
+2025-09-23 13:23:21,566 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_a\file_in_progetti_progetto_a.txt
+2025-09-23 13:23:21,568 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_b
+2025-09-23 13:23:21,568 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_b\sottocartella
+2025-09-23 13:23:21,581 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt
+2025-09-23 13:23:21,587 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_b\sottocartella
+2025-09-23 13:23:21,600 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt
+2025-09-23 13:23:21,605 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt
+2025-09-23 13:23:21,606 - FolderSyncWatcher - INFO - Cartella creata: documenti
+2025-09-23 13:23:21,606 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024
+2025-09-23 13:23:21,607 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\gennaio
+2025-09-23 13:23:21,610 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:23:21,610 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024
+2025-09-23 13:23:21,610 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\gennaio
+2025-09-23 13:23:21,616 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:23:21,616 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\gennaio
+2025-09-23 13:23:21,622 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:23:21,627 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:23:21,628 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\febbraio
+2025-09-23 13:23:21,635 - FolderSyncWatcher - INFO - File copiato: documenti\2024\febbraio\file_in_documenti_2024_febbraio.txt
+2025-09-23 13:23:21,641 - FolderSyncWatcher - INFO - File copiato: documenti\2024\febbraio\file_in_documenti_2024_febbraio.txt
+2025-09-23 13:23:21,641 - FolderSyncWatcher - INFO - Cartella creata: backup
+2025-09-23 13:23:21,642 - FolderSyncWatcher - INFO - Cartella creata: backup\vecchi_file
+2025-09-23 13:23:21,645 - FolderSyncWatcher - INFO - File copiato: backup\vecchi_file\file_in_backup_vecchi_file.txt
+2025-09-23 13:23:21,651 - FolderSyncWatcher - INFO - File copiato: backup\vecchi_file\file_in_backup_vecchi_file.txt
+2025-09-23 13:23:21,651 - FolderSyncWatcher - INFO - Cartella creata: temp
+2025-09-23 13:23:21,651 - FolderSyncWatcher - INFO - Cartella creata: temp\lavori_in_corso
+2025-09-23 13:23:21,655 - FolderSyncWatcher - INFO - File copiato: temp\lavori_in_corso\file_in_temp_lavori_in_corso.txt
+2025-09-23 13:23:21,668 - FolderSyncWatcher - INFO - File copiato: file con spazi.txt
+2025-09-23 13:23:21,675 - FolderSyncWatcher - INFO - File copiato: file-con-trattini.txt
+2025-09-23 13:23:21,683 - FolderSyncWatcher - INFO - File copiato: file_con_underscore.txt
+2025-09-23 13:23:21,697 - FolderSyncWatcher - INFO - File copiato: file.con.punti.txt
+2025-09-23 13:23:21,701 - FolderSyncWatcher - INFO - File copiato: file (con parentesi).txt
+2025-09-23 13:23:21,706 - FolderSyncWatcher - INFO - File copiato: file_piccolo.txt
+2025-09-23 13:23:21,709 - FolderSyncWatcher - INFO - File copiato: file_medio.txt
+2025-09-23 13:23:21,715 - FolderSyncWatcher - INFO - File copiato: file_grande.txt
+2025-09-23 13:23:21,717 - FolderSyncWatcher - INFO - File copiato: foglio_calcolo.xlsx
+2025-09-23 13:23:21,717 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:23:40,544 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:23:42,826 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:23:58,670 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:24:01,010 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:24:14,234 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:24:21,081 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:24:30,249 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:24:42,516 - FolderSyncWatcher - INFO - File copiato: documento_word.docx
+2025-09-23 13:24:42,516 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:24:46,943 - FolderSyncWatcher - INFO - File copiato: documento_word.docx
+2025-09-23 13:24:46,943 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:25:03,462 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:25:04,167 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:25:19,845 - FolderSyncWatcher - INFO - Cartella creata: progetti
+2025-09-23 13:25:19,846 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_a
+2025-09-23 13:25:19,846 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_b
+2025-09-23 13:25:19,849 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_a\file_in_progetti_progetto_a.txt
+2025-09-23 13:25:19,849 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_b\sottocartella
+2025-09-23 13:25:19,853 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt
+2025-09-23 13:25:19,853 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_a
+2025-09-23 13:25:19,856 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_a\file_in_progetti_progetto_a.txt
+2025-09-23 13:25:19,861 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_a\file_in_progetti_progetto_a.txt
+2025-09-23 13:25:19,862 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_b
+2025-09-23 13:25:19,862 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_b\sottocartella
+2025-09-23 13:25:19,866 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt
+2025-09-23 13:25:19,866 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_b\sottocartella
+2025-09-23 13:25:19,868 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt
+2025-09-23 13:25:19,874 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt
+2025-09-23 13:25:19,874 - FolderSyncWatcher - INFO - Cartella creata: documenti
+2025-09-23 13:25:19,875 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024
+2025-09-23 13:25:19,875 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\gennaio
+2025-09-23 13:25:19,875 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\febbraio
+2025-09-23 13:25:19,877 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:25:19,878 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:25:25,491 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:25:36,413 - FolderSyncWatcher - INFO - File copiato: documenti\2024\febbraio\file_in_documenti_2024_febbraio.txt
+2025-09-23 13:25:36,413 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024
+2025-09-23 13:25:36,413 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\gennaio
+2025-09-23 13:25:36,414 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\febbraio
+2025-09-23 13:25:36,416 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:25:36,418 - FolderSyncWatcher - INFO - File copiato: documenti\2024\febbraio\file_in_documenti_2024_febbraio.txt
+2025-09-23 13:25:36,418 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\gennaio
+2025-09-23 13:25:36,421 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:25:36,423 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:25:36,424 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\febbraio
+2025-09-23 13:25:36,426 - FolderSyncWatcher - INFO - File copiato: documenti\2024\febbraio\file_in_documenti_2024_febbraio.txt
+2025-09-23 13:25:36,428 - FolderSyncWatcher - INFO - File copiato: documenti\2024\febbraio\file_in_documenti_2024_febbraio.txt
+2025-09-23 13:25:36,428 - FolderSyncWatcher - INFO - Cartella creata: backup
+2025-09-23 13:25:36,428 - FolderSyncWatcher - INFO - Cartella creata: backup\vecchi_file
+2025-09-23 13:25:36,431 - FolderSyncWatcher - INFO - File copiato: backup\vecchi_file\file_in_backup_vecchi_file.txt
+2025-09-23 13:25:36,431 - FolderSyncWatcher - INFO - Cartella creata: backup\vecchi_file
+2025-09-23 13:25:36,433 - FolderSyncWatcher - INFO - File copiato: backup\vecchi_file\file_in_backup_vecchi_file.txt
+2025-09-23 13:25:36,435 - FolderSyncWatcher - INFO - File copiato: backup\vecchi_file\file_in_backup_vecchi_file.txt
+2025-09-23 13:25:36,435 - FolderSyncWatcher - INFO - Cartella creata: temp
+2025-09-23 13:25:36,435 - FolderSyncWatcher - INFO - Cartella creata: temp\lavori_in_corso
+2025-09-23 13:25:36,439 - FolderSyncWatcher - INFO - File copiato: temp\lavori_in_corso\file_in_temp_lavori_in_corso.txt
+2025-09-23 13:25:36,439 - FolderSyncWatcher - INFO - Cartella creata: temp\lavori_in_corso
+2025-09-23 13:25:36,441 - FolderSyncWatcher - INFO - File copiato: temp\lavori_in_corso\file_in_temp_lavori_in_corso.txt
+2025-09-23 13:25:36,443 - FolderSyncWatcher - INFO - File copiato: temp\lavori_in_corso\file_in_temp_lavori_in_corso.txt
+2025-09-23 13:25:36,446 - FolderSyncWatcher - INFO - File copiato: file con spazi.txt
+2025-09-23 13:25:36,448 - FolderSyncWatcher - INFO - File copiato: file-con-trattini.txt
+2025-09-23 13:25:36,451 - FolderSyncWatcher - INFO - File copiato: file_con_underscore.txt
+2025-09-23 13:25:36,454 - FolderSyncWatcher - INFO - File copiato: file.con.punti.txt
+2025-09-23 13:25:36,457 - FolderSyncWatcher - INFO - File copiato: file (con parentesi).txt
+2025-09-23 13:25:36,460 - FolderSyncWatcher - INFO - File copiato: file_piccolo.txt
+2025-09-23 13:25:36,463 - FolderSyncWatcher - INFO - File copiato: file_medio.txt
+2025-09-23 13:25:36,466 - FolderSyncWatcher - INFO - File copiato: file_grande.txt
+2025-09-23 13:25:36,472 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:25:46,783 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:25:52,694 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:26:08,156 - FolderSyncWatcher - INFO - Cartella creata: progetti
+2025-09-23 13:26:08,156 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_a
+2025-09-23 13:26:08,160 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_a\file_in_progetti_progetto_a.txt
+2025-09-23 13:26:08,164 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_b
+2025-09-23 13:26:08,164 - FolderSyncWatcher - INFO - Cartella creata: progetti\progetto_b\sottocartella
+2025-09-23 13:26:08,169 - FolderSyncWatcher - INFO - File copiato: progetti\progetto_b\sottocartella\file_in_progetti_progetto_b_sottocartella.txt
+2025-09-23 13:26:08,171 - FolderSyncWatcher - INFO - Cartella creata: documenti
+2025-09-23 13:26:08,171 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024
+2025-09-23 13:26:08,172 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\gennaio
+2025-09-23 13:26:08,176 - FolderSyncWatcher - INFO - File copiato: documenti\2024\gennaio\file_in_documenti_2024_gennaio.txt
+2025-09-23 13:26:08,179 - FolderSyncWatcher - INFO - Cartella creata: documenti\2024\febbraio
+2025-09-23 13:26:08,183 - FolderSyncWatcher - INFO - File copiato: documenti\2024\febbraio\file_in_documenti_2024_febbraio.txt
+2025-09-23 13:26:08,185 - FolderSyncWatcher - INFO - Cartella creata: backup
+2025-09-23 13:26:08,186 - FolderSyncWatcher - INFO - Cartella creata: backup\vecchi_file
+2025-09-23 13:26:08,189 - FolderSyncWatcher - INFO - File copiato: backup\vecchi_file\file_in_backup_vecchi_file.txt
+2025-09-23 13:26:08,190 - FolderSyncWatcher - INFO - Cartella creata: temp
+2025-09-23 13:26:08,190 - FolderSyncWatcher - INFO - Cartella creata: temp\lavori_in_corso
+2025-09-23 13:26:08,194 - FolderSyncWatcher - INFO - File copiato: temp\lavori_in_corso\file_in_temp_lavori_in_corso.txt
+2025-09-23 13:26:08,200 - FolderSyncWatcher - INFO - File copiato: file con spazi.txt
+2025-09-23 13:26:08,203 - FolderSyncWatcher - INFO - File copiato: file-con-trattini.txt
+2025-09-23 13:26:08,208 - FolderSyncWatcher - INFO - File copiato: file_con_underscore.txt
+2025-09-23 13:26:08,212 - FolderSyncWatcher - INFO - File copiato: file.con.punti.txt
+2025-09-23 13:26:08,219 - FolderSyncWatcher - INFO - File copiato: file (con parentesi).txt
+2025-09-23 13:26:08,224 - FolderSyncWatcher - INFO - File copiato: file_piccolo.txt
+2025-09-23 13:26:08,230 - FolderSyncWatcher - INFO - File copiato: file_medio.txt
+2025-09-23 13:26:08,235 - FolderSyncWatcher - INFO - File copiato: file_grande.txt
+2025-09-23 13:26:08,236 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:26:09,094 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:26:25,645 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:26:29,828 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:26:42,159 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:26:51,776 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:26:59,779 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:27:13,882 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:27:16,322 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:27:23,917 - FolderSyncWatcher - INFO - Arresto del servizio di sincronizzazione
+2025-09-23 13:27:33,213 - FolderSyncWatcher - ERROR - Errore nella creazione di ~$cumento_word.docx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:27:33,213 - FolderSyncWatcher - INFO - File Office rilevato: ~$cumento_word.docx, attendo 5 secondi...
+2025-09-23 13:27:51,241 - FolderSyncWatcher - INFO - File Office rilevato: ~$cumento_word.docx, attendo 5 secondi...
+2025-09-23 13:28:14,252 - FolderSyncWatcher - INFO - File Office rilevato: documento_word.docx, attendo 5 secondi...
+2025-09-23 13:28:36,615 - FolderSyncWatcher - ERROR - Errore nella creazione di ~$cumento_word.docx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:28:36,622 - FolderSyncWatcher - INFO - File Office rilevato: ~$cumento_word.docx, attendo 5 secondi...
+2025-09-23 13:28:54,140 - FolderSyncWatcher - INFO - File Office rilevato: ~$cumento_word.docx, attendo 5 secondi...
+2025-09-23 13:29:11,518 - FolderSyncWatcher - INFO - File Office rilevato: foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:29:28,628 - FolderSyncWatcher - ERROR - Errore nella creazione di ~$foglio_calcolo.xlsx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:29:28,629 - FolderSyncWatcher - INFO - File Office rilevato: ~$foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:29:45,043 - FolderSyncWatcher - INFO - File Office rilevato: ~$foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:30:01,376 - FolderSyncWatcher - INFO - File Office rilevato: ~$foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:30:17,965 - FolderSyncWatcher - INFO - File Office rilevato: ~$foglio_calcolo.xlsx, attendo 5 secondi...
+2025-09-23 13:30:34,261 - FolderSyncWatcher - INFO - File copiato: Cybersecurity, Normative IT.docx
+2025-09-23 13:30:34,261 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:30:39,698 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 13:30:39,698 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 13:30:39,698 - FolderSyncWatcher - INFO - Avvio del servizio di sincronizzazione
+2025-09-23 13:30:39,739 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 13:30:39,740 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 13:30:39,740 - FolderSyncWatcher - INFO - SSD connesso, percorso Google Drive impostato a: A:\
+2025-09-23 13:30:39,740 - FolderSyncWatcher - INFO - Avvio sincronizzazione iniziale...
+2025-09-23 13:30:39,798 - FolderSyncWatcher - INFO - Copiato: Cybersecurity, Normative IT.docx
+2025-09-23 13:30:39,799 - FolderSyncWatcher - INFO - Sincronizzazione iniziale completata
+2025-09-23 13:30:50,507 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:31:07,419 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:31:07,439 - FolderSyncWatcher - INFO - File copiato: Cybersecurity, Normative IT.docx
+2025-09-23 13:31:07,440 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:31:24,441 - FolderSyncWatcher - WARNING - File Office in uso: Cybersecurity, Normative IT.docx, rimando sincronizzazione...
+2025-09-23 13:31:24,442 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:31:30,136 - FolderSyncWatcher - WARNING - File Office in uso: Cybersecurity, Normative IT.docx, rimando sincronizzazione...
+2025-09-23 13:31:30,137 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:31:41,578 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:31:52,280 - FolderSyncWatcher - INFO - File aggiornato: Cybersecurity, Normative IT.docx
+2025-09-23 13:31:52,280 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:31:58,421 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:32:13,735 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:32:14,971 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:32:31,473 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:32:35,648 - FolderSyncWatcher - ERROR - Errore nella creazione di ~$bersecurity, Normative IT.docx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:32:35,648 - FolderSyncWatcher - INFO - File Office rilevato: ~$bersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:32:48,952 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:32:58,827 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:33:05,688 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:33:22,446 - FolderSyncWatcher - WARNING - File Office in uso: Cybersecurity, Normative IT.docx, rimando sincronizzazione...
+2025-09-23 13:33:22,447 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:33:23,197 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:33:39,914 - FolderSyncWatcher - ERROR - Errore nella creazione di ~$bersecurity, Normative IT.docx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:33:39,914 - FolderSyncWatcher - INFO - File Office rilevato: ~$bersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:33:44,856 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:33:57,637 - FolderSyncWatcher - INFO - File Office rilevato: ~$bersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:34:07,734 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:34:14,655 - FolderSyncWatcher - INFO - File Office rilevato: ~$bersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:34:18,916 - FolderSyncWatcher - INFO - Arresto del servizio di sincronizzazione
+2025-09-23 13:34:31,278 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:34:42,040 - FolderSyncWatcher - WARNING - SSD disconnesso, pausa del monitoraggio
+2025-09-23 13:34:42,453 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 13:34:42,453 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 13:34:42,474 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 13:34:42,474 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 13:34:42,474 - FolderSyncWatcher - INFO - Avvio del servizio di sincronizzazione
+2025-09-23 13:34:42,511 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 13:34:42,511 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 13:34:42,511 - FolderSyncWatcher - INFO - SSD connesso, percorso Google Drive impostato a: A:\
+2025-09-23 13:34:42,511 - FolderSyncWatcher - INFO - Avvio sincronizzazione iniziale...
+2025-09-23 13:34:42,527 - FolderSyncWatcher - INFO - Copiato: Cybersecurity, Normative IT.docx
+2025-09-23 13:34:42,553 - FolderSyncWatcher - INFO - SSD riconnesso, nuovo percorso: A:\
+2025-09-23 13:34:42,553 - FolderSyncWatcher - INFO - Avvio sincronizzazione iniziale...
+2025-09-23 13:34:42,628 - FolderSyncWatcher - INFO - Copiato: Cybersecurity, Normative IT.docx
+2025-09-23 13:34:42,629 - FolderSyncWatcher - INFO - Sincronizzazione iniziale completata
+2025-09-23 13:34:47,400 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:34:47,426 - FolderSyncWatcher - INFO - Sincronizzazione iniziale completata
+2025-09-23 13:35:03,573 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:35:19,842 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:35:35,224 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:35:35,982 - FolderSyncWatcher - INFO - Arresto del servizio di sincronizzazione
+2025-09-23 13:35:51,028 - FolderSyncWatcher - ERROR - Errore nella modifica di Cybersecurity, Normative IT.docx: [WinError 2] Impossibile trovare il file specificato: 'A:\\Cybersecurity, Normative IT.docx'
+2025-09-23 13:35:51,028 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:36:06,165 - FolderSyncWatcher - ERROR - Errore nella modifica di Cybersecurity, Normative IT.docx: [WinError 2] Impossibile trovare il file specificato: 'A:\\Cybersecurity, Normative IT.docx'
+2025-09-23 13:36:06,166 - FolderSyncWatcher - ERROR - Errore nella creazione di ~$bersecurity, Normative IT.docx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:36:06,166 - FolderSyncWatcher - INFO - File Office rilevato: ~$bersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:36:21,111 - FolderSyncWatcher - INFO - File Office rilevato: ~$bersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:36:36,682 - FolderSyncWatcher - INFO - File Office rilevato: ~$bersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:36:52,091 - FolderSyncWatcher - ERROR - Errore nella creazione di ~$bersecurity, Normative IT.docx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:36:52,091 - FolderSyncWatcher - INFO - File Office rilevato: ~$bersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:37:06,140 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 13:37:06,140 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 13:37:06,140 - FolderSyncWatcher - INFO - Avvio del servizio di sincronizzazione
+2025-09-23 13:37:06,188 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 13:37:06,189 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 13:37:06,189 - FolderSyncWatcher - INFO - SSD connesso, percorso Google Drive impostato a: A:\
+2025-09-23 13:37:06,189 - FolderSyncWatcher - INFO - Avvio sincronizzazione iniziale...
+2025-09-23 13:37:06,205 - FolderSyncWatcher - INFO - Copiato: Cybersecurity, Normative IT.docx
+2025-09-23 13:37:06,284 - FolderSyncWatcher - INFO - Copiato: Cybersecurity, Normative IT.docx
+2025-09-23 13:37:06,284 - FolderSyncWatcher - INFO - Sincronizzazione iniziale completata
+2025-09-23 13:37:08,026 - FolderSyncWatcher - INFO - File Office rilevato: ~$bersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:37:23,720 - FolderSyncWatcher - INFO - File Office rilevato: ~$bersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:37:39,391 - FolderSyncWatcher - INFO - File eliminato: Cybersecurity, Normative IT.docx
+2025-09-23 13:37:39,395 - FolderSyncWatcher - INFO - File eliminato: Cybersecurity, Normative IT.docx
+2025-09-23 13:37:39,396 - FolderSyncWatcher - ERROR - Errore nell'eliminazione di Cybersecurity, Normative IT.docx: [WinError 5] Accesso negato: 'C:\\Users\\Utente\\OneDrive - Intrawelt S.a.s\\Documenti - IT\\Cybersec & IT Governance\\_ 🧰 Resources\\Cybersecurity, Normative IT.docx'
+2025-09-23 13:37:39,396 - FolderSyncWatcher - ERROR - Errore nella creazione di Cybersecurity, Normative IT.docx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:37:39,396 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:37:55,021 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:38:10,535 - FolderSyncWatcher - ERROR - Errore nella creazione di Cybersecurity, Normative IT.docx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:38:10,536 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:38:25,977 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:38:41,356 - FolderSyncWatcher - ERROR - Errore nella creazione di Cybersecurity, Normative IT.docx: [WinError 2] Impossibile trovare il file specificato
+2025-09-23 13:38:41,356 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:38:56,501 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:39:11,575 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:39:26,871 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 13:39:41,929 - FolderSyncWatcher - INFO - File Office rilevato: Cybersecurity, Normative IT.docx, attendo 5 secondi...
+2025-09-23 14:47:21,193 - FolderSyncWatcher - INFO - File copiato: Nuovo Documento di testo.txt
+2025-09-23 14:47:21,194 - FolderSyncWatcher - INFO - File copiato: Nuovo Documento di testo.txt
+2025-09-23 14:47:21,194 - FolderSyncWatcher - INFO - File copiato: Nuovo Documento di testo.txt
+2025-09-23 14:47:21,195 - FolderSyncWatcher - INFO - File copiato: Nuovo Documento di testo.txt
+2025-09-23 14:47:21,925 - FolderSyncWatcher - INFO - Spostato: Nuovo Documento di testo.txt -> test_sync.txt
+2025-09-23 14:47:21,925 - FolderSyncWatcher - INFO - Spostato: Nuovo Documento di testo.txt -> test_sync.txt
+2025-09-23 14:47:25,958 - FolderSyncWatcher - INFO - File aggiornato: test_sync.txt
+2025-09-23 14:47:25,959 - FolderSyncWatcher - WARNING - File bloccato (tentativo 1/3), attendo 3s: test_sync.txt
+2025-09-23 14:47:25,959 - FolderSyncWatcher - INFO - File aggiornato: test_sync.txt
+2025-09-23 14:47:28,961 - FolderSyncWatcher - WARNING - File bloccato (tentativo 1/3), attendo 3s: test_sync.txt
+2025-09-23 14:47:28,962 - FolderSyncWatcher - WARNING - File copiato con nome sanitizzato: test_sync.txt -> test_sync.txt
+2025-09-23 14:47:31,970 - FolderSyncWatcher - WARNING - File bloccato (tentativo 1/3), attendo 3s: test_sync.txt
+2025-09-23 14:47:31,973 - FolderSyncWatcher - WARNING - File copiato con nome sanitizzato: test_sync.txt -> test_sync.txt
+2025-09-23 14:47:34,972 - FolderSyncWatcher - WARNING - File bloccato (tentativo 1/3), attendo 3s: test_sync.txt
+2025-09-23 14:47:34,981 - FolderSyncWatcher - WARNING - File copiato con nome sanitizzato: test_sync.txt -> test_sync.txt
+2025-09-23 14:47:37,983 - FolderSyncWatcher - WARNING - File bloccato (tentativo 1/3), attendo 3s: test_sync.txt
+2025-09-23 14:47:37,996 - FolderSyncWatcher - WARNING - File copiato con nome sanitizzato: test_sync.txt -> test_sync.txt
+2025-09-23 14:47:40,986 - FolderSyncWatcher - WARNING - File bloccato (tentativo 1/3), attendo 3s: test_sync.txt
+2025-09-23 14:47:40,988 - FolderSyncWatcher - WARNING - File copiato con nome sanitizzato: test_sync.txt -> test_sync.txt
+2025-09-23 14:47:43,992 - FolderSyncWatcher - WARNING - File copiato con nome sanitizzato: test_sync.txt -> test_sync.txt
+2025-09-23 14:51:21,858 - FolderSyncWatcher - INFO - Arresto del servizio di sincronizzazione
+2025-09-23 17:48:32,813 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 17:48:32,814 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 17:48:32,814 - FolderSyncWatcher - INFO - Avvio del servizio di sincronizzazione
+2025-09-23 17:48:32,856 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-09-23 17:48:32,856 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-09-23 17:48:32,856 - FolderSyncWatcher - INFO - SSD connesso, percorso Google Drive impostato a: A:\
+2025-09-23 17:48:32,856 - FolderSyncWatcher - INFO - Avvio sincronizzazione iniziale...
+2025-09-23 17:48:32,982 - FolderSyncWatcher - INFO - Copiato: Business continuity.docx
+2025-09-23 17:48:32,984 - FolderSyncWatcher - INFO - Copiato: Cybersecurity, Normative IT.docx
+2025-09-23 17:48:32,998 - FolderSyncWatcher - INFO - Copiato: UDEMY\Enterprise Security.docx
+2025-09-23 17:48:33,006 - FolderSyncWatcher - INFO - Copiato: UDEMY\LIST.xlsx
+2025-09-23 17:48:33,014 - FolderSyncWatcher - INFO - Copiato: UDEMY\Security Analyst.docx
+2025-09-23 17:48:33,021 - FolderSyncWatcher - INFO - Copiato: UDEMY\Security Architect.docx
+2025-09-23 17:48:33,027 - FolderSyncWatcher - INFO - Copiato: UDEMY\Security Engineer.docx
+2025-09-23 17:48:33,034 - FolderSyncWatcher - INFO - Copiato: UDEMY\Site Reliability Engineer.docx
+2025-09-23 17:48:33,038 - FolderSyncWatcher - INFO - Copiato: Miscellaneous\calcolo_combinazioni_password.py
+2025-09-23 17:48:33,040 - FolderSyncWatcher - INFO - Copiato: Miscellaneous\Microsoft Purview COMPLIANCE MANAGER + defender cerca di là.txt
+2025-09-23 17:48:33,041 - FolderSyncWatcher - INFO - Copiato: Miscellaneous\roadmap_link.txt
+2025-09-23 17:48:33,044 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\(ethical) password cracking tools.jpg
+2025-09-23 17:48:33,046 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\aggiungere a roadmap (1).jpg
+2025-09-23 17:48:33,048 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\anti-phising tools.jpg
+2025-09-23 17:48:33,050 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\attacks and exploits with OSI layers (1).jpg
+2025-09-23 17:48:33,052 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\attacks and exploits with OSI layers (2).jpg
+2025-09-23 17:48:33,054 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\best_PENT_tools.jpg
+2025-09-23 17:48:33,057 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\cibersecurity_certifications.png
+2025-09-23 17:48:33,060 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\cybersec defense in-depth-structure.jpg
+2025-09-23 17:48:33,063 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\cybersec free tools.jpg
+2025-09-23 17:48:33,066 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\cybersec training platforms.jpg
+2025-09-23 17:48:33,070 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\cybersecurity tecnology stack.jpg
+2025-09-23 17:48:33,073 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\DDoS explanation.jpg
+2025-09-23 17:48:33,076 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\defense_in_depth_structure of Cybersec.jpg
+2025-09-23 17:48:33,080 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\defensive Linux security tools.jpg
+2025-09-23 17:48:33,083 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\EDR_MDR_XDR.jpg
+2025-09-23 17:48:33,085 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\ethical hacking roadmap.jpg
+2025-09-23 17:48:33,087 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\Malware analysis tools.jpg
+2025-09-23 17:48:33,090 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\Man-In-The_Middle (network attack).jpg
+2025-09-23 17:48:33,093 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\network_attacks.jpg
+2025-09-23 17:48:33,095 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\NMAP OS detection.txt
+2025-09-23 17:48:33,097 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\python_packets for working with Network protocols.txt
+2025-09-23 17:48:33,100 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\security API testing.jpg
+2025-09-23 17:48:33,102 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\SIEM da portare IN BIBBIA.txt
+2025-09-23 17:48:33,105 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\SIEM open-source tools.jpg
+2025-09-23 17:48:33,108 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\SMTP testing tools.jpg
+2025-09-23 17:48:33,123 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\SSH pentesting guide.7z
+2025-09-23 17:48:33,126 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\structure_of_a_URL.jpg
+2025-09-23 17:48:33,135 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\Top 6 Cybersecurity project ideas.7z
+2025-09-23 17:48:33,137 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\types of VPN.jpg
+2025-09-23 17:48:33,140 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\Web security (reddit).txt
+2025-09-23 17:48:33,155 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\Windows Incident Response_Ethical Hackers Academy®.7z
+2025-09-23 17:48:33,160 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\Windows Privilege Escalation.7z
+2025-09-23 17:48:33,165 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\Wireshark tutorial_Identifying host and users (2).txt
+2025-09-23 17:48:33,170 - FolderSyncWatcher - INFO - Copiato: CERTs\FINAL.docx
+2025-09-23 17:48:33,176 - FolderSyncWatcher - INFO - Copiato: CERTs\Quaderno_CLUSIT-Certificazioni_Professionali_in_Sicurezza_Informatica-Giugno_2023.pdf
+2025-09-23 17:48:33,182 - FolderSyncWatcher - INFO - Copiato: CERTs\Security-Certification-Progression-Chart-v7.0.png
+2025-09-23 17:48:33,186 - FolderSyncWatcher - INFO - Copiato: CERTs\•CompTIA Security+ (SY0-701).txt
+2025-09-23 17:48:33,189 - FolderSyncWatcher - INFO - Copiato: CERTs\•ISO_IEC 27001 Foundation.txt
+2025-09-23 17:48:33,193 - FolderSyncWatcher - INFO - Copiato: Books\elenco_libri.xlsx
+2025-09-23 17:48:33,199 - FolderSyncWatcher - INFO - Copiato: Bitdefender\on top of cybersec trends.txt
+2025-09-23 17:48:33,205 - FolderSyncWatcher - INFO - Copiato: Bitdefender\ISO27001\screenshot_08.png
+2025-09-23 17:48:33,208 - FolderSyncWatcher - INFO - Copiato: Bitdefender\ISO27001\screenshot_09.png
+2025-09-23 17:48:33,212 - FolderSyncWatcher - INFO - Copiato: Bitdefender\ISO27001\screenshot_10.png
+2025-09-23 17:48:33,215 - FolderSyncWatcher - INFO - Copiato: Bitdefender\ISO27001\screenshot_11.png
+2025-09-23 17:48:33,218 - FolderSyncWatcher - INFO - Copiato: Bitdefender\ISO27001\screenshot_12.png
+2025-09-23 17:48:33,221 - FolderSyncWatcher - INFO - Copiato: Bitdefender\ISO27001\screenshot_13.png
+2025-09-23 17:48:33,223 - FolderSyncWatcher - INFO - Copiato: Bitdefender\ISO27001\screenshot_14.png
+2025-09-23 17:48:33,226 - FolderSyncWatcher - INFO - Copiato: Bitdefender\ISO27001\screenshot_15.png
+2025-09-23 17:48:33,305 - FolderSyncWatcher - INFO - Copiato: Books\Miscellaneous\Cybersecurity - The Beginner_s Guide (2019).pdf
+2025-09-23 17:48:33,312 - FolderSyncWatcher - INFO - Copiato: Books\Miscellaneous\Cybersecurity per comuni mortali (2020).pdf
+2025-09-23 17:48:33,514 - FolderSyncWatcher - INFO - Copiato: Books\Miscellaneous\Cybersecurity – Attack and Defense Strategies (2022).pdf
+2025-09-23 17:48:33,580 - FolderSyncWatcher - INFO - Copiato: Books\Miscellaneous\Modern Cybersecurity Practices (2020).pdf
+2025-09-23 17:48:33,587 - FolderSyncWatcher - INFO - Copiato: Books\Miscellaneous\The art of invisibility (2017).pdf
+2025-09-23 17:48:33,637 - FolderSyncWatcher - INFO - Copiato: Books\Network\Computer Networking_ A Top-Down Approach (2021).pdf
+2025-09-23 17:48:33,676 - FolderSyncWatcher - INFO - Copiato: Books\Network\Network Security Essentials _Application And Standards (2016).pdf
+2025-09-23 17:48:33,701 - FolderSyncWatcher - INFO - Copiato: Books\OSs\Linux Basics for Hackers (2019).pdf
+2025-09-23 17:48:33,747 - FolderSyncWatcher - INFO - Copiato: Books\OSs\Windows Internals, Part 2 (2021).pdf
+2025-09-23 17:48:33,789 - FolderSyncWatcher - INFO - Copiato: Books\OSs\Windows Internals, Part-1 (2017).pdf
+2025-09-23 17:48:33,863 - FolderSyncWatcher - INFO - Copiato: Books\Pentesting\Learning Kali Linux_ Security Testing (2024).pdf
+2025-09-23 17:48:33,882 - FolderSyncWatcher - INFO - Copiato: Books\Pentesting\Penetration-Testing-with-Nmap (2024).pdf
+2025-09-23 17:48:33,895 - FolderSyncWatcher - INFO - Copiato: Books\Pentesting\Penetration-Testing_-A-Hands-On-Guide-For-Beginners (2020).pdf
+2025-09-23 17:48:33,929 - FolderSyncWatcher - INFO - Copiato: Books\Pentesting\PowerShell for Penetration Testing (2024).pdf
+2025-09-23 17:48:33,968 - FolderSyncWatcher - INFO - Copiato: Books\Programmazione (cybersecurity-wise)\BLACKH~1.PDF
+2025-09-23 17:48:33,980 - FolderSyncWatcher - INFO - Copiato: Books\Programmazione (cybersecurity-wise)\Hacking_ the art of exploitation (2008).pdf
+2025-09-23 17:48:33,983 - FolderSyncWatcher - INFO - Copiato: Books\Sicurezza\dati_libri.csv
+2025-09-23 17:48:34,000 - FolderSyncWatcher - INFO - Copiato: Books\Sicurezza\Metasploit_ The Penetration Tester_s Guide (2011)(1).pdf
+2025-09-23 17:48:34,017 - FolderSyncWatcher - INFO - Copiato: Books\Sicurezza\Metasploit_ The Penetration Tester_s Guide (2011).pdf
+2025-09-23 17:48:34,058 - FolderSyncWatcher - INFO - Copiato: Books\Sicurezza\The web application hacker_s handbook (2011)(1).pdf
+2025-09-23 17:48:34,101 - FolderSyncWatcher - INFO - Copiato: Books\Sicurezza\The web application hacker_s handbook (2011).pdf
+2025-09-23 17:48:34,113 - FolderSyncWatcher - INFO - Copiato: Books\Sicurezza (cloud)\Architecting the Cloud_ Design Decisions for Cloud Computing Service Models (2014).pdf
+2025-09-23 17:48:34,131 - FolderSyncWatcher - INFO - Copiato: Books\Sicurezza (cloud)\CLOUDS~1.PDF
+2025-09-23 17:48:34,142 - FolderSyncWatcher - INFO - Copiato: CERTs\aborted\Certified in Risk & Information Systems Control (CRISC).txt
+2025-09-23 17:48:34,147 - FolderSyncWatcher - INFO - Copiato: CERTs\aborted\Certified Information Privacy Manager (CIPM).txt
+2025-09-23 17:48:34,151 - FolderSyncWatcher - INFO - Copiato: CERTs\aborted\Certified Information Security Manager (CISM).txt
+2025-09-23 17:48:34,155 - FolderSyncWatcher - INFO - Copiato: CERTs\aborted\Certified information security officer  (C_ISO).txt
+2025-09-23 17:48:34,158 - FolderSyncWatcher - INFO - Copiato: CERTs\aborted\CompTIA Network+.txt
+2025-09-23 17:48:34,380 - FolderSyncWatcher - INFO - Copiato: CERTs\Books\All in One CISSP Exam Guide (2022).pdf
+2025-09-23 17:48:34,404 - FolderSyncWatcher - INFO - Copiato: CERTs\Books\CCSP Certified Cloud Security Professional (2023).pdf
+2025-09-23 17:48:34,478 - FolderSyncWatcher - INFO - Copiato: CERTs\Books\CEH v11 Certified Ethical Hacker Study Guide-Sybex (2021).pdf
+2025-09-23 17:48:34,567 - FolderSyncWatcher - INFO - Copiato: CERTs\Books\CISACE~1.PDF
+2025-09-23 17:48:34,623 - FolderSyncWatcher - INFO - Copiato: CERTs\Books\CISM Certified Information Security Manager - Exam Guide (2023).pdf
+2025-09-23 17:48:35,142 - FolderSyncWatcher - INFO - Copiato: CERTs\Books\CompTIA-CySA-Study-Guide (2023).pdf
+2025-09-23 17:48:35,157 - FolderSyncWatcher - INFO - Copiato: CERTs\CISSP\Canale discord #cissp.txt
+2025-09-23 17:48:35,162 - FolderSyncWatcher - INFO - Copiato: CERTs\CISSP\CISSP Cheat Sheet.pdf
+2025-09-23 17:48:35,166 - FolderSyncWatcher - INFO - Copiato: CERTs\CISSP\CISSP EXAM SPECIFIC.docx
+2025-09-23 17:48:35,168 - FolderSyncWatcher - INFO - Copiato: CERTs\CISSP\Esperienze importanti utenti reddit.txt
+2025-09-23 17:48:35,170 - FolderSyncWatcher - INFO - Copiato: CERTs\CISSP\Practice questions_Exams.txt
+2025-09-23 17:48:35,172 - FolderSyncWatcher - INFO - Copiato: CERTs\CISSP\requisiti esperienza professionale mancanti CISSP(1).jpg
+2025-09-23 17:48:35,176 - FolderSyncWatcher - INFO - Copiato: CERTs\CISSP\requisiti esperienza professionale mancanti CISSP(2).jpg
+2025-09-23 17:48:35,178 - FolderSyncWatcher - INFO - Copiato: CERTs\CISSP\requisiti esperienza professionale mancanti CISSP(3).jpg
+2025-09-23 17:48:35,181 - FolderSyncWatcher - INFO - Copiato: CERTs\CISSP\Videos.txt
+2025-09-23 17:48:35,306 - FolderSyncWatcher - INFO - Copiato: CERTs\Books\CISSP\Tier A\A Concise Guide-Destination CISSP (2024).pdf
+2025-09-23 17:48:35,333 - FolderSyncWatcher - INFO - Copiato: CERTs\Books\CISSP\Tier A\CISSP Cert Guide 4th Edition-Pearson IT Certification (2023).pdf
+2025-09-23 17:48:35,363 - FolderSyncWatcher - INFO - Copiato: CERTs\Books\CISSP\Tier A\CISSP For Dummies (2024).pdf
+2025-09-23 17:48:35,376 - FolderSyncWatcher - INFO - Copiato: CERTs\Books\CISSP\Tier A\CISSPE~1.PDF
+2025-09-23 17:48:35,392 - FolderSyncWatcher - INFO - Copiato: CERTs\Books\CISSP\Tier B\CISSPF~1.PDF
+2025-09-23 17:48:35,465 - FolderSyncWatcher - INFO - Copiato: CERTs\Books\CISSP\Tier B\ISC2CI~1.PDF
+2025-09-23 17:48:35,476 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\NIS 2\cerbeyra per NIs 2.png
+2025-09-23 17:48:35,490 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\NIS 2\differenze di obblighi.png
+2025-09-23 17:48:35,495 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\NIS 2\direttivaNIS e modello 231.png
+2025-09-23 17:48:35,499 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\NIS 2\governance nis2.png
+2025-09-23 17:48:35,502 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\NIS 2\principali implementazioni Nis2.png
+2025-09-23 17:48:35,505 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\NIS 2\sanzioni.png
+2025-09-23 17:48:35,508 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\NIS 2\settori interessati dalla NIS 2.png
+2025-09-23 17:48:35,512 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\NIS 2\target NIs 2.png
+2025-09-23 17:48:35,513 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\pages\Red team.txt
+2025-09-23 17:48:35,515 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\pages\Cybersecurity news.txt
+2025-09-23 17:48:35,516 - FolderSyncWatcher - INFO - Copiato: Cheatsheets\pages\Ethicalhackers academy.txt
+2025-09-23 17:48:35,517 - FolderSyncWatcher - INFO - Sincronizzazione iniziale completata
+2025-09-23 17:48:43,479 - FolderSyncWatcher - INFO - File copiato: Nuovo Documento di testo.txt
+2025-09-23 17:48:43,481 - FolderSyncWatcher - INFO - File copiato: Nuovo Documento di testo.txt
+2025-09-23 17:48:44,938 - FolderSyncWatcher - INFO - Spostato: Nuovo Documento di testo.txt -> pipipipi.txt
+2025-09-23 17:48:51,217 - FolderSyncWatcher - INFO - File eliminato: pipipipi.txt
+2025-09-23 17:48:53,750 - FolderSyncWatcher - INFO - Arresto del servizio di sincronizzazione

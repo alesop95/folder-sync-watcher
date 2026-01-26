@@ -1,0 +1,49 @@
+2025-10-10 14:34:30,611 - FolderSyncWatcher - INFO - SUBST A: creato per J:googleDrive_sync\Portfolio and ongoing studies\🛠️ Ongoing studies\Cybersec, BC, IT governance, DevOps, Programming, Networking\CYBERSECURITY, BC, governance
+2025-10-10 14:34:30,614 - FolderSyncWatcher - INFO - 🔧 DEBUG: Creato nuovo SUBST = A:\
+2025-10-10 14:34:30,615 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-10-10 14:34:31,043 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-10-10 14:34:31,043 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-10-10 14:34:31,044 - FolderSyncWatcher - INFO - Avvio del servizio di sincronizzazione
+2025-10-10 14:34:31,091 - FolderSyncWatcher - INFO - 🔧 DEBUG: Usando SUBST esistente = A:\
+2025-10-10 14:34:31,091 - FolderSyncWatcher - INFO - Usando unità SUBST A:\ per Google Drive
+2025-10-10 14:34:31,091 - FolderSyncWatcher - INFO - SSD connesso, percorso Google Drive impostato a: A:\
+2025-10-10 14:34:31,093 - FolderSyncWatcher - INFO - Avvio sincronizzazione iniziale...
+2025-10-10 14:34:31,100 - FolderSyncWatcher - INFO - Copiato: Books\elenco_libri.xlsx
+2025-10-10 14:34:31,107 - FolderSyncWatcher - INFO - Copiato: CERTs\MAIN (ragionamenti).docx
+2025-10-10 14:34:31,133 - FolderSyncWatcher - INFO - Copiato: Miscellaneous\CAIQ.txt
+2025-10-10 14:34:31,136 - FolderSyncWatcher - INFO - Copiato: Miscellaneous\DPA.txt
+2025-10-10 14:34:31,261 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] CompTIA Security+ (SY0-701)\CompTIA Security+ (SY0-701) Complete Course & Practice Exam (Udemy bootcamp).pdf
+2025-10-10 14:34:31,272 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] CompTIA Security+ (SY0-701)\CompTIA Security+ (SY0-701).docx
+2025-10-10 14:34:31,296 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] CompTIA Security+ (SY0-701)\CompTIA Security+ Practice Tests_ Exam SY0-701 (2024, Sybex).pdf
+2025-10-10 14:34:31,325 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] CompTIA Security+ (SY0-701)\CompTIA Security+ SY0-701 Certification Guide, 3rd Edition (for DUC PHAM) (2024).pdf
+2025-10-10 14:34:31,358 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] CompTIA Security+ (SY0-701)\CompTIA Security+ SY0-701 Last Minute Cram (2024).pdf
+2025-10-10 14:34:31,394 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] CompTIA Security+ (SY0-701)\CompTIA Security+ SY0-701 Practice Tests & PBQs_ Exam SY0-701 (2024).pdf
+2025-10-10 14:34:31,401 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] CompTIA Security+ (SY0-701)\CompTIA SY0-701 Security+ Training Course (Professor Messer).pdf
+2025-10-10 14:34:31,406 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] CompTIA Security+ (SY0-701)\[ESAME] CompTIA Security+ (SY0-701).txt
+2025-10-10 14:34:31,430 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] ISO_IEC 270012022 (Foundation)\ISO 27001 Controls - A guide to implementing and auditing (2024).pdf
+2025-10-10 14:34:31,435 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] ISO_IEC 270012022 (Foundation)\ISO 27001 Training and Implementation Resources (Free).pdf
+2025-10-10 14:34:31,447 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] ISO_IEC 270012022 (Foundation)\ISO_IEC 27001 Foundation.docx
+2025-10-10 14:34:31,479 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] ISO_IEC 270012022 (Foundation)\IT Governance_ An international guide to data security and ISO 27001_ISO 27002, 8th edition (2024).pdf
+2025-10-10 14:34:31,506 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] ISO_IEC 270012022 (Foundation)\Nine-Steps-to-Success_-An-ISO-27001_2022-Implementation-Overview-_2024_.pdf
+2025-10-10 14:34:31,518 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] ISO_IEC 270012022 (Foundation)\[ESAME] ISO_IEC 270012022.txt
+2025-10-10 14:34:31,540 - FolderSyncWatcher - INFO - Copiato: CAIQ.txt
+2025-10-10 14:34:31,546 - FolderSyncWatcher - INFO - Copiato: DPA.txt
+2025-10-10 14:34:31,567 - FolderSyncWatcher - INFO - Copiato: CERTs\FINAL.docx
+2025-10-10 14:34:31,574 - FolderSyncWatcher - INFO - Copiato: CERTs\•CompTIA Security+ (SY0-701).txt
+2025-10-10 14:34:31,577 - FolderSyncWatcher - INFO - Copiato: CERTs\•ISO_IEC 27001 Foundation.txt
+2025-10-10 14:34:31,591 - FolderSyncWatcher - INFO - Copiato: CERTs\CISSP\CISSP Cheat Sheet.pdf
+2025-10-10 14:34:31,596 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] CompTIA Security+ (SY0-701)\CompTIA Security+ (SY0-701) Complete Course & Practice Exam (Udemy bootcamp).pdf
+2025-10-10 14:34:31,601 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] CompTIA Security+ (SY0-701)\CompTIA Security+ Practice Tests_ Exam SY0-701 (2024, Sybex).pdf
+2025-10-10 14:34:31,603 - FolderSyncWatcher - ERROR - Errore durante la sincronizzazione di CERTs\[ESAME] CompTIA Security+ (SY0-701)\CompTIA Security+ SY0-701 Certification Guide, 3rd Edition (for DUC PHAM) (2024).pdf: [Errno 13] Permission denied: 'C:\\Users\\Utente\\OneDrive - Intrawelt S.a.s\\Documenti - IT\\Cybersec & IT Governance\\_ 🧰 Resources\\CERTs\\[ESAME] CompTIA Security+ (SY0-701)\\CompTIA Security+ SY0-701 Certification Guide, 3rd Edition (for DUC PHAM) (2024).pdf'
+2025-10-10 14:34:31,633 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] CompTIA Security+ (SY0-701)\CompTIA Security+ SY0-701 Last Minute Cram (2024).pdf
+2025-10-10 14:34:31,639 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] CompTIA Security+ (SY0-701)\CompTIA Security+ SY0-701 Practice Tests & PBQs_ Exam SY0-701 (2024).pdf
+2025-10-10 14:34:31,643 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] CompTIA Security+ (SY0-701)\CompTIA SY0-701 Security+ Training Course (Professor Messer).pdf
+2025-10-10 14:34:31,647 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] CompTIA Security+ (SY0-701)\[ESAME] CompTIA Security+ (SY0-701).txt
+2025-10-10 14:34:31,652 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] ISO_IEC 270012022 (Foundation)\ISO 27001 Controls - A guide to implementing and auditing (2024).pdf
+2025-10-10 14:34:31,654 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] ISO_IEC 270012022 (Foundation)\ISO 27001 Training and Implementation Resources (Free).pdf
+2025-10-10 14:34:31,658 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] ISO_IEC 270012022 (Foundation)\ISO_IEC 27001 Foundation.docx
+2025-10-10 14:34:31,664 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] ISO_IEC 270012022 (Foundation)\IT Governance_ An international guide to data security and ISO 27001_ISO 27002, 8th edition (2024).pdf
+2025-10-10 14:34:31,685 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] ISO_IEC 270012022 (Foundation)\Nine-Steps-to-Success_-An-ISO-27001_2022-Implementation-Overview-_2024_.pdf
+2025-10-10 14:34:31,690 - FolderSyncWatcher - INFO - Copiato: CERTs\[ESAME] ISO_IEC 270012022 (Foundation)\[ESAME] ISO_IEC 270012022.txt
+2025-10-10 14:34:31,694 - FolderSyncWatcher - INFO - Sincronizzazione iniziale completata
+2025-10-10 14:35:05,950 - FolderSyncWatcher - INFO - Arresto del servizio di sincronizzazione
