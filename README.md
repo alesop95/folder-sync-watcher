@@ -593,7 +593,9 @@ Per problemi o domande:
 
 ## Licenza
 
-Non protetto attualmente da licenza.
+Questo progetto è rilasciato sotto licenza MIT. Consulta il file `LICENSE` per i dettagli.
+
+Copyright (c) 2026 Alessio Sopranzi
 
 ---
 
