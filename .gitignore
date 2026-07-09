@@ -11,3 +11,24 @@ logs/
 
 .DS_Store
 Thumbs.db
+
+# ──────────────────────────────────────────────────────────────
+# Altri file e cartelle da ignorare
+# ──────────────────────────────────────────────────────────────
+_notes/
+CLAUDE.local.md
+.claude/settings.local.json
+
+# Segreti e materiale di credenziale: mai committati.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Estratti temporanei di documenti voluminosi (cartelle scratch)
+.tmp-doc-*/
+
+# Documenti Word grezzi (binari). Dichiarare qui le eventuali eccezioni curate, es:
+#   !docs/specifica-ufficiale.docx
+*.docx
