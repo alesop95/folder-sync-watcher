@@ -201,7 +201,7 @@ class FolderSyncWatcher:
             self.logger.warning(f"Cartella sorgente non trovata: {source}")
             return
 
-        dest_path.mkdir(parents=True, exist_ok=True)
+        self.operazioni.crea_cartella(dest_path)
 
         for item in source_path.rglob('*'):
             if self.config_loader.is_excluded(str(item)):
@@ -212,13 +212,11 @@ class FolderSyncWatcher:
 
             try:
                 if item.is_dir():
-                    dest_item.mkdir(parents=True, exist_ok=True)
+                    self.operazioni.crea_cartella(dest_item, rel_path)
                 elif self._should_copy_file(item, dest_item):
-                    dest_item.parent.mkdir(parents=True, exist_ok=True)
-                    from shutil import copy2
-
-                    copy2(str(item), str(dest_item))
-                    self.logger.info(f"Copiato: {rel_path}")
+                    self.operazioni.crea_cartella(dest_item.parent)
+                    if self.operazioni.copia(item, dest_item, rel_path):
+                        self.logger.info(f"Copiato: {rel_path}")
             except Exception as e:
                 self.logger.error(f"Errore durante la sincronizzazione di {rel_path}: {e}")
 
@@ -264,14 +262,12 @@ class FolderSyncWatcher:
             rel_path = src.relative_to(source_folder)
             dest = dest_folder / rel_path
             if src.is_dir():
-                dest.mkdir(parents=True, exist_ok=True)
-                self.logger.info(f"Cartella creata: {rel_path}")
+                if self.operazioni.crea_cartella(dest, rel_path):
+                    self.logger.info(f"Cartella creata: {rel_path}")
             else:
-                dest.parent.mkdir(parents=True, exist_ok=True)
-                from shutil import copy2
-
-                copy2(str(src), str(dest))
-                self.logger.info(f"File copiato: {rel_path}")
+                self.operazioni.crea_cartella(dest.parent)
+                if self.operazioni.copia(src, dest, rel_path):
+                    self.logger.info(f"File copiato: {rel_path}")
         except Exception as e:
             self.logger.error(f"Errore nella creazione di {rel_path}: {e}")
 
@@ -303,14 +299,19 @@ class FolderSyncWatcher:
         """Copia sicura di un file con gestione degli errori avanzata"""
         max_attempts = 5 if is_office_file else 3
 
-        dest.parent.mkdir(parents=True, exist_ok=True)
+        # In prova a vuoto ci si ferma qui: le strategie di ripiego qui sotto servono a vincere
+        # un filesystem ostile, e simularne una in particolare significherebbe indovinare quale
+        # avrebbe funzionato. Si dichiara la copia e basta.
+        if self.prova_a_vuoto:
+            self.operazioni.copia(src, dest, rel_path)
+            return
+
+        self.operazioni.crea_cartella(dest.parent)
 
         for attempt in range(max_attempts):
             try:
                 if attempt == 0:
-                    from shutil import copy2
-
-                    copy2(str(src), str(dest))
+                    self.operazioni.copia(src, dest, rel_path)
                     self.logger.info(f"File aggiornato: {rel_path}")
                     return
 
@@ -318,9 +319,7 @@ class FolderSyncWatcher:
                     try:
                         src_short = FilePathManager.get_short_path(str(src))
                         dest_short = FilePathManager.get_short_path(str(dest.parent)) + "\\" + dest.name
-                        from shutil import copy2
-
-                        copy2(src_short, dest_short)
+                        self.operazioni.copia(src_short, dest_short, rel_path)
                         self.logger.info(f"File aggiornato con percorsi corti: {rel_path}")
                         return
                     except Exception:
@@ -331,28 +330,22 @@ class FolderSyncWatcher:
                         subprocess.run(f'handle.exe -c {dest.name} -y', shell=True, capture_output=True)
                     except Exception:
                         pass
-                    from shutil import copy2
-
-                    copy2(str(src), str(dest))
+                    self.operazioni.copia(src, dest, rel_path)
                     self.logger.info(f"File aggiornato dopo chiusura handle: {rel_path}")
                     return
 
                 if attempt == 3:
                     temp_dest = dest.parent / f"~temp_{dest.name}"
-                    from shutil import copy2
-
-                    copy2(str(src), str(temp_dest))
+                    self.operazioni.copia(src, temp_dest, rel_path)
                     if dest.exists():
-                        dest.unlink()
-                    temp_dest.rename(dest)
+                        self.operazioni.rimuovi_file(dest, rel_path)
+                    self.operazioni.rinomina(temp_dest, dest, rel_path)
                     self.logger.info(f"File aggiornato con copia temporanea: {rel_path}")
                     return
 
                 sanitized_name = FilePathManager.sanitize_filename(dest.name)
                 new_dest = dest.parent / sanitized_name
-                from shutil import copy2
-
-                copy2(str(src), str(new_dest))
+                self.operazioni.copia(src, new_dest, rel_path)
                 self.logger.warning(f"File copiato con nome sanitizzato: {rel_path} -> {sanitized_name}")
                 return
 
@@ -392,13 +385,11 @@ class FolderSyncWatcher:
             dest = dest_folder / rel_path
             if dest.exists():
                 if dest.is_dir():
-                    from shutil import rmtree
-
-                    rmtree(str(dest))
-                    self.logger.info(f"Cartella eliminata: {rel_path}")
+                    if self.operazioni.rimuovi_albero(dest, rel_path):
+                        self.logger.info(f"Cartella eliminata: {rel_path}")
                 else:
-                    dest.unlink()
-                    self.logger.info(f"File eliminato: {rel_path}")
+                    if self.operazioni.rimuovi_file(dest, rel_path):
+                        self.logger.info(f"File eliminato: {rel_path}")
         except Exception as e:
             self.logger.error(f"Errore nell'eliminazione di {rel_path}: {e}")
 
@@ -410,9 +401,9 @@ class FolderSyncWatcher:
             old_dest = dest_folder / old_rel
             new_dest = dest_folder / new_rel
             if old_dest.exists():
-                new_dest.parent.mkdir(parents=True, exist_ok=True)
-                old_dest.rename(new_dest)
-                self.logger.info(f"Spostato: {old_rel} -> {new_rel}")
+                self.operazioni.crea_cartella(new_dest.parent)
+                if self.operazioni.rinomina(old_dest, new_dest, f"{old_rel} -> {new_rel}"):
+                    self.logger.info(f"Spostato: {old_rel} -> {new_rel}")
         except Exception as e:
             self.logger.error(f"Errore nello spostamento: {e}")
 
@@ -509,6 +500,9 @@ class FolderSyncWatcher:
         self.stop_observers()
         if self.sync_thread and self.sync_thread.is_alive():
             self.sync_thread.join(timeout=10)
+        riepilogo = self.operazioni.riepilogo()
+        self.logger.info(riepilogo)
+        print(f"{Fore.CYAN}{riepilogo}")
         print(f"{Fore.RED}Watcher arrestato")
 
 

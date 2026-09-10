@@ -5,6 +5,24 @@
 > toccati, motivo e commit di riferimento. Le voci precedenti al 2026-07-09 sono ricostruite dalla
 > storia dei commit in fase di allineamento, senza inventare dettagli che il commit non dimostra.
 
+## 2026-09-10 - Prova a vuoto, e le scritture ridotte a un varco solo
+
+Commit di riferimento: segue `442b4ee`, che ha catturato questo lavoro a meta'
+File toccati: `folder_sync_watcher/operazioni.py` (nuovo), `folder_sync_watcher/watcher.py`,
+`sync_watcher.py`, `tests/test_operazioni.py` (nuovo), `README.md`
+
+Seconda modifica della giornata, richiesta perche' il programma non ha mai avuto un modo di provare senza scrivere, e la prima esecuzione dopo un ripuntamento e' gia' una scrittura reale su una cartella specchiata con l'azienda. La decisione, con le opzioni scartate, e' in ADR-007.
+
+Il lavoro vero non e' stata la modalita' ma la rifattorizzazione che la rende credibile. Le scritture erano nove, sparse in altrettanti punti con `copy2` importato inline ogni volta; ora passano tutte da `OperazioniFile`, che esegue o annota a seconda della modalita' e conta in entrambi i casi. La verifica che non ne sia rimasta fuori nessuna e' meccanica e va rifatta a ogni modifica: in `watcher.py` non deve comparire alcun `copy2`, `rmtree`, `unlink`, `rename` o `mkdir` fuori da quella classe, e oggi l'unica occorrenza rimasta e' `log_dir.mkdir`, che crea la cartella dei log e non e' una scrittura di sincronizzazione.
+
+Attivazione da configurazione con `sync_settings.dry_run` o da riga di comando con `--prova-a-vuoto`, che ha la precedenza. All'arresto viene stampato un riepilogo per tipo di operazione, in entrambe le modalita'.
+
+Prova end-to-end su due cartelle finte, che verifica insieme questa modifica e quella precedente sulla radice dichiarata. La radice si e' risolta al percorso atteso partendo da `folders.source_base`; in prova a vuoto entrambi i lati sono rimasti identici confrontando percorsi e dimensioni prima e dopo, con sei cartelle e tre copie annunciate; la stessa sincronizzazione eseguita davvero ha fatto convergere i due lati sugli stessi quattro elementi, con sette cartelle e tre copie. La differenza fra sei e sette e' il limite dichiarato in ADR-007 e non un difetto: senza scrivere, lo stato del filesystem non avanza e il conteggio riflette il primo passaggio.
+
+Test: sei casi nuovi in `tests/test_operazioni.py`, e quello che conta davvero verifica che dopo una prova a vuoto l'elenco dei file e le loro dimensioni siano immutati, non che i metodi restituiscano il valore giusto. La suite passa a ventuno test.
+
+Incidente di percorso da registrare perche' spiega la storia dei commit: il commit `442b4ee` e' stato dato mentre questa rifattorizzazione era a meta', perche' l'utente ha rilanciato per errore la stessa sequenza di comandi due volte. Contiene `operazioni.py` e un `watcher.py` incompleto, quindi non e' un punto della storia da cui il programma funzioni; il commit successivo lo chiude. Non e' stato riscritto perche' era gia' sul remoto.
+
 ## 2026-09-10 - Radice della sorgente dichiarabile in configurazione
 
 Commit di riferimento: working tree non ancora commitato

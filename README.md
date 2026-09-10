@@ -62,6 +62,19 @@ Modificare il file `config.json` per personalizzare il comportamento. Ecco una s
 - `excluded_patterns`: pattern di file e cartelle da escludere dalla sincronizzazione (inclusi file temporanei, cartelle di sistema, e le cartelle 'folder-sync-watcher' e 'venv')
 - `check_ssd_connected`: controllare se l'SSD è connesso
 - `ssd_volume_label`: Etichetta del volume SSD da controllare
+- `dry_run`: prova a vuoto. A vero il programma non scrive nulla: registra nel log ogni operazione che eseguirebbe, con il prefisso `[PROVA A VUOTO]`, le conta e stampa un riepilogo all'arresto. Si può attivare anche dalla riga di comando con `--prova-a-vuoto`, che ha la precedenza su questa chiave
+
+### Prova a vuoto
+
+La prima esecuzione dopo aver cambiato le cartelle in configurazione è già una scrittura reale su entrambi i lati, e in bidirezionale una configurazione sbagliata si propaga subito. La prova a vuoto esiste per questo: mostra che cosa farebbe il primo passaggio senza farlo.
+
+```powershell
+python sync_watcher.py --prova-a-vuoto
+```
+
+Tutte le scritture passano da un solo punto, la classe `OperazioniFile` in `folder_sync_watcher/operazioni.py`, ed è quella a decidere se eseguire o soltanto annotare: è l'unico modo perché la garanzia valga davvero, perché una modalità che non scrive è credibile solo se esiste un unico varco da presidiare.
+
+Un limite va dichiarato perché è inerente e non un difetto: non creando cartelle e non copiando file, la prova a vuoto lascia il filesystem fermo, quindi le decisioni che dipendono dal suo stato, in particolare il confronto delle date che stabilisce se un file va copiato, vedono un mondo diverso da quello che vedrebbero a metà di una esecuzione reale. La prova a vuoto descrive il primo passaggio, non il secondo.
 
 ```json
 {

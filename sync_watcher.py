@@ -27,6 +27,14 @@ init(autoreset=True)
 def _parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(add_help=True)
     parser.add_argument('--config', default='config.json')
+    parser.add_argument(
+        '--prova-a-vuoto',
+        dest='prova_a_vuoto',
+        action='store_true',
+        default=None,
+        help="Non scrive nulla: registra le operazioni che eseguirebbe e le conta. "
+             "Ha la precedenza su sync_settings.dry_run del file di configurazione.",
+    )
     return parser.parse_args(argv)
 
 
@@ -34,7 +42,7 @@ def main(argv: Optional[List[str]] = None):
     """Funzione principale"""
     args = _parse_args(argv)
     try:
-        watcher = FolderSyncWatcher(config_path=args.config)
+        watcher = FolderSyncWatcher(config_path=args.config, prova_a_vuoto=args.prova_a_vuoto)
         watcher.start()
     except Exception as e:
         print(f"{Fore.RED}Errore fatale: {e}")
