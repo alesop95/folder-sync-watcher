@@ -26,6 +26,7 @@ from .config import SyncConfig
 from .hashing import FileHasher
 from .operazioni import OperazioniFile
 from .paths import FilePathManager
+from .pin import ancora_albero
 from .source import descrizione_attesa, risolvi_percorso, risolvi_radice, usa_base_esplicita
 from .subst import SubstManager
 
@@ -179,6 +180,20 @@ class FolderSyncWatcher:
         if not usa_base_esplicita(self.config) and not self.config['sync_settings']['check_ssd_connected']:
             return True
         return self.google_drive_folder is not None and Path(self.google_drive_folder).exists()
+
+    def ancora_sorgente(self) -> dict:
+        """Ancora in locale il sottoalbero sorgente, se la configurazione lo chiede.
+
+        Va eseguito prima della sincronizzazione iniziale: se il client cloud tiene segnaposto,
+        leggere i file per confrontarli li idraterebbe uno alla volta e nell'ordine sbagliato,
+        mentre l'ancoraggio dichiara l'intento una volta e lascia che sia il client a scaricare.
+        """
+        if not self.config.get('sync_settings', {}).get('pin_source', False):
+            return {}
+        if not self.google_drive_folder:
+            self.logger.error("Ancoraggio saltato: percorso sorgente non risolto")
+            return {}
+        return ancora_albero(self.google_drive_folder, self.logger, self.operazioni)
 
     def initial_sync(self):
         """Esegue una sincronizzazione iniziale completa"""
@@ -419,6 +434,7 @@ class FolderSyncWatcher:
             print(f"{Fore.GREEN}Sorgente disponibile in: {self.google_drive_folder}")
             self.logger.info(f"Sorgente disponibile, percorso impostato a: {self.google_drive_folder}")
 
+        self.ancora_sorgente()
         self.initial_sync()
         self.running = True
         self.start_observers()

@@ -5,6 +5,22 @@
 > toccati, motivo e commit di riferimento. Le voci precedenti al 2026-07-09 sono ricostruite dalla
 > storia dei commit in fase di allineamento, senza inventare dettagli che il commit non dimostra.
 
+## 2026-09-10 - Ancoraggio in locale del sottoalbero sorgente
+
+Commit di riferimento: working tree non ancora commitato
+File toccati: `folder_sync_watcher/pin.py` (nuovo), `folder_sync_watcher/watcher.py`,
+`tests/test_pin.py` (nuovo), `README.md`
+
+Terza e ultima delle cose che il ripuntamento verso una cartella cloud richiedeva. La decisione, con le opzioni scartate, e' in ADR-008. Si attiva con `sync_settings.pin_source` e gira prima della sincronizzazione iniziale, perche' altrimenti sarebbe il confronto dei file a scaricarli uno alla volta.
+
+Si chiama `SetFileAttributesW` con il prefisso per percorsi lunghi invece di `attrib.exe`, e la ragione e' misurata e non teorica: lo stesso giorno, su un albero Proton reale, `attrib` aveva saltato in silenzio 780 file su 1994 perche' i loro percorsi stavano fra 260 e 263 caratteri, dichiarando successo. Un test di regressione costruisce un percorso oltre i 260 caratteri e verifica che l'ancoraggio lo copra.
+
+Prova sul campo, su un solo file di un albero Proton reale, ancorato e poi riportato a solo online: gli attributi passano da `UNPINNED` a `PINNED` e tornano indietro, quindi il client rispetta la dichiarazione. Verificato dopo, con l'enumerazione della cartella, che nessuno dei 2370 file del perimetro sia rimasto materializzato.
+
+Errore di diagnosi commesso e corretto nella stessa prova, che vale piu' del risultato. Leggendo gli attributi con la funzione nuova avevo concluso che l'intero albero si fosse idratato, e avevo attribuito la colpa a `Path.resolve()`, che segue i reparse point. L'enumerazione della cartella diceva il contrario: nessun file era cambiato. La causa vera e' che attraverso il prefisso per percorsi lunghi `GetFileAttributesW` non riporta i bit del segnaposto, quindi era la mia misura a mentire, non il filesystem a cedere. Il limite e' ora documentato nella docstring della funzione e in ADR-008. La sostituzione di `resolve()` con `abspath` e' rimasta, ma come precauzione dichiarata e non come correzione di un difetto osservato: non ho prove che `resolve()` idratasse.
+
+Test: cinque casi nuovi in `tests/test_pin.py`, fra cui il percorso oltre i 260 caratteri e la prova che in prova a vuoto non venga ancorato nulla. La suite passa a ventisei test.
+
 ## 2026-09-10 - Prova a vuoto, e le scritture ridotte a un varco solo
 
 Commit di riferimento: segue `442b4ee`, che ha catturato questo lavoro a meta'

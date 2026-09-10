@@ -63,6 +63,17 @@ Modificare il file `config.json` per personalizzare il comportamento. Ecco una s
 - `check_ssd_connected`: controllare se l'SSD è connesso
 - `ssd_volume_label`: Etichetta del volume SSD da controllare
 - `dry_run`: prova a vuoto. A vero il programma non scrive nulla: registra nel log ogni operazione che eseguirebbe, con il prefisso `[PROVA A VUOTO]`, le conta e stampa un riepilogo all'arresto. Si può attivare anche dalla riga di comando con `--prova-a-vuoto`, che ha la precedenza su questa chiave
+- `pin_source`: ancoraggio in locale. A vero, prima della sincronizzazione iniziale il programma marca il sottoalbero sorgente come da tenere sempre sul disco. Serve quando la sorgente vive dentro un client cloud a segnaposto, per evitare che due motori di sincronizzazione governino lo stesso albero
+
+### Ancoraggio in locale della sorgente
+
+Un client di sincronizzazione cloud non tiene i file sul disco: tiene segnaposto, e scarica il contenuto quando qualcuno lo legge. Se la cartella sorgente vive dentro un albero così, il client disidrata ciò che ritiene inutilizzato mentre questo watcher decide per data di modifica: con politica `newest` finirebbe per propagare all'altro lato qualunque cosa il client abbia toccato per ultimo. L'ancoraggio dichiara al sistema che quel sottoalbero deve restare materializzato, e il client cloud lo rispetta.
+
+L'implementazione è in `folder_sync_watcher/pin.py` e chiama direttamente `SetFileAttributesW` con il prefisso per percorsi lunghi, invece di usare `attrib.exe`: quello strumento salta in silenzio ogni percorso che raggiunge i 260 caratteri, lasciando indietro parte dei file senza segnalarlo. Il risultato non si desume dal codice di uscita ma rileggendo gli attributi, e se qualche elemento resta indietro il programma lo scrive nel log come avvertimento.
+
+L'ancoraggio riguarda il solo sottoalbero sorgente e non l'intero albero cloud: su una macchina condivisa o aziendale la scelta di che cosa scende in locale è una scelta di riservatezza, e va dichiarata per la cartella che serve.
+
+Limite misurato e da conoscere: attraverso il prefisso per percorsi lunghi, `GetFileAttributesW` non riporta i bit propri del segnaposto (`OFFLINE`, `REPARSE_POINT`, `SPARSE_FILE`), che l'enumerazione della directory riporta invece correttamente, mentre `PINNED` e `UNPINNED` sono corretti in entrambe. Per sapere se un file è materializzato si guarda l'enumerazione della cartella, non quella funzione.
 
 ### Prova a vuoto
 
