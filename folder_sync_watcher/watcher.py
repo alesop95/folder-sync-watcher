@@ -24,6 +24,7 @@ from watchdog.observers import Observer
 
 from .config import SyncConfig
 from .hashing import FileHasher
+from .operazioni import OperazioniFile
 from .paths import FilePathManager
 from .source import descrizione_attesa, risolvi_percorso, risolvi_radice, usa_base_esplicita
 from .subst import SubstManager
@@ -62,7 +63,7 @@ class SyncHandler(FileSystemEventHandler):
 class FolderSyncWatcher:
     """Classe principale per la sincronizzazione delle cartelle"""
 
-    def __init__(self, config_path: str = "config.json"):
+    def __init__(self, config_path: str = "config.json", prova_a_vuoto: Optional[bool] = None):
         self.config_loader = SyncConfig(config_path)
         self.config = self.config_loader.config
         self.onedrive_folder = self.config['folders']['onedrive']
@@ -71,7 +72,13 @@ class FolderSyncWatcher:
         self.observers = []
         self.running = False
         self.sync_thread: Optional[threading.Thread] = None
+        if prova_a_vuoto is None:
+            prova_a_vuoto = self.config.get('sync_settings', {}).get('dry_run', False)
+        self.prova_a_vuoto = bool(prova_a_vuoto)
         self.setup_logging()
+        self.operazioni = OperazioniFile(self.logger, self.prova_a_vuoto)
+        if self.prova_a_vuoto:
+            self.logger.warning("MODALITA' PROVA A VUOTO: nessuna scrittura verra' eseguita")
         self.update_gdrive_path()
 
     def setup_logging(self):
