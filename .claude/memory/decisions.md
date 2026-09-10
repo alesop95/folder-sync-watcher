@@ -81,3 +81,19 @@ Contesto: ...
 Decisione: ...
 Motivazione: ...
 Conseguenze: ... -->
+
+## ADR-006 - Radice della sorgente dichiarabile, non solo derivata dall'etichetta di volume
+
+Data: 2026-09-10.
+
+Contesto: fino a oggi la cartella sorgente si otteneva sempre nello stesso modo, cioè cercando fra le unità montate quella con l'etichetta dichiarata in `sync_settings.ssd_volume_label` e componendo la sua lettera con `folders.google_drive_relative_path`. L'assunzione implicita era che la sorgente vivesse su un'unità rimovibile identificabile per etichetta, e regge finché la sorgente è l'SSD esterno. Il progetto `my-cv`, nella sua Fase 7, sposta quell'archivio dentro la cartella locale di un client di sincronizzazione cloud: quella cartella sta nel profilo utente, non ha etichetta di volume, e non esiste oggi alcun modo di dichiararla in configurazione.
+
+Opzioni valutate. Dare al volume di sistema un'etichetta e continuare a cercare per etichetta: scartata, perché rinomina un volume di sistema per aggirare un limite del programma, e l'etichetta di `C:` non è una scelta che spetta a questo progetto. Riscrivere `find_ssd_drive_letter` perché accetti anche un percorso: scartata, perché quella funzione ha un compito solo, trovare una lettera da un'etichetta, e allargarlo la renderebbe una funzione che fa due cose diverse a seconda dell'argomento. Introdurre una chiave di configurazione che dichiara la radice: scelta.
+
+Scelta: la radice si dichiara con `folders.source_base`, un percorso assoluto. Quando è presente vince sulla ricerca per etichetta; quando manca il comportamento è identico a prima, quindi le configurazioni esistenti continuano a funzionare senza alcuna modifica. Il percorso relativo accetta il nome nuovo `source_relative_path` e ripiega su `google_drive_relative_path`, che resta valido. La risoluzione vive in un modulo nuovo, `folder_sync_watcher/source.py`, e i quattro punti che prima componevano il percorso per conto proprio, due in `watcher.py` e due in `subst_manager.py`, ora lo chiedono a lui: la duplicazione era la ragione per cui un difetto è sopravvissuto a lungo.
+
+Difetto corretto contestualmente, ed è la ragione per cui questa non è solo una aggiunta. `Path('J:') / relativo` non produce un percorso assoluto ma `J:relativo`, che Windows risolve rispetto alla directory corrente di quell'unità: il codice sostituito lo faceva in tutti e quattro i punti. La normalizzazione della radice ora avviene una volta sola, dentro il modulo nuovo, e un test di regressione la copre.
+
+Conseguenza sul controllo di raggiungibilità: `check_ssd_connected` significava due cose insieme, cioè attendere un'unità rimovibile e verificare che la cartella esista. Con una base esplicita la prima non ha senso e la seconda serve più di prima, perché una cartella cloud può sparire senza che sparisca un disco. Il flag continua quindi a governare l'attesa, mentre la verifica di esistenza diventa incondizionata quando la base è dichiarata: sincronizzare in bidirezionale verso una radice sparita significherebbe propagare cancellazioni all'altro lato.
+
+Cosa questa decisione non fa, e va detto perché è la parte che manca. Non cambia la configurazione di questa macchina, che resta puntata all'SSD: il ripuntamento è un passo separato, da fare quando la cartella di destinazione esisterà davvero. Non introduce alcuna modalità di prova a vuoto, che il watcher continua a non avere, quindi il primo avvio dopo un ripuntamento resta una scrittura reale e va provato prima su cartelle finte. E non implementa il pin dei file cloud in locale, che la Fase 7 di `my-cv` assegna a questo programma e che resta da progettare.

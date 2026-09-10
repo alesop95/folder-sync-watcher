@@ -8,7 +8,7 @@ import sys
 import subprocess
 from pathlib import Path
 from folder_sync_watcher import FilePathManager, SubstManager, SyncConfig
-from folder_sync_watcher.ssd import find_ssd_drive_letter
+from folder_sync_watcher.source import descrizione_attesa, risolvi_percorso
 
 def main():
     """Funzione principale per gestire SUBST"""
@@ -60,15 +60,12 @@ def setup_subst_from_config():
         drive_letter = sync_settings.get('subst_drive_letter', 'A')
         drive_letter = str(drive_letter).upper().rstrip(':').rstrip('\\')
         
-        # Trova il percorso fisico dell'SSD
-        physical_drive = find_ssd_drive_letter(sync_settings.get('ssd_volume_label', ''))
-        
-        if not physical_drive:
-            print("SSD non trovato. Verifica che sia connesso e configurato correttamente.")
+        # Radice della sorgente: base esplicita in configurazione, oppure etichetta di volume
+        full_path = risolvi_percorso(config)
+
+        if not full_path:
+            print(f"Sorgente non trovata ({descrizione_attesa(config)}). Verifica la configurazione.")
             return False
-        
-        relative_path = config['folders']['google_drive_relative_path']
-        full_path = str(Path(physical_drive) / relative_path)
         
         print(f"Configurando SUBST {drive_letter}: -> {full_path}")
         
@@ -145,11 +142,10 @@ def test_file_access():
         problem_file = "Cybersecurity, Normative IT.docx"
         
         # Testa accesso tramite percorso normale
-        physical_drive = find_ssd_drive_letter(config.get('sync_settings', {}).get('ssd_volume_label', ''))
-        
-        if physical_drive:
-            relative_path = config['folders']['google_drive_relative_path']
-            normal_path = Path(physical_drive) / relative_path / problem_file
+        sorgente = risolvi_percorso(config)
+
+        if sorgente:
+            normal_path = Path(sorgente) / problem_file
             
             print("Testando accesso al file problematico...")
             print(f"Percorso normale: {normal_path}")

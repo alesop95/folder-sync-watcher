@@ -5,6 +5,26 @@
 > toccati, motivo e commit di riferimento. Le voci precedenti al 2026-07-09 sono ricostruite dalla
 > storia dei commit in fase di allineamento, senza inventare dettagli che il commit non dimostra.
 
+## 2026-09-10 - Radice della sorgente dichiarabile in configurazione
+
+Commit di riferimento: working tree non ancora commitato
+File toccati: `folder_sync_watcher/source.py` (nuovo), `folder_sync_watcher/watcher.py`,
+`subst_manager.py`, `tests/test_source.py` (nuovo), `README.md`
+
+Modifica richiesta dalla Fase 7 del progetto `my-cv`, che sposta su Proton Drive l'archivio di studio di cui questo watcher sorveglia una sottocartella. La sorgente smette di essere l'SSD `T7` e diventa una cartella locale del client Proton, che non ha etichetta di volume: senza questa modifica non esisteva modo di dichiararla.
+
+Cosa cambia nel codice. Nasce `folder_sync_watcher/source.py`, che risolve radice e percorso completo della sorgente e che accetta la chiave nuova `folders.source_base`. I quattro punti che prima componevano il percorso da soli, `update_gdrive_path` e `_setup_subst_drive` in `watcher.py` e le due funzioni di `subst_manager.py`, ora chiamano lui. Il metodo `FolderSyncWatcher.find_ssd_drive_letter` conserva il nome storico ma delega, così i chiamanti esterni non si rompono. La decisione e le opzioni scartate stanno in ADR-006.
+
+Difetto latente trovato e corretto strada facendo, che è il guadagno inatteso di questa modifica: `Path('J:') / relativo` restituisce `J:relativo`, cioè un percorso relativo alla directory corrente di quell'unità e non un percorso assoluto, e il codice lo faceva in tutti e quattro i punti. Ha un test di regressione dedicato in `tests/test_source.py`.
+
+Retrocompatibilità verificata e non assunta: caricando il `config.json` reale di questa macchina, senza toccarlo, la radice si risolve a `J:\` e il percorso completo esiste su disco. La configurazione non è stata modificata, perché il ripuntamento alla cartella Proton è un passo separato che si fa quando quella cartella esisterà davvero.
+
+Test: otto casi nuovi in `tests/test_source.py` coprono base esplicita contro etichetta, precedenza fra i due nomi del percorso relativo, normalizzazione della lettera nuda e sorgente assente. La suite passa a quindici test.
+
+Cosa resta aperto, in ordine. Il ripuntamento della configurazione, che richiede la cartella di destinazione già popolata. Il primo avvio dopo il ripuntamento, che va provato su una coppia di cartelle finte perché questo programma non ha alcuna modalità di prova a vuoto e la prima esecuzione è già una scrittura reale su una cartella specchiata con l'azienda. Il pin dei file cloud in locale, che la Fase 7 di `my-cv` assegna a questo programma e che qui non è ancora progettato.
+
+---
+
 ## 2026-07-09 — Gate MCP, gate auto-memory, e fix di un test durante la verifica
 
 Commit di riferimento: 2f8d917 (working tree ancora non commitato)

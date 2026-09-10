@@ -12,6 +12,8 @@ Commit di riferimento: 2f8d91773b4d07b87f778d46deb821d646046c7c
 Data snapshot:        2026-07-09
 ```
 
+Lavoro non committato al 2026-09-10, da leggere prima di qualunque altra cosa: la radice della sorgente e' ora dichiarabile in configurazione con `folders.source_base`, secondo ADR-006, e il modulo nuovo e' `folder_sync_watcher/source.py`. La modifica nasce dalla Fase 7 del progetto `my-cv` ed e' stata eseguita da una sessione aperta su quel repository, non da qui, per decisione esplicita dell'utente del 2026-09-10 che ha revocato per questa volta la regola opposta. Il `config.json` di questa macchina non e' stato toccato e punta ancora all'SSD `T7`. Il dettaglio sta nella voce del 2026-09-10 di `progress.md`.
+
 ## Stato di verifica delle schede
 
 | Scheda | last-verified | Stato |

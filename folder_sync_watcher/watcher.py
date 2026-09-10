@@ -25,7 +25,7 @@ from watchdog.observers import Observer
 from .config import SyncConfig
 from .hashing import FileHasher
 from .paths import FilePathManager
-from .ssd import find_ssd_drive_letter
+from .source import descrizione_attesa, risolvi_percorso, risolvi_radice, usa_base_esplicita
 from .subst import SubstManager
 
 
@@ -101,11 +101,12 @@ class FolderSyncWatcher:
             self.logger.addHandler(console_handler)
 
     def find_ssd_drive_letter(self) -> Optional[str]:
-        """Trova la lettera dell'unità SSD in base all'etichetta del volume"""
-        if not self.config['sync_settings']['check_ssd_connected']:
-            return None
-        volume_label = self.config['sync_settings']['ssd_volume_label']
-        return find_ssd_drive_letter(volume_label)
+        """Radice della sorgente: base esplicita se dichiarata, altrimenti etichetta di volume.
+
+        Il nome resta quello storico per non rompere i chiamanti esistenti, ma la risoluzione
+        e' delegata a `source.risolvi_radice`, che accetta anche una cartella locale.
+        """
+        return risolvi_radice(self.config)
 
     def update_gdrive_path(self) -> bool:
         """Aggiorna il percorso della cartella Google Drive trovando l'SSD o usando SUBST"""
@@ -126,10 +127,9 @@ class FolderSyncWatcher:
                 self.logger.info(f"Usando unità SUBST {subst_letter}:\\ per Google Drive")
                 return True
 
-        drive_letter = self.find_ssd_drive_letter()
-        if drive_letter:
-            relative_path = self.config['folders']['google_drive_relative_path']
-            self.google_drive_folder = str(Path(drive_letter) / relative_path)
+        percorso = risolvi_percorso(self.config)
+        if percorso:
+            self.google_drive_folder = percorso
             return True
 
         self.google_drive_folder = None
@@ -138,13 +138,10 @@ class FolderSyncWatcher:
     def _setup_subst_drive(self, drive_letter: str) -> bool:
         """Configura l'unità SUBST per Google Drive"""
         try:
-            physical_drive = self.find_ssd_drive_letter()
-            if not physical_drive:
-                self.logger.error("SSD non trovato per configurare SUBST")
+            full_path = risolvi_percorso(self.config)
+            if not full_path:
+                self.logger.error(f"Sorgente non trovata per configurare SUBST: {descrizione_attesa(self.config)}")
                 return False
-
-            relative_path = self.config['folders']['google_drive_relative_path']
-            full_path = str(Path(physical_drive) / relative_path)
 
             existing_drives = SubstManager.list_subst_drives()
             if drive_letter in existing_drives:
@@ -165,8 +162,14 @@ class FolderSyncWatcher:
             return False
 
     def check_ssd_connected(self) -> bool:
-        """Verifica se l'SSD esterno è connesso"""
-        if not self.config['sync_settings']['check_ssd_connected']:
+        """Verifica che la cartella sorgente sia raggiungibile.
+
+        Con una base esplicita la verifica si fa sempre, anche a `check_ssd_connected` falso:
+        quel flag disattiva l'attesa di un'unita' rimovibile, non il controllo che la cartella
+        da sincronizzare esista. Sincronizzare verso una radice sparita significherebbe
+        propagare cancellazioni verso l'altro lato.
+        """
+        if not usa_base_esplicita(self.config) and not self.config['sync_settings']['check_ssd_connected']:
             return True
         return self.google_drive_folder is not None and Path(self.google_drive_folder).exists()
 
@@ -411,12 +414,12 @@ class FolderSyncWatcher:
         print(f"{Fore.GREEN}Avvio del Folder Sync Watcher...")
         self.logger.info("Avvio del servizio di sincronizzazione")
 
-        if self.config['sync_settings']['check_ssd_connected']:
-            print(f"{Fore.YELLOW}In attesa dell'SSD con etichetta '{self.config['sync_settings']['ssd_volume_label']}'...")
+        if usa_base_esplicita(self.config) or self.config['sync_settings']['check_ssd_connected']:
+            print(f"{Fore.YELLOW}In attesa della {descrizione_attesa(self.config)}...")
             while not self.update_gdrive_path():
                 time.sleep(5)
-            print(f"{Fore.GREEN}SSD connesso! Trovato in: {self.google_drive_folder}")
-            self.logger.info(f"SSD connesso, percorso Google Drive impostato a: {self.google_drive_folder}")
+            print(f"{Fore.GREEN}Sorgente disponibile in: {self.google_drive_folder}")
+            self.logger.info(f"Sorgente disponibile, percorso impostato a: {self.google_drive_folder}")
 
         self.initial_sync()
         self.running = True
@@ -433,17 +436,18 @@ class FolderSyncWatcher:
 
         try:
             while self.running:
-                if self.config['sync_settings']['check_ssd_connected'] and not self.check_ssd_connected():
-                    self.logger.warning("SSD disconnesso, pausa del monitoraggio")
-                    print(f"{Fore.YELLOW}SSD disconnesso!")
+                sorveglia_sorgente = usa_base_esplicita(self.config) or self.config['sync_settings']['check_ssd_connected']
+                if sorveglia_sorgente and not self.check_ssd_connected():
+                    self.logger.warning("Sorgente non raggiungibile, pausa del monitoraggio")
+                    print(f"{Fore.YELLOW}Sorgente non raggiungibile!")
                     self.stop_observers()
 
-                    print(f"{Fore.YELLOW}In attesa della riconnessione dell'SSD...")
+                    print(f"{Fore.YELLOW}In attesa della {descrizione_attesa(self.config)}...")
                     while not self.update_gdrive_path():
                         time.sleep(5)
 
-                    print(f"{Fore.GREEN}SSD riconnesso ({self.google_drive_folder}), ripresa del monitoraggio")
-                    self.logger.info(f"SSD riconnesso, nuovo percorso: {self.google_drive_folder}")
+                    print(f"{Fore.GREEN}Sorgente tornata ({self.google_drive_folder}), ripresa del monitoraggio")
+                    self.logger.info(f"Sorgente tornata, nuovo percorso: {self.google_drive_folder}")
                     self.initial_sync()
                     self.start_observers()
                 time.sleep(5)

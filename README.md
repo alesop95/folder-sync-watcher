@@ -53,7 +53,9 @@ Il sistema include un logging completo con rotazione automatica e supporta l'esc
 Modificare il file `config.json` per personalizzare il comportamento. Ecco una spiegazione delle impostazioni principali:
 
 - `onedrive`: percorso della cartella OneDrive da sincronizzare
-- `google_drive_relative_path`: percorso relativo della cartella Google Drive
+- `source_base` (facoltativo): percorso assoluto della radice da cui deriva la cartella sorgente. Se presente sostituisce la ricerca dell'SSD per etichetta di volume, e serve quando la sorgente non è un'unità rimovibile ma una cartella locale, tipicamente quella di un client di sincronizzazione cloud. Quando è dichiarato, `check_ssd_connected` e `ssd_volume_label` non concorrono a trovare la radice, mentre la verifica che la cartella esista resta sempre attiva
+- `source_relative_path` (facoltativo): percorso relativo della cartella sorgente rispetto alla radice. È il nome nuovo di `google_drive_relative_path`, che resta valido e viene usato quando questo manca
+- `google_drive_relative_path`: percorso relativo della cartella sorgente rispetto alla radice
 - `bidirectional`: abilitare/disabilitare la sincronizzazione bidirezionale
 - `sync_interval_seconds`: intervallo di sincronizzazione in secondi
 - `conflict_resolution`: strategia per la risoluzione dei conflitti ('newest', 'largest', 'hash')
