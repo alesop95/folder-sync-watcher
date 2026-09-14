@@ -87,12 +87,35 @@ def e_ancorato(percorso) -> bool:
     return bool(attributi & FILE_ATTRIBUTE_PINNED) and not attributi & FILE_ATTRIBUTE_UNPINNED
 
 
+def e_liberato(percorso) -> bool:
+    attributi = leggi_attributi(percorso)
+    if attributi is None:
+        return False
+    return bool(attributi & FILE_ATTRIBUTE_UNPINNED) and not attributi & FILE_ATTRIBUTE_PINNED
+
+
 def ancora(percorso) -> bool:
     """Marca un singolo elemento come da tenere sempre in locale."""
     attributi = leggi_attributi(percorso)
     if attributi is None:
         return False
     nuovi = (attributi | FILE_ATTRIBUTE_PINNED) & ~FILE_ATTRIBUTE_UNPINNED
+    if nuovi == attributi:
+        return True
+    return bool(_kernel32.SetFileAttributesW(_lungo(percorso), nuovi))
+
+
+def libera(percorso) -> bool:
+    """Marca un singolo elemento come disponibile solo online, simmetrico di `ancora`.
+
+    Imposta `UNPINNED` e toglie `PINNED`, con lo stesso prefisso per i percorsi lunghi e la
+    stessa idempotenza di `ancora`: se gli attributi sono gia' quelli attesi non chiama
+    `SetFileAttributesW` una seconda volta.
+    """
+    attributi = leggi_attributi(percorso)
+    if attributi is None:
+        return False
+    nuovi = (attributi | FILE_ATTRIBUTE_UNPINNED) & ~FILE_ATTRIBUTE_PINNED
     if nuovi == attributi:
         return True
     return bool(_kernel32.SetFileAttributesW(_lungo(percorso), nuovi))
@@ -142,4 +165,55 @@ def ancora_albero(radice, logger, operazioni=None) -> dict:
         )
     else:
         logger.info(f"Ancorati in locale {esito['ancorati']} elementi sotto {radice}")
+    return esito
+
+
+def libera_albero(radice, logger, operazioni=None) -> dict:
+    """Libera ricorsivamente un albero, simmetrico di `ancora_albero`.
+
+    Serve per restringere il perimetro locale dopo uno spostamento su un client cloud: la
+    scelta di cosa scende in locale su una macchina condivisa o aziendale e' di riservatezza,
+    quindi tutto cio' che non deve restare materializzato va dichiarato esplicitamente
+    `UNPINNED`, non lasciato al criterio del client. La verifica del risultato rilegge gli
+    attributi con la stessa cautela di `ancora_albero`: un attributo impostato senza errore
+    puo' essere stato riscritto dal client subito dopo, e qui in piu' la disidratazione vera e
+    propria e' asincrona, quindi un elemento puo' risultare ancora `PINNED` per un istante dopo
+    che l'attributo e' stato tolto.
+    """
+    radice = Path(radice)
+    esito = {'esaminati': 0, 'liberati': 0, 'non_liberati': 0, 'simulati': 0}
+
+    if _kernel32 is None:
+        logger.warning("Sblocco non disponibile: API di Windows non raggiungibili")
+        return esito
+
+    if not radice.exists():
+        logger.error(f"Sblocco saltato, radice inesistente: {radice}")
+        return esito
+
+    elementi = [radice] + sorted(radice.rglob('*'))
+    for elemento in elementi:
+        esito['esaminati'] += 1
+        if operazioni is not None and operazioni.prova_a_vuoto:
+            esito['simulati'] += 1
+            continue
+        libera(elemento)
+
+    if esito['simulati']:
+        logger.info(f"[PROVA A VUOTO] libererebbe (solo online) {esito['simulati']} elementi sotto {radice}")
+        return esito
+
+    for elemento in elementi:
+        if e_liberato(elemento):
+            esito['liberati'] += 1
+        else:
+            esito['non_liberati'] += 1
+
+    if esito['non_liberati']:
+        logger.warning(
+            f"Sblocco incompleto sotto {radice}: {esito['liberati']} liberati, "
+            f"{esito['non_liberati']} no. Ripetere dopo che il client ha finito di propagare."
+        )
+    else:
+        logger.info(f"Liberati (solo online) {esito['liberati']} elementi sotto {radice}")
     return esito

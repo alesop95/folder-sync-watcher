@@ -1,7 +1,8 @@
 {
     "folders": {
         "onedrive": "C:\\Users\\Utente\\OneDrive - Intrawelt S.a.s\\Documenti - IT\\Cybersec & IT Governance\\_ 🧰 Resources",
-        "google_drive_relative_path": "googleDrive_sync\\Portfolio and ongoing studies\\🛠️ Ongoing studies\\Cybersec, BC, IT governance, DevOps, Programming, Networking\\CYBERSECURITY, BC, governance"
+        "source_base": "C:\\Users\\Utente\\Proton Drive\\alesop95\\My files\\Portfolio and ongoing studies\\🛠️ Ongoing studies",
+        "source_relative_path": "Cybersec, BC, IT governance, DevOps, Programming, Networking\\CYBERSECURITY, BC, governance"
     },
     "sync_settings": {
         "bidirectional": true,
@@ -23,6 +24,7 @@
         "ssd_volume_label": "T7",
         "use_subst": true,
         "subst_drive_letter": "A",
+        "pin_source": true,
         "sanitize_filenames": false,
         "office_file_delay": 10
     },

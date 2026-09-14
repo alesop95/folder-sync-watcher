@@ -5,7 +5,19 @@ Folder Sync Watcher - Sincronizzazione bidirezionale tra OneDrive e Google Drive
 
 import argparse
 import logging
+import sys
 from typing import List, Optional
+
+# La console di Windows usa di norma una codepage legacy (es. cp1252), che non rappresenta
+# emoji e altri caratteri fuori dal suo set: un percorso sorgente con un'emoji, come quello
+# sotto Proton dal 2026-09-14, mandava altrimenti in eccezione ogni print() o log verso
+# stdout/stderr non appena quel percorso compariva in un messaggio. reconfigure(errors='replace')
+# lascia la codepage cosi' com'e' e sostituisce solo i caratteri non rappresentabili, invece di
+# far fallire l'intero avvio per un problema di visualizzazione. Va fatto prima di init(), che
+# avvolge sys.stdout cosi' come si trova in quel momento.
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, 'reconfigure'):
+        _stream.reconfigure(errors='replace')
 
 try:
     from colorama import init, Fore

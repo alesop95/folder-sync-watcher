@@ -78,3 +78,61 @@ def test_radice_inesistente_non_solleva(tmp_path):
     esito = pin.ancora_albero(tmp_path / 'non-esiste', _logger())
 
     assert esito['esaminati'] == 0
+
+
+def test_libera_un_singolo_file(tmp_path):
+    f = tmp_path / 'x.txt'
+    f.write_text('x', encoding='utf-8')
+    pin.ancora(f)
+    assert pin.e_ancorato(f) is True
+
+    assert pin.libera(f) is True
+    assert pin.e_liberato(f) is True
+    assert pin.e_ancorato(f) is False
+
+
+def test_libera_albero_copre_tutto(tmp_path):
+    radice = _albero(tmp_path)
+    pin.ancora_albero(radice, _logger())
+
+    esito = pin.libera_albero(radice, _logger())
+
+    assert esito['esaminati'] == 5
+    assert esito['non_liberati'] == 0
+    assert esito['liberati'] == esito['esaminati']
+    assert pin.e_ancorato(radice / 'a' / 'uno.txt') is False
+
+
+def test_libera_albero_supera_il_limite_dei_260_caratteri(tmp_path):
+    """Stessa regressione di ancora_albero, sul lato opposto."""
+    profondo = tmp_path
+    for _ in range(12):
+        profondo = profondo / ('segmento_lungo_' + 'x' * 20)
+    profondo.mkdir(parents=True)
+    bersaglio = profondo / 'in-fondo.txt'
+    bersaglio.write_text('y', encoding='utf-8')
+    assert len(str(bersaglio)) > 260
+
+    pin.ancora_albero(tmp_path, _logger())
+    esito = pin.libera_albero(tmp_path, _logger())
+
+    assert esito['non_liberati'] == 0
+    assert pin.e_liberato(bersaglio) is True
+
+
+def test_libera_prova_a_vuoto_non_libera_nulla(tmp_path):
+    radice = _albero(tmp_path)
+    pin.ancora_albero(radice, _logger())
+    op = OperazioniFile(_logger(), prova_a_vuoto=True)
+
+    esito = pin.libera_albero(radice, _logger(), op)
+
+    assert esito['simulati'] == esito['esaminati']
+    assert esito['liberati'] == 0
+    assert pin.e_ancorato(radice / 'a' / 'uno.txt') is True
+
+
+def test_libera_radice_inesistente_non_solleva(tmp_path):
+    esito = pin.libera_albero(tmp_path / 'non-esiste', _logger())
+
+    assert esito['esaminati'] == 0

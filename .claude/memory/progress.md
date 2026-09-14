@@ -5,6 +5,34 @@
 > toccati, motivo e commit di riferimento. Le voci precedenti al 2026-07-09 sono ricostruite dalla
 > storia dei commit in fase di allineamento, senza inventare dettagli che il commit non dimostra.
 
+## 2026-09-14 - Tre difetti trovati dalla prima prova a vuoto reale, tutti corretti
+
+Commit di riferimento: working tree non ancora commitato
+File toccati: `sync_watcher.py`, `folder_sync_watcher/subst.py`, `tests/test_subst.py` (nuovo)
+
+Eseguito dalla stessa sessione su `my-cv` di cui parla la voce sotto, immediatamente dopo, per lo stesso motivo: il microstep 4 richiedeva di eseguire davvero `python sync_watcher.py --prova-a-vuoto` sulla coppia ripuntata (passo 8 del suo piano), e i tre difetti sono emersi solo eseguendolo, non leggendo il codice. Nessuno dei tre e' specifico di `my-cv`: tutti e tre esistevano gia' e non erano mai stati esercitati, perche' questo watcher e' fermo dal 21 gennaio e nessuna delle sessioni precedenti lo aveva ancora avviato con una configurazione reale che punta a Proton.
+
+Primo difetto: la console di Windows usa una codepage legacy (cp1252 su questa macchina), che non rappresenta l'emoji nel nome di `🛠️ Ongoing studies`. Ogni `print()` o messaggio di log che la contenesse mandava in eccezione `UnicodeEncodeError` l'intero avvio, prima ancora che il watcher facesse alcunche'. Corretto in `sync_watcher.py` con `sys.stdout.reconfigure(errors='replace')` e lo stesso per `stderr`, prima di `colorama.init()`: la codepage resta quella del sistema, i soli caratteri non rappresentabili vengono sostituiti invece di far fallire l'avvio.
+
+Secondo difetto, in `SubstManager.create_subst_drive`/`remove_subst_drive`: il comando passava per `cmd.exe` con `shell=True` e una stringa concatenata, che codifica la riga di comando con la stessa codepage legacy. Un percorso con l'emoji arrivava quindi troncato o alterato e SUBST falliva con "Impossibile creare SUBST A:", senza altra indicazione. Corretto passando gli argomenti come lista senza `shell=True`: `subst.exe` e' un eseguibile vero sotto `System32` e non serve una shell per invocarlo, e con la lista Windows riceve gli argomenti in UTF-16 cosi' come sono in Python.
+
+Terzo difetto, indipendente dai primi due e non legato all'emoji: `list_subst_drives()` non riconosceva mai un'unita' gia' montata. Il formato reale dell'output di `subst.exe` e' `A:\: => percorso`, due punti seguiti da un backslash prima del separatore `=> `, mentre il codice assumeva che la lettera finisse solo con i due punti; il controllo `endswith(':')` non scattava mai, il backslash restava attaccato alla lettera nella chiave del dizionario, e `subst_letter in existing_drives` era sempre falso. Il sintomo pratico: al secondo avvio o dopo un'unita' rimasta montata da una sessione precedente, il watcher tentava sempre di ricrearla e falliva con "Unita' gia' sostituita" invece di riusare quella che c'era. Corretto con `drive.strip().rstrip(':\\/ ')`, che toglie qualunque combinazione finale di due punti, backslash, slash e spazi in un solo passaggio.
+
+Verifica: quattro test nuovi in `tests/test_subst.py`, che mockano `subprocess.run` per controllare che gli argomenti passati non includano `shell=True` e che il parsing riconosca il formato vero `A:\: => percorso`, incluso un percorso con l'emoji per il primo difetto. La suite passa a trentasette test. Prova sul campo, non solo simulata: `python sync_watcher.py --prova-a-vuoto` con `config.json` ripuntato su Proton ha completato la sincronizzazione iniziale simulata senza errori, con `SUBST A:` creato al primo avvio e riusato correttamente a una seconda chiamata nello stesso processo.
+
+## 2026-09-14 - Sblocco simmetrico dell'ancoraggio: libera/libera_albero
+
+Commit di riferimento: working tree non ancora commitato
+File toccati: `folder_sync_watcher/pin.py`, `tests/test_pin.py`
+
+Eseguito da una sessione aperta su `my-cv`, non da qui, per decisione esplicita dell'utente che ha revocato per questa volta la regola opposta: lo stesso precedente gia' applicato il 2026-09-10 per ADR-006. Il motivo e' lo stesso: il microstep 4 della Fase 7 di quel progetto sposta `Ongoing studies` su Proton e deve restringere subito dopo il perimetro locale al solo sottoalbero specchiato con l'azienda, e farlo da una sessione dedicata su questo repository avrebbe solo rimandato il lavoro senza cambiarne la forma.
+
+La decisione, con le opzioni scartate, e' in ADR-009. La funzione nuova e' simmetrica di quella che gia' c'era: `libera`/`libera_albero` impostano `UNPINNED` e tolgono `PINNED`, con lo stesso prefisso per i percorsi lunghi, la stessa verifica per rilettura invece che per codice di uscita, e la stessa modalita' di prova a vuoto di `ancora`/`ancora_albero`. Aggiunta anche `e_liberato`, simmetrica di `e_ancorato`, per la verifica.
+
+Test: sei casi nuovi in `tests/test_pin.py`, sullo stesso modello di quelli gia' presenti per `ancora_albero`, incluso lo stesso caso di regressione oltre i 260 caratteri sul lato opposto. La suite passa a trentuno test.
+
+Non fatto qui, e resta al chiamante: applicare `libera_albero` su un albero Proton reale e verificarne l'esito con l'enumerazione della cartella, perche' la disidratazione vera e propria dipende dal client e non da questo codice, esattamente come per l'ancoraggio in ADR-008.
+
 ## 2026-09-10 - Ancoraggio in locale del sottoalbero sorgente
 
 Commit di riferimento: working tree non ancora commitato
