@@ -27,4 +27,4 @@ roadmap.
 
 ## Idee e ipotesi da verificare
 
-<nessuna, in attesa di input dell'utente>
+Rischio noto e non presidiato dal 2026-09-14, ADR-010: due cartelle con nomi diversi sui due lati non vengono riconciliate come la stessa cartella, ma trattate come due cartelle distinte, ciascuna propagata sull'altro lato. Ha gia' prodotto un caso reale, la reintroduzione su Proton di uno screenshot anonimizzato da ADR-011 di `my-cv` sotto il suo nome originale mai anonimizzato. Un preflight che elenca le cartelle di primo livello presenti su un solo lato, con conferma esplicita prima del primo avvio su una coppia nuova, e' l'opzione valutata e non ancora implementata: da riprendere se il caso si ripete o prima di ripuntare il watcher su un'altra coppia.

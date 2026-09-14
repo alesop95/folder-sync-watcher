@@ -5,6 +5,16 @@
 > toccati, motivo e commit di riferimento. Le voci precedenti al 2026-07-09 sono ricostruite dalla
 > storia dei commit in fase di allineamento, senza inventare dettagli che il commit non dimostra.
 
+## 2026-09-14 - Cartelle con nomi diversi non riconciliate: un'anonimizzazione tornata indietro, e la correzione a mano
+
+**Trovato non dal codice ma controllando lo stato dopo un avvio reale.** Il primo avvio sulla coppia ripuntata su Proton (dopo il ripuntamento e il quarto difetto qui sotto) aveva gia' sincronizzato correttamente 352 cartelle e 243 file, ma fra questi c'era `NIST Cybersecurity Framework -CSF` (senza spazio), una cartella che OneDrive aveva da tempo e che il lato personale non aveva mai avuto con quel nome esatto: il lato personale la chiamava `NIST Cybersecurity Framework - CSF`, con lo spazio. Il confronto bidirezionale lavora per percorso esatto, quindi le ha trattate come due cartelle distinte e ha creato su ciascun lato la copia mancante.
+
+**La conseguenza reale.** Uno screenshot dentro quella cartella era uno dei quattro file che l'anonimizzazione di ADR-011 di `my-cv` aveva trattato il 2026-09-08, rimuovendo il nome della societa'. La versione anonimizzata viveva solo sotto il nome "con spazio"; quella "senza spazio" era ancora l'originale mai anonimizzato. Il primo avvio l'ha copiata per la prima volta su Proton, riportando in chiaro sul cloud personale esattamente cio' che ADR-011 aveva tolto. Verificato aprendo entrambe le immagini (`Nome Societa': Intrawelt Sas` in chiaro contro il campo oscurato nella versione anonimizzata), non dedotto dal nome del file. Controllato l'intero albero sincronizzato per lo stesso pattern con un confronto ricorsivo completo: nessun'altra coppia divergeva per nome.
+
+**Rimedio, manuale e fuori da questo codice.** Cancellata la cartella "senza spazio" da entrambi i lati, dopo aver verificato che fosse identica alla cartella "con spazio" file per file tranne quel singolo screenshot (112 file su 113 con lo stesso hash). Confermata la propagazione della cancellazione anche lato cloud dal log del client Proton: 120 cancellazioni rilevate in blocco, propagate in un ciclo di sincronizzazione chiuso senza errori in meno di un secondo.
+
+**Decisione, in ADR-010.** Nessuna modifica al codice per ora. Il gap resta aperto: due nomi di cartella diversi sui due lati continuano a essere trattati come cartelle distinte, mai riconciliate, con le opzioni valutate e scartate scritte nell'ADR. Chi ripunta il watcher su una coppia nuova deve verificare a mano, prima del primo avvio, che i nomi di primo livello coincidano esattamente sui due lati.
+
 ## 2026-09-14 - Un quarto difetto, trovato solo dal primo avvio reale: destinazione read-only
 
 Commit di riferimento: working tree non ancora commitato
