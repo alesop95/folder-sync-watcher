@@ -6,6 +6,7 @@ l'unica affermazione che vale la pena verificare in modo diretto.
 """
 
 import logging
+import stat
 
 from folder_sync_watcher.operazioni import OperazioniFile
 
@@ -75,6 +76,32 @@ def test_rimozione_reale_elimina(tmp_path):
     op = _operazioni(False)
     bersaglio = tmp_path / 'togliere.txt'
     bersaglio.write_text('x', encoding='utf-8')
+
+    assert op.rimuovi_file(bersaglio) is True
+    assert not bersaglio.exists()
+
+
+def test_copia_sovrascrive_una_destinazione_read_only(tmp_path):
+    """Regressione: un file di destinazione read-only fa fallire copy2 con PermissionError
+    prima ancora che possa riallineare i permessi (verificato il 2026-09-14 su un file reale
+    lato OneDrive, indipendente dall'anonimizzazione)."""
+    op = _operazioni(False)
+    sorgente = tmp_path / 'nuovo.txt'
+    sorgente.write_text('versione nuova', encoding='utf-8')
+    destinazione = tmp_path / 'vecchio.txt'
+    destinazione.write_text('versione vecchia', encoding='utf-8')
+    destinazione.chmod(stat.S_IREAD)
+
+    assert op.copia(sorgente, destinazione) is True
+
+    assert destinazione.read_text(encoding='utf-8') == 'versione nuova'
+
+
+def test_rimozione_reale_elimina_un_file_read_only(tmp_path):
+    op = _operazioni(False)
+    bersaglio = tmp_path / 'togliere.txt'
+    bersaglio.write_text('x', encoding='utf-8')
+    bersaglio.chmod(stat.S_IREAD)
 
     assert op.rimuovi_file(bersaglio) is True
     assert not bersaglio.exists()

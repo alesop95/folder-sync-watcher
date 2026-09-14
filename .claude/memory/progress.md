@@ -5,6 +5,21 @@
 > toccati, motivo e commit di riferimento. Le voci precedenti al 2026-07-09 sono ricostruite dalla
 > storia dei commit in fase di allineamento, senza inventare dettagli che il commit non dimostra.
 
+## 2026-09-14 - Un quarto difetto, trovato solo dal primo avvio reale: destinazione read-only
+
+Commit di riferimento: working tree non ancora commitato
+File toccati: `folder_sync_watcher/operazioni.py`, `tests/test_operazioni.py`
+
+Ultimo dei difetti emersi oggi, e l'unico che la prova a vuoto non poteva scoprire per costruzione: `prova_a_vuoto` non tocca mai il filesystem, quindi un `PermissionError` che dipende dagli attributi reali di un file di destinazione si vede solo scrivendo per davvero. L'utente ha eseguito il primo avvio reale del watcher ripuntato su Proton (fuori da questa sessione, a mano, come da procedura) e ha riportato l'errore: `Errno 13] Permission denied` su un PDF lato OneDrive durante la sincronizzazione iniziale.
+
+Causa verificata sul file reale, non dedotta: il PDF è marcato read-only dal 9 ottobre 2025, indipendente dall'anonimizzazione di ADR-011, che ha toccato altri quattro file soltanto. `OperazioniFile.copia` chiama `shutil.copy2`, che copia anche i permessi ma non prima di aver aperto la destinazione in scrittura: se la destinazione esiste già ed è read-only, l'apertura fallisce prima che `copy2` abbia la possibilità di sistemare alcunché.
+
+Scelta, con l'utente consultato perché il difetto tocca una scelta di comportamento e non solo un bug: sbloccare la destinazione prima di sovrascrivere o rimuovere, in qualunque punto dell'albero sincronizzato, non solo su questo file. Alternativa scartata: lasciare il limite noto e sbloccare a mano solo questo file, perché il watcher tornerebbe a fallire silenziosamente al primo altro file protetto che incontrasse, e la protezione com'era before era comunque casuale (un file bloccato nel 2025 per una ragione che nessuno ha registrato), non una politica dichiarata.
+
+La funzione nuova è `_sblocca_se_read_only`, un varco condiviso da `copia` e `rimuovi_file`: toglie l'attributo read-only solo se il file di destinazione esiste già ed è effettivamente read-only, prima dell'operazione. Non cambia la decisione se copiare o rimuovere, che resta di chi chiama; toglie solo l'ostacolo tecnico. Dopo la copia, `copy2` riporta comunque i permessi della sorgente sulla destinazione: un file la cui sorgente è a sua volta read-only lo ridiventa, quindi la protezione non si perde se è intenzionale sul lato che il watcher considera autorevole.
+
+Verifica: due test nuovi in `tests/test_operazioni.py`, con un file di destinazione reso read-only prima della copia o della rimozione. Prova sul campo sul file vero che aveva fallito: sorgente e destinazione risolti dalla configurazione reale, `copia()` chiamata direttamente fuori dal watcher, riuscita, e la destinazione resta read-only dopo perché la sorgente lo è. La suite passa a trentanove test.
+
 ## 2026-09-14 - Tre difetti trovati dalla prima prova a vuoto reale, tutti corretti
 
 Commit di riferimento: working tree non ancora commitato

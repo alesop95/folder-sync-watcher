@@ -19,9 +19,30 @@ date, vedono un mondo diverso da quello che vedrebbero in una esecuzione reale. 
 vuoto dice quali operazioni il primo passaggio produrrebbe, non quelle di un secondo passaggio.
 """
 
+import os
+import stat
 from pathlib import Path
 from shutil import copy2, rmtree
 from typing import Optional
+
+
+def _sblocca_se_read_only(percorso: Path) -> None:
+    """Toglie l'attributo read-only da un file esistente, se presente.
+
+    Windows rifiuta di aprire in scrittura un file read-only prima ancora che `copy2` possa
+    riallineare i permessi con quelli della sorgente: senza questo passaggio, sovrascrivere o
+    rimuovere un file protetto solleva `PermissionError` (verificato sul campo il 2026-09-14,
+    su un file lato OneDrive read-only dal 2025, indipendente dall'anonimizzazione). La
+    decisione se copiare o rimuovere è gia' presa da chi chiama: questa funzione toglie solo
+    l'ostacolo tecnico, non cambia quella decisione. Dopo una copia, `copy2` riporta comunque i
+    permessi della sorgente sulla destinazione, quindi un file che deve restare read-only lo
+    ridiventa se la sua sorgente lo è.
+    """
+    if not percorso.exists():
+        return
+    modo = percorso.stat().st_mode
+    if not modo & stat.S_IWRITE:
+        os.chmod(percorso, modo | stat.S_IWRITE)
 
 
 class OperazioniFile:
@@ -48,13 +69,16 @@ class OperazioniFile:
     def copia(self, sorgente, destinazione, etichetta: Optional[str] = None) -> bool:
         if not self._simula('copie', 'copierebbe', str(etichetta or f"{sorgente} -> {destinazione}")):
             return False
+        _sblocca_se_read_only(Path(destinazione))
         copy2(str(sorgente), str(destinazione))
         return True
 
     def rimuovi_file(self, percorso: Path, etichetta: Optional[str] = None) -> bool:
         if not self._simula('rimozioni', 'rimuoverebbe il file', str(etichetta or percorso)):
             return False
-        Path(percorso).unlink()
+        percorso = Path(percorso)
+        _sblocca_se_read_only(percorso)
+        percorso.unlink()
         return True
 
     def rimuovi_albero(self, percorso: Path, etichetta: Optional[str] = None) -> bool:
